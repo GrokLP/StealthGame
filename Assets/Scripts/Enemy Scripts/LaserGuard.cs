@@ -1,0 +1,108 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class LaserGuard : MonoBehaviour
+{
+    public static event System.Action<string> OnGameLose;
+    
+    private NavMeshAgent shootingGuard;
+    [SerializeField] float laserRange;
+    [SerializeField] float tooCloseDistance;
+
+    Vector3 destination;
+    LineRenderer laserLine;
+    Vector3 rayOrigin;
+
+    LaserTrigger laserTriggerScript;
+
+    ColorLaserGuard colorLaserGuardScript;
+
+    Transform player;
+
+    bool gameWin;
+
+    private void Start()
+    {
+        GameManager.Instance.OnGameStateChanged.AddListener(OnGameStateChange);
+
+        colorLaserGuardScript = GetComponent<ColorLaserGuard>();
+
+        laserLine = GetComponent<LineRenderer>();
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    private void Update()
+    {
+        if (!gameWin)
+            TooClose();
+
+        if (colorLaserGuardScript.IsActive && !gameWin)
+        {
+            rayOrigin = transform.position + new Vector3(0, -0.5f, 0);
+
+            RaycastHit hitInfo;
+
+            laserLine.SetPosition(0, transform.position + new Vector3(0, -0.5f, 0));
+
+            if (Physics.Raycast(rayOrigin, transform.forward, out hitInfo))
+            {
+                if (hitInfo.collider.CompareTag("Player"))
+                {
+                    laserLine.SetPosition(1, hitInfo.point);
+                    if (OnGameLose != null)
+                    {
+                        OnGameLose("Laser");
+                    }
+                }
+                else if (hitInfo.collider.CompareTag("Enemy"))
+                {
+                    laserLine.SetPosition(1, hitInfo.point);
+                    hitInfo.collider.GetComponentInParent<Animator>().SetTrigger("Dead");
+                    Destroy(hitInfo.collider.transform.parent.gameObject, 0.8f);
+                }
+                else if (hitInfo.collider.CompareTag("LaserTrigger"))
+                {
+                    laserTriggerScript = hitInfo.collider.GetComponent<LaserTrigger>(); //this is prob not performant?
+                    laserTriggerScript.Trigger = true;
+                    laserLine.SetPosition(1, hitInfo.point);
+
+                }
+                else if (hitInfo.collider)
+                {
+                    laserLine.SetPosition(1, hitInfo.point);
+                    if (laserTriggerScript != null)
+                        laserTriggerScript.Trigger = false;
+                }
+
+            }
+            else
+            {
+                laserLine.SetPosition(1, transform.forward * laserRange);
+                if (laserTriggerScript != null)
+                    laserTriggerScript.Trigger = false;
+            }
+        }
+
+    }
+
+    void OnGameStateChange(GameManager.GameState currentState, GameManager.GameState previousState)
+    {
+        if (currentState == GameManager.GameState.GAMEWIN)
+            gameWin = true;
+    }
+
+    void TooClose()
+    {
+        if (Vector3.Distance(transform.position, player.position) < tooCloseDistance) //create small circle around guard that player cannot enter
+        {
+            if (OnGameLose != null)
+            {
+                OnGameLose("Laser");
+            }
+        }
+    }
+}
+
