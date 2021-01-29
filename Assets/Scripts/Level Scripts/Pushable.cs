@@ -78,7 +78,7 @@ public class Pushable : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision) //changed from enter to stay
     {
         if(collision.gameObject.CompareTag("Ground") | collision.gameObject.CompareTag("Player")) //not perfect solution but prevents pushables breaking
         {

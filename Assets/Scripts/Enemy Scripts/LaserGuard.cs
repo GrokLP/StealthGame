@@ -10,6 +10,7 @@ public class LaserGuard : MonoBehaviour
     private NavMeshAgent shootingGuard;
     [SerializeField] float laserRange;
     [SerializeField] float tooCloseDistance;
+    [SerializeField] bool laserImmune;
 
     Vector3 destination;
     LineRenderer laserLine;
@@ -39,7 +40,7 @@ public class LaserGuard : MonoBehaviour
         if (!gameWin)
             TooClose();
 
-        if (colorLaserGuardScript.IsActive && !gameWin)
+        if (colorLaserGuardScript.IsActive)
         {
             rayOrigin = transform.position + new Vector3(0, -0.5f, 0);
 
@@ -49,7 +50,7 @@ public class LaserGuard : MonoBehaviour
 
             if (Physics.Raycast(rayOrigin, transform.forward, out hitInfo))
             {
-                if (hitInfo.collider.CompareTag("Player"))
+                if (hitInfo.collider.CompareTag("Player") && !gameWin)
                 {
                     laserLine.SetPosition(1, hitInfo.point);
                     if (OnGameLose != null)
@@ -57,7 +58,7 @@ public class LaserGuard : MonoBehaviour
                         OnGameLose("Laser");
                     }
                 }
-                else if (hitInfo.collider.CompareTag("Enemy"))
+                else if (hitInfo.collider.CompareTag("Enemy") && !laserImmune)
                 {
                     laserLine.SetPosition(1, hitInfo.point);
                     hitInfo.collider.GetComponentInParent<Animator>().SetTrigger("Dead");
