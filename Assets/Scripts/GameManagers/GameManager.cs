@@ -56,6 +56,8 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.OnMainMenuFadeComplete.AddListener(HandleMainMenuFadeComplete);
         
         PlayerDetection.OnGameLose += HandleOnGameLose;
+        FieldOfView.OnGameLose += HandleOnGameLose;
+        Drones.OnGameLose += HandleOnGameLose;
         SecurityCameras.OnGameLose += HandleOnGameLose;
         GuardDog.OnGameLose += HandleOnGameLose;
         LaserGuard.OnGameLose += HandleOnGameLose;

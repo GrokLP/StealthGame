@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
+    public static event System.Action<string> OnGameLose;
+
+
     public float viewRadius;
     [Range (0, 360)]
     public float viewAngle;
@@ -17,18 +20,44 @@ public class FieldOfView : MonoBehaviour
 
     public MeshFilter viewMeshFilter;
     Mesh viewMesh;
+    [SerializeField] Renderer rend;
 
-    public List<Transform> visibleTargets = new List<Transform>();//can remove later
+    [SerializeField] Material yellow;
+    [SerializeField] Material white;
+    [SerializeField] Material red;
+    [SerializeField] Material blue;
+    [SerializeField] Material green;
+
+    ChangeColor.PlayerColor currentPlayerColor;
+
+    [SerializeField] float tooCloseDistance;
+    Transform player;
+    PlayerVisibility playerVisibility;
+
+    bool gameWin;
 
     private void Start()
     {
+        ChangeColor.Instance.OnPlayerColorChange.AddListener(UpdateSpotLightColor);
+        GameManager.Instance.OnGameStateChanged.AddListener(OnGameStateChange);
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerVisibility = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerVisibility>();
+
         viewMesh = new Mesh();
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
+
+        rend.material = yellow;
         
-        StartCoroutine("FindTargetsWithDelay", 0.2f);
+        //StartCoroutine("FindTargetsWithDelay", 0.2f);
     }
 
+    private void Update()
+    {
+        if(!gameWin)
+            FindVisibleTargets();//was tooclose()
+    }
     private void LateUpdate()
     {
         DrawFieldOfView();
@@ -45,22 +74,28 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
-        visibleTargets.Clear();//can remove later
-
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask); //right now means player can be detected at dif heights
 
         for(int i = 0; i < targetsInViewRadius.Length; i++)
         {
             Transform target = targetsInViewRadius[i].transform;
+
+            if(Vector3.Distance(transform.position, target.position) < tooCloseDistance)
+            {
+                if (OnGameLose != null)
+                {
+                    OnGameLose("TooClose");
+                }
+            }
+
             Vector3 directionToTarget = (target.position - transform.position).normalized;
             if(Vector3.Angle(transform.forward, directionToTarget) < viewAngle/2)
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                if(!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask))
+                if(!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask) && playerVisibility.IsVisible())
                 {
-                    //code for what happens on detection
-                    visibleTargets.Add(target);
+                    IsDetected();
                 }
             }
         }
@@ -104,7 +139,7 @@ public class FieldOfView : MonoBehaviour
         Vector3[] vertices = new Vector3[vertexCount];
         int[] triangles = new int[(vertexCount - 2) * 3];
 
-        vertices[0] = Vector3.zero;
+        vertices[0] = new Vector3(0, 0, 0);//verctor3.zero
         for(int i = 0; i < vertexCount -1; i++)
         {
             vertices[i + 1] = transform.InverseTransformPoint(viewpoints[i]);
@@ -163,7 +198,6 @@ public class FieldOfView : MonoBehaviour
         else
         {
             return new ViewCastInfo(false, transform.position + direction * viewRadius, viewRadius, globalAngle);
-            
         }
     }
 
@@ -203,5 +237,52 @@ public class FieldOfView : MonoBehaviour
             pointA = _pointA;
             pointB = _pointB;
         }
+    }
+
+    void IsDetected()
+    {
+        //maybe do gamewin check here?
+        switch (currentPlayerColor) //need to figure out color change on detection
+        {
+            case ChangeColor.PlayerColor.WHITE:
+
+                rend.material = white;
+                break;
+
+            case ChangeColor.PlayerColor.RED:
+
+                rend.material = red;
+                break;
+
+            case ChangeColor.PlayerColor.BLUE:
+
+                rend.material = blue;
+                break;
+
+            case ChangeColor.PlayerColor.GREEN:
+
+                rend.material = green;
+                break;
+        }
+
+        if (OnGameLose != null)
+        {
+            OnGameLose("Spotlight");
+            if (GetComponent<WaypointGuard>() != null)
+                GetComponent<WaypointGuard>().StopCoroutines();
+            else if (GetComponent<StationaryGuard>() != null)
+                GetComponent<StationaryGuard>().StopCoroutines();
+        }
+    }
+
+    void UpdateSpotLightColor(ChangeColor.PlayerColor currentColor, ChangeColor.PlayerColor previousColor)
+    {
+        currentPlayerColor = currentColor;
+    }
+
+    void OnGameStateChange(GameManager.GameState currentState, GameManager.GameState previousState)
+    {
+        if (currentState == GameManager.GameState.GAMEWIN)
+            gameWin = true;
     }
 }

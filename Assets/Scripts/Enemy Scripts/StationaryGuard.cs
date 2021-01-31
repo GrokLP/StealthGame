@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class StationaryGuard : PlayerDetection
+public class StationaryGuard : MonoBehaviour
 {
     [SerializeField] Animator enemyDissolve;
     
@@ -19,6 +19,7 @@ public class StationaryGuard : PlayerDetection
 
     bool alreadyMoving;
 
+    private Vector3 target;
     public Vector3 Target
     {
         get { return target; }
@@ -34,17 +35,6 @@ public class StationaryGuard : PlayerDetection
         }
     }
 
-    private Vector3 target;
-
-    public override void Start()
-    {
-        base.Start();
-    }
-
-    public override void Update()
-    {
-        base.Update();
-    }
 
      IEnumerator GuardRotation(Vector3 lookTarget) 
      {
@@ -67,6 +57,8 @@ public class StationaryGuard : PlayerDetection
         yield return new WaitForSeconds(0.5f);
 
         smiley.SetActive(true);
+
+        stationaryGuard.stoppingDistance = 0.5f;
 
         stationaryGuard.SetDestination(_startingPos);
 
@@ -101,9 +93,11 @@ public class StationaryGuard : PlayerDetection
 
         questionMark.SetActive(true);
 
-        stationaryGuard.SetDestination(target);
+        stationaryGuard.stoppingDistance = 2.6f;
 
-        while(Vector3.Distance(stationaryGuard.transform.position, target) >= stationaryGuard.stoppingDistance)
+        stationaryGuard.SetDestination(target); // + new Vector3(0, 0.5f, 0)
+
+        while (Vector3.Distance(stationaryGuard.transform.position, target) >= stationaryGuard.stoppingDistance)
         {
             yield return null;
             timer += Time.deltaTime;
@@ -124,6 +118,12 @@ public class StationaryGuard : PlayerDetection
         yield return new WaitForSeconds(1f);
 
         StartCoroutine(ReturnToStartPos(startingPos, startingRot));
+    }
+
+    public void StopCoroutines()
+    {
+        StopAllCoroutines();
+        stationaryGuard.isStopped = true;
     }
 
     private void OnDestroy()

@@ -535,6 +535,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c0c6051b3ff5294ab807892252aa063, type: 3}
+--- !u!21 &152523122
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1 &219388245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,30 +1346,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!21 &935067535
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1001 &978347629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1538,30 +1538,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041211649}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &1164664577
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1 &1250950468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,6 +2216,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678480913}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &1752248954
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!43 &1792901850
 Mesh:
   m_ObjectHideFlags: 0
@@ -2821,6 +2821,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821018023602373334, guid: 9fd4cc9983aa3da4190a8c65cad66a7f,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821018023602373334, guid: 9fd4cc9983aa3da4190a8c65cad66a7f,
+        type: 3}
+      propertyPath: m_AutoBraking
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5895855950359306719, guid: 9fd4cc9983aa3da4190a8c65cad66a7f,
         type: 3}

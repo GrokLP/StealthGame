@@ -40,7 +40,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2548637876298763264}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -156,19 +156,19 @@ MonoBehaviour:
   fallOffEndFromLight: 1
   attenuationEquation: 0
   attenuationCustomBlending: 0.5
-  fallOffStart: 0
+  fallOffStart: 2
   fallOffEnd: 10
   depthBlendDistance: 0.5
   cameraClippingDistance: 0.5
   glareFrontal: 1
   glareBehind: 1
   fresnelPow: 0
-  noiseMode: 2
-  noiseIntensity: 0.34
-  noiseScaleUseGlobal: 1
-  noiseScaleLocal: 0.5
-  noiseVelocityUseGlobal: 1
-  noiseVelocityLocal: {x: 0.07, y: 0.18, z: 0.05}
+  noiseMode: 1
+  noiseIntensity: 0.2
+  noiseScaleUseGlobal: 0
+  noiseScaleLocal: 0.2
+  noiseVelocityUseGlobal: 0
+  noiseVelocityLocal: {x: 0.01, y: 0.01, z: 0.01}
   dimensions: 0
   tiltFactor: {x: 0, y: 0}
   pluginVersion: 1890

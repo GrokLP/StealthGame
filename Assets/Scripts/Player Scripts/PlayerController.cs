@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         
         PlayerDetection.OnGameLose += HandleOnGameLose;
+        FieldOfView.OnGameLose += HandleOnGameLose;
+        Drones.OnGameLose += HandleOnGameLose;
         SecurityCameras.OnGameLose += HandleOnGameLose;
         GuardDog.OnGameLose += HandleOnGameLose;
         LaserGuard.OnGameLose += HandleOnGameLose;
@@ -149,6 +151,8 @@ public class PlayerController : MonoBehaviour
     private void OnDestroy()
     {
         PlayerDetection.OnGameLose -= HandleOnGameLose;
+        FieldOfView.OnGameLose -= HandleOnGameLose;
+        Drones.OnGameLose -= HandleOnGameLose;
         SecurityCameras.OnGameLose -= HandleOnGameLose;
         GuardDog.OnGameLose -= HandleOnGameLose;
         LaserGuard.OnGameLose -= HandleOnGameLose;

@@ -706,7 +706,7 @@ PrefabInstance:
     - target: {fileID: 836607912, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1504626631}
+      objectReference: {fileID: 2138050270}
     - target: {fileID: 836607913, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -714,8 +714,13 @@ PrefabInstance:
     - target: {fileID: 1387224062, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1900007161}
+      objectReference: {fileID: 1292109161}
     - target: {fileID: 1387224063, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638800073783852270, guid: 2e7af6c4df93d76499978a2c10c8599f,
+        type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
@@ -781,30 +786,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
---- !u!21 &552430582
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1001 &627828308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1185,6 +1166,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088475878}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &1097854267
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!4 &1185406892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8187752244433561558, guid: 8bbc797744a6ca54396b8180726eb7d6,
@@ -1353,6 +1358,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae4bcf5305b2aaf4b973264812a15311, type: 3}
+--- !u!21 &1292109161
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1 &1344624697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,30 +1667,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450916657}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &1504626631
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1 &1533560936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1811,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-12866
+  m_Name: pb_Mesh-72894
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2398,10 +2403,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1032475403}
     m_Modifications:
+    - target: {fileID: 1676195459025158478, guid: 8bbc797744a6ca54396b8180726eb7d6,
+        type: 3}
+      propertyPath: fallOffStart
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676195459025158478, guid: 8bbc797744a6ca54396b8180726eb7d6,
+        type: 3}
+      propertyPath: fallOffEnd
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676195459025158478, guid: 8bbc797744a6ca54396b8180726eb7d6,
+        type: 3}
+      propertyPath: noiseMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6790363083328156724, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8187752244088314751, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
@@ -2515,7 +2535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bbc797744a6ca54396b8180726eb7d6, type: 3}
---- !u!21 &1900007161
+--- !u!21 &1950726867
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -2632,30 +2652,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952727943}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &2051406607
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1001 &2094319921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2663,10 +2659,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1032475403}
     m_Modifications:
+    - target: {fileID: 1676195459025158478, guid: 8bbc797744a6ca54396b8180726eb7d6,
+        type: 3}
+      propertyPath: fallOffStart
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676195459025158478, guid: 8bbc797744a6ca54396b8180726eb7d6,
+        type: 3}
+      propertyPath: fallOffEnd
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676195459025158478, guid: 8bbc797744a6ca54396b8180726eb7d6,
+        type: 3}
+      propertyPath: _FadeOutBegin
+      value: -150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676195459025158478, guid: 8bbc797744a6ca54396b8180726eb7d6,
+        type: 3}
+      propertyPath: _FadeOutEnd
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676195459025158478, guid: 8bbc797744a6ca54396b8180726eb7d6,
+        type: 3}
+      propertyPath: attenuationEquation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6790363083328156724, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_Range
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8187752244088314751, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
@@ -2785,3 +2806,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bbc797744a6ca54396b8180726eb7d6, type: 3}
+--- !u!21 &2138050270
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
