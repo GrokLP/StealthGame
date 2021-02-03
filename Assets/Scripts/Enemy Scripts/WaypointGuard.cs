@@ -17,8 +17,6 @@ public class WaypointGuard : MonoBehaviour
 
     void Start()
     {
-        //base.Start(); //before, the new start function i had replaced the base start function -- making it virtual allows me to override with additional code while keeping base!
-
         Vector3[] waypoints = new Vector3[pathHolder.childCount];
         for (int i = 0; i < waypoints.Length; i++)
         {

@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - LaserTrigger
   - Laser
+  - ChildCube
   layers:
   - Default
   - TransparentFX

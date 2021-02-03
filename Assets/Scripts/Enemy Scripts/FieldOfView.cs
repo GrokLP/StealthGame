@@ -49,14 +49,12 @@ public class FieldOfView : MonoBehaviour
         viewMeshFilter.mesh = viewMesh;
 
         rend.material = yellow;
-        
-        //StartCoroutine("FindTargetsWithDelay", 0.2f);
     }
 
     private void Update()
     {
         if(!gameWin)
-            FindVisibleTargets();//was tooclose()
+            FindVisibleTargets();
     }
     private void LateUpdate()
     {
@@ -93,11 +91,24 @@ public class FieldOfView : MonoBehaviour
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                if(!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask) && playerVisibility.IsVisible())
+                if(!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask) && playerVisibility.IsVisible()
+                    && AtEyeLevel(target))
                 {
                     IsDetected();
                 }
             }
+        }
+    }
+
+    bool AtEyeLevel(Transform targetHeight)
+    {
+        if(Mathf.Abs(targetHeight.position.y - transform.position.y) <= 0.5f) //might need to tweak this value
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -241,8 +252,7 @@ public class FieldOfView : MonoBehaviour
 
     void IsDetected()
     {
-        //maybe do gamewin check here?
-        switch (currentPlayerColor) //need to figure out color change on detection
+        switch (currentPlayerColor)
         {
             case ChangeColor.PlayerColor.WHITE:
 

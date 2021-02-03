@@ -34,6 +34,7 @@ public class ThrowObject : MonoBehaviour
     [SerializeField] Transform projectile;
     [SerializeField] private List<Transform> projectilesAmmo = new List<Transform>();
     Transform playerTransform;
+    Transform childCube;
 
     //arc variables
     [SerializeField] Transform point1;
@@ -52,6 +53,8 @@ public class ThrowObject : MonoBehaviour
     bool throwTargetIsSet;
     bool triggerPressed;
     bool mousePressed;
+    bool hasChild;
+
     [SerializeField] SphereCollider targetSphereCollider;
 
     public bool IsActive
@@ -72,22 +75,25 @@ public class ThrowObject : MonoBehaviour
 
     private void Update()
     {
-        if (projectilesAmmo.Count > 0 && !inAir && isActive)
+        if (projectilesAmmo.Count > 0 || hasChild)
         {
-            if(!triggerPressed)
-                LaunchProjectileMouse();
-            if(!mousePressed)
-                LaunchProjectileController();
+            if(!inAir && isActive)
+            {
+                if (!triggerPressed)
+                    LaunchProjectileMouse();
+                if (!mousePressed)
+                    LaunchProjectileController();
+            }
 
-        }            
+            else if (Input.GetButton("ThrowMouse") | (Input.GetAxis("ThrowTrigger")) > 0 && inAir && isActive)
+            {
+                playerAnimator.SetTrigger("AlreadyThrowing");
+            }
+        }       
+        
         else if (Input.GetButton("ThrowMouse") | (Input.GetAxis("ThrowTrigger")) > 0  && projectilesAmmo.Count == 0 && isActive)
         {
             playerAnimator.SetTrigger("NothingToThrow");
-        }
-
-        else if (Input.GetButton("ThrowMouse") | (Input.GetAxis("ThrowTrigger")) > 0 && inAir && isActive)
-        {
-            playerAnimator.SetTrigger("AlreadyThrowing");
         }
     }
 
@@ -98,6 +104,16 @@ public class ThrowObject : MonoBehaviour
             projectilesAmmo.Add(pickUp.transform);
             pickUp.gameObject.SetActive(false);
             IncreaseAmmo();
+        }
+
+        if(pickUp.gameObject.CompareTag("ChildCube"))
+        {
+            hasChild = true;
+            childCube = pickUp.transform;
+            childCube.position = transform.position + new Vector3(0, 0.75f, 0);
+            childCube.rotation = Quaternion.Euler(0, 0, 0);
+            childCube.parent = transform;
+            
         }
     }
 
@@ -123,7 +139,10 @@ public class ThrowObject : MonoBehaviour
             lineRenderer.gameObject.SetActive(false);
             ResetHUDRender();
             charging = 0;
-            DecreaseAmmo();
+            
+            if (!hasChild)
+                DecreaseAmmo();
+
             StartCoroutine(SimulateProjectile());
             throwTargetIsSet = false;
             mousePressed = false;
@@ -174,7 +193,10 @@ public class ThrowObject : MonoBehaviour
             lineRenderer.gameObject.SetActive(false);
             ResetHUDRender();
             charging = 0;
-            DecreaseAmmo();
+
+            if (!hasChild)
+                DecreaseAmmo();
+
             StartCoroutine(SimulateProjectile());
             throwTargetIsSet = false;
             targetSphereCollider.enabled = false;
@@ -227,9 +249,20 @@ public class ThrowObject : MonoBehaviour
     }
     IEnumerator SimulateProjectile() //simulates projectile by moving it along an arc to target destination
     {
-        projectile = projectilesAmmo[0];
-        projectilesAmmo[0].gameObject.SetActive(true);
-        projectilesAmmo.Remove(projectilesAmmo[0]);
+        if(hasChild)
+        {
+            projectile = childCube;
+            childCube.parent = null;
+            childCube.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            hasChild = false;
+        }
+        
+        else if(!hasChild)
+        {
+            projectile = projectilesAmmo[0];
+            projectilesAmmo[0].gameObject.SetActive(true);
+            projectilesAmmo.Remove(projectilesAmmo[0]);
+        }
 
         // Move projectile to the position of throwing object + add some offset if needed.
         projectile.position = playerTransform.position + new Vector3(0, 1, 0);
