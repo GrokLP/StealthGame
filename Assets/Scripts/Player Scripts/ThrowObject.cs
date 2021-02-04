@@ -8,12 +8,15 @@ public class ThrowObject : MonoBehaviour
     public static event System.Action IsThrowing;
     public static event System.Action FinishedThrowing;
     public static event System.Action ObjectLanded;
+    public static event System.Action ChildLanded;
 
     [SerializeField] Animator playerAnimator;
 
     //throw parameters
     [SerializeField] Camera gameCamera;
     [SerializeField] Transform throwTarget;
+    [SerializeField] GameObject childSoundRadius;
+    [SerializeField] GameObject objectSoundRadius;
     [SerializeField] float firingAngle = 45.0f;
     [SerializeField] float gravity = 9.8f;
     [SerializeField] float chargeTime = 0.5f;
@@ -54,6 +57,7 @@ public class ThrowObject : MonoBehaviour
     bool triggerPressed;
     bool mousePressed;
     bool hasChild;
+    bool childThrown;
 
     [SerializeField] SphereCollider targetSphereCollider;
 
@@ -66,7 +70,7 @@ public class ThrowObject : MonoBehaviour
     void Awake()
     {
         playerTransform = transform;
-        //stationaryGuardScript = FindObjectsOfType<StationaryGuard>();
+
         foreach(var stationaryGuard in FindObjectsOfType<StationaryGuard>())
         {
             stationaryGuardScript.Add(stationaryGuard);
@@ -113,7 +117,6 @@ public class ThrowObject : MonoBehaviour
             childCube.position = transform.position + new Vector3(0, 0.75f, 0);
             childCube.rotation = Quaternion.Euler(0, 0, 0);
             childCube.parent = transform;
-            
         }
     }
 
@@ -137,6 +140,8 @@ public class ThrowObject : MonoBehaviour
         if (Input.GetButtonUp("ThrowMouse") && charging >= chargeTime && mousePressed)
         {
             lineRenderer.gameObject.SetActive(false);
+            childSoundRadius.SetActive(false);
+            objectSoundRadius.SetActive(false);
             ResetHUDRender();
             charging = 0;
             
@@ -154,6 +159,8 @@ public class ThrowObject : MonoBehaviour
         else if (Input.GetButtonUp("ThrowMouse") && charging < chargeTime && mousePressed)
         {
             lineRenderer.gameObject.SetActive(false);
+            childSoundRadius.SetActive(false);
+            objectSoundRadius.SetActive(false);
             ResetHUDRender();
             throwTarget.gameObject.SetActive(false);
             charging = 0;
@@ -191,6 +198,8 @@ public class ThrowObject : MonoBehaviour
         if (Input.GetAxis("ThrowTrigger") == 0 && charging >= chargeTime && triggerPressed)
         {
             lineRenderer.gameObject.SetActive(false);
+            childSoundRadius.SetActive(false);
+            objectSoundRadius.SetActive(false);
             ResetHUDRender();
             charging = 0;
 
@@ -209,6 +218,8 @@ public class ThrowObject : MonoBehaviour
         else if (Input.GetAxis("ThrowTrigger") == 0 && charging < chargeTime && triggerPressed)
         {
             lineRenderer.gameObject.SetActive(false);
+            childSoundRadius.SetActive(false);
+            objectSoundRadius.SetActive(false);
             ResetHUDRender();
             throwTarget.gameObject.SetActive(false);
             charging = 0;
@@ -235,6 +246,15 @@ public class ThrowObject : MonoBehaviour
         lineRenderer.gameObject.SetActive(true);
         throwTarget.gameObject.SetActive(true);
 
+        if(hasChild)
+        {
+            childSoundRadius.SetActive(true);
+        }
+        else if(!hasChild)
+        {
+            objectSoundRadius.SetActive(true);
+        }
+
         var pointList = new List<Vector3>();
         for (float ratio = 0; ratio <= 1; ratio += 1.0f / vertexCount)
         {
@@ -255,6 +275,7 @@ public class ThrowObject : MonoBehaviour
             childCube.parent = null;
             childCube.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             hasChild = false;
+            childThrown = true;
         }
         
         else if(!hasChild)
@@ -300,14 +321,31 @@ public class ThrowObject : MonoBehaviour
         throwTarget.gameObject.SetActive(false);
         Vector3 newTarget = throwTarget.position;
 
-        ObjectLanded();
-
-        if (stationaryGuardScript.Count > 0)
+        if (!childThrown && stationaryGuardScript.Count > 0)
         {
             foreach (StationaryGuard script in stationaryGuardScript)
             {
                 script.Target = newTarget;
             }
+        }
+
+        else if (childThrown && stationaryGuardScript.Count > 0)
+        {
+            foreach (StationaryGuard script in stationaryGuardScript)
+            {
+                script.ChildTarget = newTarget;
+            }
+        }
+
+        if (childThrown)
+        {
+            ChildLanded();
+            childThrown = false;
+        }
+
+        else if (!childThrown)
+        {
+            ObjectLanded();
         }
     }
 

@@ -1000,7 +1000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDissolve: {fileID: 7518667983643136018}
-  hearingRadius: 20
+  hearingRadius: 20.5
+  childHearingRadius: 13
   patrolResetLimit: 10
   stationaryGuard: {fileID: 5821018023602373334}
   turnSpeed: 90
@@ -1045,7 +1046,7 @@ MonoBehaviour:
   viewAngle: 90
   targetMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 526336
   obstacleMask:
     serializedVersion: 2
     m_Bits: 41216

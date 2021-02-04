@@ -8,6 +8,7 @@ public class StationaryGuard : MonoBehaviour
     [SerializeField] Animator enemyDissolve;
     
     [SerializeField] float hearingRadius;
+    [SerializeField] float childHearingRadius;
     [SerializeField] float patrolResetLimit;
     [SerializeField] NavMeshAgent stationaryGuard;
 
@@ -35,8 +36,24 @@ public class StationaryGuard : MonoBehaviour
         }
     }
 
+    private Vector3 childTarget;
+    public Vector3 ChildTarget
+    {
+        get { return target; }
+        set
+        {
+            childTarget = value;
 
-     IEnumerator GuardRotation(Vector3 lookTarget) 
+            if (Vector3.Distance(transform.position, childTarget) <= childHearingRadius && !alreadyMoving)
+            {
+                StopCoroutine("MoveTowards");
+                StartCoroutine("MoveTowards", childTarget);
+            }
+        }
+    }
+
+
+    IEnumerator GuardRotation(Vector3 lookTarget) 
      {
           Vector3 dirToLookTarget = (lookTarget - transform.position).normalized; //find direction to look in by subtracting guards current position from target position
          float targetAngle = 90 - Mathf.Atan2(dirToLookTarget.z, dirToLookTarget.x) * Mathf.Rad2Deg;

@@ -127,7 +127,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-82246
+  m_Name: pb_Mesh-176456
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -429,7 +429,7 @@ Transform:
   m_GameObject: {fileID: 123878896}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 5, y: 3.5, z: 0.5}
-  m_LocalScale: {x: 7, y: 3, z: 2}
+  m_LocalScale: {x: 7, y: 3.5, z: 2}
   m_Children: []
   m_Father: {fileID: 1581749808}
   m_RootOrder: 4
@@ -522,7 +522,7 @@ Transform:
   m_GameObject: {fileID: 151489227}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 5, y: 3.5, z: 13}
-  m_LocalScale: {x: 9, y: 3, z: 2}
+  m_LocalScale: {x: 9, y: 3.5, z: 2}
   m_Children: []
   m_Father: {fileID: 1581749808}
   m_RootOrder: 6
@@ -593,7 +593,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-82836
+  m_Name: pb_Mesh-176978
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -778,7 +778,7 @@ Transform:
   m_GameObject: {fileID: 246230759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.5, z: 5}
-  m_LocalScale: {x: 12, y: 3, z: 2}
+  m_LocalScale: {x: 12, y: 3.5, z: 2}
   m_Children: []
   m_Father: {fileID: 1581749808}
   m_RootOrder: 2
@@ -961,7 +961,7 @@ Transform:
   m_GameObject: {fileID: 299162122}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -5, y: 3.5, z: 0.5}
-  m_LocalScale: {x: 7, y: 3, z: 2}
+  m_LocalScale: {x: 7, y: 3.5, z: 2}
   m_Children: []
   m_Father: {fileID: 1581749808}
   m_RootOrder: 3
@@ -1573,7 +1573,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472786720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.75, z: 5}
+  m_LocalPosition: {x: 0, y: 5, z: 5}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1581749808}
@@ -2151,7 +2151,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-82548
+  m_Name: pb_Mesh-176694
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2587,6 +2587,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737121213}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &744586581
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1 &803045749
 GameObject:
   m_ObjectHideFlags: 0
@@ -3160,30 +3184,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19256569a7d046d47b309b5c427e6fcb, type: 3}
---- !u!21 &1024887855
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1001 &1040316177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3284,7 +3284,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-82380
+  m_Name: pb_Mesh-176558
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3561,7 +3561,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097652658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.75, z: -4}
+  m_LocalPosition: {x: 0, y: 5, z: -4}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1581749808}
@@ -3627,6 +3627,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097652658}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &1104177735
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1 &1107923010
 GameObject:
   m_ObjectHideFlags: 0
@@ -4146,7 +4170,7 @@ Transform:
   m_GameObject: {fileID: 1336099635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3.5, z: -4}
-  m_LocalScale: {x: 12, y: 3, z: 2}
+  m_LocalScale: {x: 12, y: 3.5, z: 2}
   m_Children: []
   m_Father: {fileID: 1581749808}
   m_RootOrder: 1
@@ -4756,6 +4780,18 @@ SphereCollider:
     type: 3}
   m_PrefabInstance: {fileID: 1551425163}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1551425165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4618714031245498904, guid: 6fc48a3609b560d4b8bf5d05648373b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1551425163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1551425166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1073425694127873579, guid: 6fc48a3609b560d4b8bf5d05648373b8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1551425163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1574485570
 Mesh:
   m_ObjectHideFlags: 0
@@ -4976,37 +5012,13 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 921131879}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1588438536
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!43 &1661093543
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-82638
+  m_Name: pb_Mesh-176784
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5289,7 +5301,7 @@ PrefabInstance:
     - target: {fileID: 3428022343122356106, guid: 9fd4cc9983aa3da4190a8c65cad66a7f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.25
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3428022343122356106, guid: 9fd4cc9983aa3da4190a8c65cad66a7f,
         type: 3}
@@ -5625,7 +5637,7 @@ Transform:
   m_GameObject: {fileID: 1796911876}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -5, y: 3.5, z: 13}
-  m_LocalScale: {x: 9, y: 3, z: 2}
+  m_LocalScale: {x: 9, y: 3.5, z: 2}
   m_Children: []
   m_Father: {fileID: 1581749808}
   m_RootOrder: 5
@@ -5936,7 +5948,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-82468
+  m_Name: pb_Mesh-176632
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6856,6 +6868,14 @@ PrefabInstance:
       propertyPath: targetSphereCollider
       value: 
       objectReference: {fileID: 1551425164}
+    - target: {fileID: 95748303, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
+      propertyPath: childSoundRadius
+      value: 
+      objectReference: {fileID: 1551425166}
+    - target: {fileID: 95748303, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
+      propertyPath: objectSoundRadius
+      value: 
+      objectReference: {fileID: 1551425165}
     - target: {fileID: 836607912, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

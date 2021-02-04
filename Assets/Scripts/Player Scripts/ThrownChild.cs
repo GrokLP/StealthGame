@@ -4,8 +4,41 @@ using UnityEngine;
 
 public class ThrownChild : MonoBehaviour
 {
-    //play sound radius animation
     //resume jumping animation
     //show random dialogue response
-    //figure out how to have guards use separate hearing radius for child object -- maybe have if statement in throwobject script?
+
+    [SerializeField] public Animator childSoundRadius;
+
+    BoxCollider objectCollider;
+    Quaternion startingRotation;
+    Vector3 startingPosition;
+
+    private void Start()
+    {
+        ThrowObject.ChildLanded += PlayAnimation;
+        objectCollider = gameObject.GetComponent<BoxCollider>();
+
+        startingRotation = transform.rotation;
+        startingPosition = transform.position;
+    }
+
+    void AnimationComplete()
+    {
+        childSoundRadius.SetBool("HasLanded", false);
+
+        objectCollider.enabled = true;
+    }
+
+    void PlayAnimation()
+    {
+            transform.rotation = startingRotation;
+            childSoundRadius.SetBool("HasLanded", true);
+
+            objectCollider.enabled = false;
+    }
+
+    private void OnDestroy()
+    {
+        ThrowObject.ChildLanded -= PlayAnimation;
+    }
 }
