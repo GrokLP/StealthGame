@@ -646,30 +646,6 @@ PrefabInstance:
       objectReference: {fileID: 56691611}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b5c9ea1c649acb4fb0d819a31aa6a44, type: 3}
---- !u!21 &412593894
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!43 &447290053
 Mesh:
   m_ObjectHideFlags: 0
@@ -833,6 +809,30 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!21 &484785195
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1 &490514428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,7 +1037,7 @@ GameObject:
   - component: {fileID: 575862866}
   m_Layer: 2
   m_Name: InvisibleWall
-  m_TagString: Obstacle
+  m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -1356,6 +1356,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776678652}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &873809017
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1 &885497750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,7 +1394,7 @@ GameObject:
   - component: {fileID: 885497752}
   m_Layer: 15
   m_Name: Wall (4)
-  m_TagString: Obstacle
+  m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -1659,7 +1683,7 @@ GameObject:
   - component: {fileID: 1122336651}
   m_Layer: 2
   m_Name: InvisibleWall (1)
-  m_TagString: Obstacle
+  m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -1887,30 +1911,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209584886}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &1222416789
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1001 &1365855074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2717,13 +2717,13 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1603993608 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4618714031245498904, guid: 6fc48a3609b560d4b8bf5d05648373b8,
+  m_CorrespondingSourceObject: {fileID: 5444785309513686811, guid: 6fc48a3609b560d4b8bf5d05648373b8,
     type: 3}
   m_PrefabInstance: {fileID: 1603993606}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1603993609 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1073425694127873579, guid: 6fc48a3609b560d4b8bf5d05648373b8,
+  m_CorrespondingSourceObject: {fileID: 5209295237935635249, guid: 6fc48a3609b560d4b8bf5d05648373b8,
     type: 3}
   m_PrefabInstance: {fileID: 1603993606}
   m_PrefabAsset: {fileID: 0}
@@ -3421,7 +3421,7 @@ GameObject:
   - component: {fileID: 2053273244}
   m_Layer: 15
   m_Name: Wall (3)
-  m_TagString: Obstacle
+  m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8

@@ -290,30 +290,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 98374698}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &97892530
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1001 &98374698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -845,7 +821,7 @@ GameObject:
   - component: {fileID: 238028003}
   m_Layer: 2
   m_Name: InvisibleWall (1)
-  m_TagString: Obstacle
+  m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -1190,7 +1166,7 @@ GameObject:
   - component: {fileID: 492552709}
   m_Layer: 15
   m_Name: Wall (3)
-  m_TagString: Obstacle
+  m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -2471,7 +2447,7 @@ PrefabInstance:
     - target: {fileID: 836607912, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 966705575}
+      objectReference: {fileID: 1436193221}
     - target: {fileID: 836607913, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2479,8 +2455,13 @@ PrefabInstance:
     - target: {fileID: 1387224062, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 97892530}
+      objectReference: {fileID: 1370541003}
     - target: {fileID: 1387224063, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638800073783852270, guid: 2e7af6c4df93d76499978a2c10c8599f,
+        type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
@@ -2767,30 +2748,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!21 &966705575
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!4 &1011733737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3423337367321997645, guid: 19256569a7d046d47b309b5c427e6fcb,
@@ -2903,7 +2860,7 @@ GameObject:
   - component: {fileID: 1046054845}
   m_Layer: 2
   m_Name: InvisibleWall
-  m_TagString: Obstacle
+  m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -4078,7 +4035,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 851864690}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1341511461
+--- !u!21 &1333121727
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -4265,6 +4222,30 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!21 &1370541003
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1001 &1418675140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4368,6 +4349,30 @@ PrefabInstance:
       objectReference: {fileID: 208835201}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc14cf8c1409e2a4894a334621027b79, type: 3}
+--- !u!21 &1436193221
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1001 &1444517829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4728,13 +4733,13 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1514858730 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4618714031245498904, guid: 6fc48a3609b560d4b8bf5d05648373b8,
+  m_CorrespondingSourceObject: {fileID: 5444785309513686811, guid: 6fc48a3609b560d4b8bf5d05648373b8,
     type: 3}
   m_PrefabInstance: {fileID: 1514858728}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1514858731 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1073425694127873579, guid: 6fc48a3609b560d4b8bf5d05648373b8,
+  m_CorrespondingSourceObject: {fileID: 5209295237935635249, guid: 6fc48a3609b560d4b8bf5d05648373b8,
     type: 3}
   m_PrefabInstance: {fileID: 1514858728}
   m_PrefabAsset: {fileID: 0}
@@ -5645,7 +5650,7 @@ GameObject:
   - component: {fileID: 1833362022}
   m_Layer: 8
   m_Name: InvisibleWall (2)
-  m_TagString: Obstacle
+  m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -5997,7 +6002,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &2080347357
+--- !u!21 &2016374964
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0

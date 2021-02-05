@@ -16,6 +16,7 @@ TagManager:
   - LaserTrigger
   - Laser
   - ChildCube
+  - BoundaryWall
   layers:
   - Default
   - TransparentFX
