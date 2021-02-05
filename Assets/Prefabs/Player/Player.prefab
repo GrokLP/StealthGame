@@ -860,6 +860,8 @@ MonoBehaviour:
   playerAnimator: {fileID: 3559997315739043602}
   gameCamera: {fileID: 0}
   throwTarget: {fileID: 0}
+  childSoundRadius: {fileID: 0}
+  objectSoundRadius: {fileID: 0}
   firingAngle: 50
   gravity: 15
   chargeTime: 0.5
@@ -877,6 +879,8 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   vertexCount: 21
   stationaryGuardScript: []
+  objectThrowRange: 40
+  childThrowRange: 20
   targetSphereCollider: {fileID: 0}
 --- !u!114 &3398347554027032602
 MonoBehaviour:

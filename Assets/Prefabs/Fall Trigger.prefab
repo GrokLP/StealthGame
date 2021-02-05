@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3835838630969330429}
   - component: {fileID: 3835838630969330430}
   - component: {fileID: 3835838630969330431}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fall Trigger
   m_TagString: Ground
   m_Icon: {fileID: 0}

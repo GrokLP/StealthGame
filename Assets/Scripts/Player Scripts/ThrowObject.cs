@@ -59,6 +59,9 @@ public class ThrowObject : MonoBehaviour
     bool hasChild;
     bool childThrown;
 
+    [SerializeField] float objectThrowRange;
+    [SerializeField] float childThrowRange; 
+
     [SerializeField] SphereCollider targetSphereCollider;
 
     public bool IsActive
@@ -75,6 +78,8 @@ public class ThrowObject : MonoBehaviour
         {
             stationaryGuardScript.Add(stationaryGuard);
         }
+
+        inAir = false;
     }
 
     private void Update()
@@ -127,7 +132,39 @@ public class ThrowObject : MonoBehaviour
 
         if (Input.GetButton("ThrowMouse") && Physics.Raycast(ray, out hitInfo))
         {
-            throwTarget.position = hitInfo.point;  //set target to mouse position using raycast
+            
+            if(!hasChild)
+            {
+                if (Vector3.Distance(transform.position, hitInfo.point) <= objectThrowRange)
+                {
+                    throwTarget.position = hitInfo.point;  //set target to mouse position using raycast
+                }
+                else
+                {
+                    Vector3 direction = (transform.position - hitInfo.point).normalized;
+
+                    Vector3 throwTargetMaxRange = transform.position + (direction * -objectThrowRange);
+
+                    throwTarget.position = throwTargetMaxRange;
+                }
+            }
+           
+            if(hasChild)
+            {
+                if (Vector3.Distance(transform.position, hitInfo.point) <= childThrowRange)
+                {
+                    throwTarget.position = hitInfo.point;  //set target to mouse position using raycast
+                }
+                else
+                {
+                    Vector3 direction = (transform.position - hitInfo.point).normalized;
+
+                    Vector3 throwTargetMaxRange = transform.position + (direction * -childThrowRange);
+
+                    throwTarget.position = throwTargetMaxRange;
+                }
+            }
+
             ProjectileArcRender();
             charging += Time.deltaTime;
             ChargeHUDRender();
@@ -430,6 +467,37 @@ public class ThrowObject : MonoBehaviour
         float targetAngle = Mathf.Atan2(rotatedDirection.x, rotatedDirection.z) * Mathf.Rad2Deg;
 
         throwTarget.rotation = Quaternion.Euler(Vector3.up * targetAngle);
-        throwTarget.position += throwTarget.forward * inputMagnitude * 12 * Time.deltaTime;
+
+        if(hasChild)
+        {
+            if (Vector3.Distance(transform.position, throwTarget.position) < childThrowRange)
+            {
+                throwTarget.position += throwTarget.forward * inputMagnitude * 12 * Time.deltaTime;
+            }
+            else
+            {
+                Vector3 direction = (throwTarget.position - transform.position).normalized;
+
+                Vector3 maxRangeCorrection = direction * 0.05f;
+
+                throwTarget.position -= maxRangeCorrection;
+            }
+        }
+
+        else if(!hasChild)
+        {
+            if (Vector3.Distance(transform.position, throwTarget.position) < objectThrowRange)
+            {
+                throwTarget.position += throwTarget.forward * inputMagnitude * 12 * Time.deltaTime;
+            }
+            else
+            {
+                Vector3 direction = (throwTarget.position - transform.position).normalized;
+
+                Vector3 maxRangeCorrection = direction * 0.05f;
+
+                throwTarget.position -= maxRangeCorrection;
+            }
+        }
     }
 }

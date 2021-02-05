@@ -48,7 +48,7 @@ MonoBehaviour:
   meshOutOfDate: 1
   blendMode: 1
   scaleMode: 0
-  color: {r: 1, g: 1, b: 1, a: 0.16470589}
+  color: {r: 1, g: 1, b: 1, a: 0.05882353}
   zTest: 4
   zOffsetFactor: 0
   zOffsetUnits: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
   meshOutOfDate: 1
   blendMode: 1
   scaleMode: 0
-  color: {r: 1, g: 1, b: 1, a: 0.16470589}
+  color: {r: 1, g: 1, b: 1, a: 0.05882353}
   zTest: 4
   zOffsetFactor: 0
   zOffsetUnits: 0

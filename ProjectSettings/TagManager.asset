@@ -37,7 +37,7 @@ TagManager:
   - Laser
   - Targets
   - ChildCube
-  - 
+  - PlayerTargetCollider
   - 
   - 
   - 

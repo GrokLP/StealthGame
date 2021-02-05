@@ -23,6 +23,8 @@ public class Drones : MonoBehaviour
     ChangeColor.PlayerColor currentPlayerColor;
 
     Transform player;
+    Transform childCube;
+    bool childPresent;
     PlayerVisibility playerVisibility;
 
     bool gameWin;
@@ -38,6 +40,13 @@ public class Drones : MonoBehaviour
         GameManager.Instance.OnGameStateChanged.AddListener(OnGameStateChange);
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
+        if(GameObject.FindGameObjectWithTag("ChildCube") != null)
+        {
+            childCube = GameObject.FindGameObjectWithTag("ChildCube").transform;
+            childPresent = true;
+        }
+
         playerVisibility = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerVisibility>();
 
         //viewAngle = spotLight.spotAngle;
@@ -72,6 +81,19 @@ public class Drones : MonoBehaviour
             {
                 if (!Physics.Linecast(transform.position, player.position, viewMask)) //linecast because already checked if player is in range, checks if anything is blocking line of sight
                     return true;
+            }
+        }
+        else if (childPresent)
+        {
+            if (Vector3.Distance(transform.position, childCube.position) < viewDistance) //check if distance to player is within view range
+            {
+                Vector3 detectChildCubeDirection = (childCube.transform.position - transform.position).normalized; //get look direction
+                float detectChildCubeAngle = Vector3.Angle(transform.forward, detectChildCubeDirection); //get angle and then check if that angle is within half of view angle (half of view angle from look forward centre point)
+                if (detectChildCubeAngle < (viewAngle / 2))
+                {
+                    if (!Physics.Linecast(transform.position, childCube.position, viewMask)) //linecast because already checked if player is in range, checks if anything is blocking line of sight
+                        return true;
+                }
             }
         }
         return false;
