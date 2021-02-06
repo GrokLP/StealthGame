@@ -65,6 +65,9 @@ public class GameManager : Singleton<GameManager>
 
         LevelFinish.OnGameWin += HandleOnGameWin;
         LevelFinish.OnWrongColor += OnWrongColor;
+        LevelFinishThrowChild.OnGameWin += HandleOnGameWin;
+        LevelFinishThrowChild.OnWrongColor += OnWrongColor;
+        LevelFinishThrowChild.OnNoChild += OnNoChild;
     }
         
     private void Update()
@@ -306,5 +309,10 @@ public class GameManager : Singleton<GameManager>
     void OnWrongColor()
     {
         UIManager.Instance.DisplayWrongColorMessage();
+    }
+
+    void OnNoChild()
+    {
+
     }
 }

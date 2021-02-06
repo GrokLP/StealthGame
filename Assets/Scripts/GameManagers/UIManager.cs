@@ -138,6 +138,8 @@ public class UIManager : Singleton<UIManager>
 
     public void DisplayWrongColorMessage()
     {
+        //_finishLevelMessage.gameObject.GetComponent<TextMeshProUGUI>().SetText("Wrong Colour"); *update text message to wrong color, then have separate method for no child?
         wrongColorAnim.SetTrigger("WrongColor");
+
     }
 }

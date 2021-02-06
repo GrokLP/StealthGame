@@ -56,7 +56,7 @@ public class ThrowObject : MonoBehaviour
     bool throwTargetIsSet;
     bool triggerPressed;
     bool mousePressed;
-    bool hasChild;
+    public bool hasChild;
     bool childThrown;
 
     [SerializeField] float objectThrowRange;
@@ -110,6 +110,9 @@ public class ThrowObject : MonoBehaviour
     {
         if (pickUp.gameObject.CompareTag("ammo")) 
         {
+            Animator animator = pickUp.gameObject.GetComponent<Animator>();
+            animator.SetBool("HasLanded", false);
+
             projectilesAmmo.Add(pickUp.transform);
             pickUp.gameObject.SetActive(false);
             IncreaseAmmo();
@@ -117,6 +120,11 @@ public class ThrowObject : MonoBehaviour
 
         if(pickUp.gameObject.CompareTag("ChildCube"))
         {
+            Animator animator = pickUp.gameObject.GetComponent<Animator>();
+            animator.SetBool("HasLanded", false);
+
+            Destroy(pickUp.gameObject.GetComponent<Rigidbody>());
+
             hasChild = true;
             childCube = pickUp.transform;
             childCube.position = transform.position + new Vector3(0, 0.75f, 0);
@@ -354,6 +362,8 @@ public class ThrowObject : MonoBehaviour
             yield return null;
         }
 
+        projectile.position = projectile.position + new Vector3(0, 0.22f, 0);
+
         inAir = false; //allow player to throw again
         throwTarget.gameObject.SetActive(false);
         Vector3 newTarget = throwTarget.position;
@@ -378,6 +388,7 @@ public class ThrowObject : MonoBehaviour
         {
             ChildLanded();
             childThrown = false;
+            var rb = projectile.gameObject.AddComponent<Rigidbody>(); ///add rigidbody on landing
         }
 
         else if (!childThrown)

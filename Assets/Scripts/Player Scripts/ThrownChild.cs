@@ -9,14 +9,14 @@ public class ThrownChild : MonoBehaviour
 
     [SerializeField] public Animator childSoundRadius;
 
-    BoxCollider objectCollider;
+    //BoxCollider objectCollider;
     Quaternion startingRotation;
     Vector3 startingPosition;
 
     private void Start()
     {
         ThrowObject.ChildLanded += PlayAnimation;
-        objectCollider = gameObject.GetComponent<BoxCollider>();
+        //objectCollider = gameObject.GetComponent<BoxCollider>();
 
         startingRotation = transform.rotation;
         startingPosition = transform.position;
@@ -26,7 +26,7 @@ public class ThrownChild : MonoBehaviour
     {
         childSoundRadius.SetBool("HasLanded", false);
 
-        objectCollider.enabled = true;
+        //objectCollider.enabled = true;
     }
 
     void PlayAnimation()
@@ -34,7 +34,7 @@ public class ThrownChild : MonoBehaviour
             transform.rotation = startingRotation;
             childSoundRadius.SetBool("HasLanded", true);
 
-            objectCollider.enabled = false;
+            //objectCollider.enabled = false;
     }
 
     private void OnDestroy()

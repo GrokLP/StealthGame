@@ -6,7 +6,7 @@ public class ThrownObjectSoundRadius : MonoBehaviour
 {
     [SerializeField] Animator soundRadius;
 
-    SphereCollider objectCollider;
+    //SphereCollider objectCollider;
     Quaternion startingRotation;
     Vector3 startingPosition;
     bool thisObject; //ensures only thrown object triggers animation if there are multiple throwable objects in scene
@@ -14,7 +14,7 @@ public class ThrownObjectSoundRadius : MonoBehaviour
     private void Start()
     {
         ThrowObject.ObjectLanded += PlayAnimation;
-        objectCollider = gameObject.GetComponent<SphereCollider>();
+        //objectCollider = gameObject.GetComponent<SphereCollider>();
 
         startingRotation = transform.rotation;
         startingPosition = transform.position;
@@ -25,7 +25,7 @@ public class ThrownObjectSoundRadius : MonoBehaviour
         soundRadius.SetBool("HasLanded", false);
         thisObject = false;
 
-        objectCollider.enabled = true;
+        //objectCollider.enabled = true;
     }
 
     void PlayAnimation()
@@ -35,9 +35,8 @@ public class ThrownObjectSoundRadius : MonoBehaviour
             transform.rotation = startingRotation;
             soundRadius.SetBool("HasLanded", true);
 
-            objectCollider.enabled = false;
+            //objectCollider.enabled = false;
         }
-
     }
 
     private void OnCollisionEnter(Collision collision)
