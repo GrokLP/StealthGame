@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 3245480741775995380}
   - component: {fileID: -274820189988240943}
   m_Layer: 0
-  m_Name: FinishThrowChild
+  m_Name: Finish_ThrowChild
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

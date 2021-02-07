@@ -785,7 +785,7 @@ MonoBehaviour:
   enemyDissolve: {fileID: 65976757556606290}
   speed: 5
   waitTime: 0.3
-  turnSpeed: 90
+  turnSpeed: 110
   pathHolder: {fileID: 8004835445493633849}
 --- !u!114 &5512445266932830802
 MonoBehaviour:

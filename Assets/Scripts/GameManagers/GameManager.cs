@@ -313,6 +313,6 @@ public class GameManager : Singleton<GameManager>
 
     void OnNoChild()
     {
-
+        UIManager.Instance.DisplayNoChildMessage();
     }
 }

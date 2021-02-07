@@ -58,6 +58,16 @@ public class LaserGuard : MonoBehaviour
                         OnGameLose("Laser");
                     }
                 }
+                else if (hitInfo.collider.CompareTag("ChildCube") && !gameWin) //double check all theis works
+                {
+                    laserLine.SetPosition(1, hitInfo.point);
+                    hitInfo.collider.GetComponent<Animator>().SetTrigger("Dead");
+                    Destroy(hitInfo.collider.gameObject, 0.8f);
+                    if (OnGameLose != null)
+                    {
+                        OnGameLose("ChildLaser");
+                    }
+                }
                 else if (hitInfo.collider.CompareTag("Enemy") && !laserImmune)
                 {
                     laserLine.SetPosition(1, hitInfo.point);

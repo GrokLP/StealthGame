@@ -1004,7 +1004,7 @@ MonoBehaviour:
   childHearingRadius: 13
   patrolResetLimit: 10
   stationaryGuard: {fileID: 5821018023602373334}
-  turnSpeed: 90
+  turnSpeed: 110
   exclamationMark: {fileID: 3872791814435228851}
   questionMark: {fileID: 7524959771512538064}
   smiley: {fileID: 3452375724919792792}

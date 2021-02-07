@@ -6,7 +6,7 @@ using TMPro;
 
 public class UIManager : Singleton<UIManager>
 {
-    [SerializeField] Animator wrongColorAnim;
+    [SerializeField] Animator wrongColorAnim; //maybe rename anim
     
     [SerializeField] MainMenu _mainMenu;
     [SerializeField] PauseMenu _pauseMenu;
@@ -105,6 +105,11 @@ public class UIManager : Singleton<UIManager>
                     GameManager.Instance.DisplayMessage = true;
                     break;
 
+                case "ChildLaser":
+                    _gameLoseUI.GetComponentInChildren<TextMeshProUGUI>().text = "Your Child Died!";
+                    GameManager.Instance.DisplayMessage = true;
+                    break;
+
                 default:
                     break;
             }
@@ -138,8 +143,16 @@ public class UIManager : Singleton<UIManager>
 
     public void DisplayWrongColorMessage()
     {
-        //_finishLevelMessage.gameObject.GetComponent<TextMeshProUGUI>().SetText("Wrong Colour"); *update text message to wrong color, then have separate method for no child?
+        var text = _finishLevelMessage.gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        text.text = ("Wrong Colour!"); 
         wrongColorAnim.SetTrigger("WrongColor");
 
+    }
+
+    public void DisplayNoChildMessage()
+    {
+        var text = _finishLevelMessage.gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        text.text = ("No Child!");
+        wrongColorAnim.SetTrigger("WrongColor");
     }
 }

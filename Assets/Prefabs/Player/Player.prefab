@@ -879,8 +879,9 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   vertexCount: 21
   stationaryGuardScript: []
+  hasChild: 0
   objectThrowRange: 40
-  childThrowRange: 20
+  childThrowRange: 15
   targetSphereCollider: {fileID: 0}
 --- !u!114 &3398347554027032602
 MonoBehaviour:
