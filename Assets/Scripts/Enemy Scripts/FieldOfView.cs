@@ -102,7 +102,7 @@ public class FieldOfView : MonoBehaviour
 
     bool AtEyeLevel(Transform targetHeight)
     {
-        if(Mathf.Abs(targetHeight.position.y - transform.position.y) <= 0.5f) //might need to tweak this value
+        if(Mathf.Abs(targetHeight.position.y - transform.position.y) <= 0.75f) //might need to tweak this value
         {
             return true;
         }

@@ -16,7 +16,6 @@ public class ThrownChild : MonoBehaviour
     private void Start()
     {
         ThrowObject.ChildLanded += PlayAnimation;
-        //objectCollider = gameObject.GetComponent<BoxCollider>();
 
         startingRotation = transform.rotation;
         startingPosition = transform.position;
@@ -25,16 +24,12 @@ public class ThrownChild : MonoBehaviour
     void AnimationComplete()
     {
         childSoundRadius.SetBool("HasLanded", false);
-
-        //objectCollider.enabled = true;
     }
 
     void PlayAnimation()
     {
             transform.rotation = startingRotation;
             childSoundRadius.SetBool("HasLanded", true);
-
-            //objectCollider.enabled = false;
     }
 
     private void OnDestroy()

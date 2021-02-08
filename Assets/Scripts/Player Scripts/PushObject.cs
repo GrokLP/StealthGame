@@ -113,24 +113,27 @@ public class PushObject : MonoBehaviour
 
     public void EndPush()
     {
-        if(boxCollider != null)
-            boxCollider.size = normalBoxSize;
-        
-        if (OnPushEnd != null)
-            OnPushEnd();
-
-        if (materialChanged)
+        if(hasPushable)
         {
-            rend.material = notPushed;
-            materialChanged = false;
+            if (boxCollider != null)
+                boxCollider.size = normalBoxSize;
+
+            if (OnPushEnd != null)
+                OnPushEnd();
+
+            if (materialChanged)
+            {
+                rend.material = notPushed;
+                materialChanged = false;
+            }
+
+            if (hasPushable)
+                pushableObject.GetComponent<FixedJoint>().connectedBody = null;
+
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+            hasPushable = false;
         }
-
-        if (hasPushable)
-            pushableObject.GetComponent<FixedJoint>().connectedBody = null;
-
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-
-        hasPushable = false;
     }
 
     void Movement()

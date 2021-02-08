@@ -214,13 +214,13 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Submit
+    m_Name: CancelThrowMouse
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: return
+    positiveButton: mouse 1
     altNegativeButton: 
-    altPositiveButton: joystick button 0
+    altPositiveButton: 
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -452,4 +452,20 @@ InputManager:
     invert: 0
     type: 2
     axis: 5
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: CancelThrowController
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.19
+    sensitivity: 2
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 8
     joyNum: 0

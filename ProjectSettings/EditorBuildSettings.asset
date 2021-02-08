@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Boot.unity
     guid: a0b79697d2141c841846cbb35e03f2d3
   - enabled: 1
-    path: Assets/Scenes/Level ThrowChild 4.unity
-    guid: 626107d0c87d20349af45c7fe7a66433
+    path: Assets/Scenes/ScriptTesting.unity
+    guid: be2651ec0b78a69428f4fc239d740c79
   - enabled: 1
     path: Assets/Scenes/Level 1.1.unity
     guid: f912aad8804399c479c49bf73429278d
@@ -50,6 +50,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level ThrowChild 3.unity
     guid: 6b2f0bf20aebbd34dbbef5664cb87d75
+  - enabled: 1
+    path: Assets/Scenes/Level ThrowChild 4.unity
+    guid: 626107d0c87d20349af45c7fe7a66433
+  - enabled: 1
+    path: Assets/Scenes/Level ThrowChild 5.unity
+    guid: 61964aa0482f86f409a98a3074604227
   - enabled: 1
     path: Assets/Scenes/Level 3.1.unity
     guid: 0ff07c83a69e3f940812fb4c1fbfd5bc
@@ -98,9 +104,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 6.2.unity
     guid: 04b99185b6043f94c892fd47d5c52da3
-  - enabled: 1
-    path: Assets/Scenes/ScriptTesting.unity
-    guid: be2651ec0b78a69428f4fc239d740c79
   - enabled: 0
     path: Assets/Scenes/Test.unity
     guid: 349acdac527d25f4da646a33a0273bc1

@@ -57,6 +57,9 @@ public class PlayerController : MonoBehaviour
         PushObject.OnPushStart += Disable;
         PushObject.OnPushEnd += Enable;
 
+        PushChild.IsPushed += Disable;
+        PushChild.HitObject += Enable;
+
         changeColorScript = GetComponent<ChangeColor>();
     }
 
@@ -165,5 +168,8 @@ public class PlayerController : MonoBehaviour
 
         PushObject.OnPushStart -= Disable;
         PushObject.OnPushEnd -= Enable;
+
+        PushChild.IsPushed -= Disable;
+        PushChild.HitObject -= Enable;
     }
 }

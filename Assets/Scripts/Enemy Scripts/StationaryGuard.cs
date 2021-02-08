@@ -110,7 +110,7 @@ public class StationaryGuard : MonoBehaviour
 
         questionMark.SetActive(true);
 
-        stationaryGuard.stoppingDistance = 2.6f;
+        stationaryGuard.stoppingDistance = 1f; //**Can maybe remove this now? Was having issues with stopping distance but it appears to be resolved
 
         stationaryGuard.SetDestination(target); // + new Vector3(0, 0.5f, 0)
 

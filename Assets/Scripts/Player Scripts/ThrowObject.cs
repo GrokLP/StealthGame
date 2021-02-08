@@ -22,6 +22,7 @@ public class ThrowObject : MonoBehaviour
     [SerializeField] float chargeTime = 0.5f;
     [SerializeField] Disc chargeHUD;
     [SerializeField] Disc chargeHUDBase;
+    [SerializeField] Color chargeHUDColor;
     float charging;
 
     [SerializeField] GameObject ammoOne;
@@ -112,6 +113,8 @@ public class ThrowObject : MonoBehaviour
         {
             Animator animator = pickUp.gameObject.GetComponent<Animator>();
             animator.SetBool("HasLanded", false);
+            pickUp.gameObject.GetComponentInChildren<Disc>().Radius = 0;
+            pickUp.gameObject.GetComponent<ThrownObjectSoundRadius>().thisObject = false;
 
             projectilesAmmo.Add(pickUp.transform);
             pickUp.gameObject.SetActive(false);
@@ -182,6 +185,22 @@ public class ThrowObject : MonoBehaviour
                 IsThrowing(); //disable player movement while throwing
         }
 
+        if (Input.GetButton("CancelThrowMouse"))
+        {
+            lineRenderer.gameObject.SetActive(false);
+            childSoundRadius.SetActive(false);
+            objectSoundRadius.SetActive(false);
+            ResetHUDRender();
+            throwTarget.gameObject.SetActive(false);
+            charging = 0;
+            throwTargetIsSet = false;
+            mousePressed = false;
+
+            if (FinishedThrowing != null)
+                FinishedThrowing();
+        }
+
+
         if (Input.GetButtonUp("ThrowMouse") && charging >= chargeTime && mousePressed)
         {
             lineRenderer.gameObject.SetActive(false);
@@ -238,6 +257,22 @@ public class ThrowObject : MonoBehaviour
 
             if (IsThrowing != null)
                 IsThrowing();
+        }
+
+        if(Input.GetAxis("CancelThrowController") > 0)
+        {
+            lineRenderer.gameObject.SetActive(false);
+            childSoundRadius.SetActive(false);
+            objectSoundRadius.SetActive(false);
+            ResetHUDRender();
+            throwTarget.gameObject.SetActive(false);
+            charging = 0;
+            throwTargetIsSet = false;
+            targetSphereCollider.enabled = false;
+            triggerPressed = false;
+
+            if (FinishedThrowing != null)
+                FinishedThrowing(); //enable player movement when finished throwing
         }
 
         if (Input.GetAxis("ThrowTrigger") == 0 && charging >= chargeTime && triggerPressed)
@@ -397,8 +432,10 @@ public class ThrowObject : MonoBehaviour
         }
     }
 
-    void ChargeHUDRender() //change the parameters to variables?
+    void ChargeHUDRender()
     {
+        chargeHUD.Color = chargeHUDColor;
+
         chargeHUDBase.AngRadiansStart = Mathf.Deg2Rad * 22;
         chargeHUDBase.AngRadiansStart = Mathf.Deg2Rad * 158;
         

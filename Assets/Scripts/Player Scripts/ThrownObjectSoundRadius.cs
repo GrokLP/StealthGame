@@ -9,7 +9,7 @@ public class ThrownObjectSoundRadius : MonoBehaviour
     //SphereCollider objectCollider;
     Quaternion startingRotation;
     Vector3 startingPosition;
-    bool thisObject; //ensures only thrown object triggers animation if there are multiple throwable objects in scene
+    public bool thisObject; //ensures only thrown object triggers animation if there are multiple throwable objects in scene
 
     private void Start()
     {

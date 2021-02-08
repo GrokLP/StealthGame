@@ -9,6 +9,7 @@ public class ChangeColor : Singleton<ChangeColor>
     [SerializeField] ThrowObject throwObjectScript;
     [SerializeField] BetterJump betterJumpScript;
     [SerializeField] PushObject pushObjectScript;
+    [SerializeField] PushChild pushChildScript;
 
     [SerializeField] [ColorUsage(true, true)] Color green;
     [SerializeField] [ColorUsage(true, true)] Color red;
@@ -92,6 +93,7 @@ public class ChangeColor : Singleton<ChangeColor>
                 break;
 
             case PlayerColor.GREEN:
+                pushChildScript.IsActive = true;
                 pushObjectScript.IsActive = true;
                 playerShader.SetColor("Color_7FBCE1A5", green);
                 boxCollider.enabled = true;
@@ -116,7 +118,8 @@ public class ChangeColor : Singleton<ChangeColor>
 
             case PlayerColor.GREEN:
                 if (currentPlayerColor != PlayerColor.GREEN)
-                    pushObjectScript.IsActive = false;
+                    pushChildScript.IsActive = false;
+                pushObjectScript.IsActive = false;
                 break;
 
             default:
