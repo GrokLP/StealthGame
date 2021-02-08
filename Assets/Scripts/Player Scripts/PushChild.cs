@@ -8,14 +8,18 @@ public class PushChild : MonoBehaviour
     public static event System.Action IsPushed;
     public static event System.Action HitObject;
 
-    float collisionDistance = 0.1f;
+    [SerializeField] ParticleSystem dust;
+
+    float collisionDistance = 0.15f;
     [SerializeField] float distance;
     [SerializeField] LayerMask grabMask;
     [SerializeField] LayerMask collisionMask;
 
     bool pushedAway;
     bool startedGrab;
-    PlayerController playerController;
+    Vector3 pushDirection;
+    PushedChild pushedChildScript;
+    Transform pushedChildPosition;
 
     [SerializeField] float chargeTime = 1f;
     [SerializeField] Disc chargeHUD;
@@ -30,18 +34,17 @@ public class PushChild : MonoBehaviour
         set { isActive = value; }
     }
 
-    PushedChild pushedChildScript;
-
     private void Start()
     {
-        playerController = GetComponent<PlayerController>(); //can serialize this when done
+        if(GameObject.FindGameObjectWithTag("PushChildCube").GetComponent<PushedChild>() != null)
+        {
+            pushedChildScript = GameObject.FindGameObjectWithTag("PushChildCube").GetComponent<PushedChild>();
+            pushedChildPosition = GameObject.FindGameObjectWithTag("PushChildCube").GetComponent<Transform>();
+        }
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
-            SnapToPushChild();
-        
         RaycastHit hit;
         if (Input.GetButton("Push") && Physics.Raycast(transform.position, transform.forward, out hit, distance, grabMask) && isActive)
         {
@@ -50,11 +53,13 @@ public class PushChild : MonoBehaviour
 
         if (Input.GetButtonUp("Push") && startedGrab && charging >= chargeTime)
         {
+            GetDirection();
+            dust.Play();
             pushedAway = true;
             charging = 0;
             ResetHUDRender();
 
-            pushedChildScript.PushDirection = transform.TransformDirection(Vector3.forward);
+            pushedChildScript.GetDirection();
             pushedChildScript.ChildPushedAway = true;
         }
 
@@ -83,13 +88,12 @@ public class PushChild : MonoBehaviour
     {
         if (hit.collider.CompareTag("PushChildCube"))
         {
-            pushedChildScript = hit.collider.GetComponent<PushedChild>();
-
             if (IsPushed != null)
             {
                 IsPushed();
             }
-            
+
+            SnapToPushChild();
             startedGrab = true;
             charging += Time.deltaTime;
 
@@ -100,19 +104,30 @@ public class PushChild : MonoBehaviour
     void PushedAway()
     {
         startedGrab = false;
-        transform.position += -transform.forward * 10 * Time.deltaTime;
+        transform.position += pushDirection * 10 * Time.deltaTime;
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + new Vector3(0.5f, 0, -0.5f), -transform.forward, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(-0.5f, 0, -0.5f), -transform.forward, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(0.5f, 0, 0.5f), -transform.forward, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(-0.5f, 0, 0.5f), -transform.forward, out hit, collisionDistance, collisionMask))
+        if (Physics.Raycast(transform.position + new Vector3(0.5f, 0, -0.5f), pushDirection, out hit, collisionDistance, collisionMask) |
+            Physics.Raycast(transform.position + new Vector3(-0.5f, 0, -0.5f), pushDirection, out hit, collisionDistance, collisionMask) |
+            Physics.Raycast(transform.position + new Vector3(0.5f, 0, 0.5f), pushDirection, out hit, collisionDistance, collisionMask) |
+            Physics.Raycast(transform.position + new Vector3(-0.5f, 0, 0.5f), pushDirection, out hit, collisionDistance, collisionMask) |
+            Physics.Raycast(transform.position + new Vector3(0.5f, 0, -0.5f), -pushDirection, out hit, collisionDistance, collisionMask) |
+            Physics.Raycast(transform.position + new Vector3(-0.5f, 0, -0.5f), -pushDirection, out hit, collisionDistance, collisionMask) |
+            Physics.Raycast(transform.position + new Vector3(0.5f, 0, 0.5f), -pushDirection, out hit, collisionDistance, collisionMask) |
+            Physics.Raycast(transform.position + new Vector3(-0.5f, 0, 0.5f), -pushDirection, out hit, collisionDistance, collisionMask))
         {
             pushedAway = false;
 
             if (HitObject != null)
                 HitObject();
+
+            dust.Stop();
         }
+    }
+
+    public void GetDirection()
+    {
+        pushDirection = new Vector3(transform.position.x - pushedChildPosition.position.x, 0, transform.position.z - pushedChildPosition.position.z);
     }
 
     void ChargeHUDRender()
@@ -139,7 +154,35 @@ public class PushChild : MonoBehaviour
 
     void SnapToPushChild()
     {
-        if(transform.rotation.y >= 0 && transform.rotation.y < 45)
+        float[] snapDisctances = new float[4];
+
+        snapDisctances[0] = Vector3.Distance(transform.position, pushedChildScript.forward.position);
+        snapDisctances[1] = Vector3.Distance(transform.position, pushedChildScript.back.position);
+        snapDisctances[2] = Vector3.Distance(transform.position, pushedChildScript.right.position);
+        snapDisctances[3] = Vector3.Distance(transform.position, pushedChildScript.left.position);
+
+        int snapTarget = GetIndexOfLowestValue(snapDisctances);
+
+        switch (snapTarget) // currently lifts player off ground...but might be fun to keep?
+        {
+            case 0:
+                transform.position = pushedChildScript.forward.position;
+                break;
+            case 1:
+                transform.position = pushedChildScript.back.position;
+                break;
+            case 2:
+                transform.position = pushedChildScript.right.position;
+                break;
+            case 3:
+                transform.position = pushedChildScript.left.position;
+                break;
+            default:
+                Debug.Log("snap error");
+                break;
+        }
+
+        /*if(transform.rotation.y >= 0 && transform.rotation.y < 45)
         {
             transform.localEulerAngles = new Vector3(0, 0, 0);
         }
@@ -170,6 +213,20 @@ public class PushChild : MonoBehaviour
         else if (transform.rotation.y >= 315 && transform.rotation.y < 360)
         {
             transform.localEulerAngles = new Vector3(0, 0, 0);
+        }*/
+    }
+    public int GetIndexOfLowestValue(float[] snapDistances)
+    {
+        float value = float.PositiveInfinity;
+        int index = -1;
+        for (int i = 0; i < snapDistances.Length; i++)
+        {
+            if (snapDistances[i] < value)
+            {
+                index = i;
+                value = snapDistances[i];
+            }
         }
+        return index;
     }
 }

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     float angle;
     float smoothInputMagnitude;
     float smoothMoveVelocity;
+    float inputMagnitude;
     Vector3 velocity;
     Vector3 rotatedDirection;
     Vector3 inputDirection;
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour
             rotatedDirection = Quaternion.Euler(0, 45, 0) * inputDirection; //rotated for isometric view
         }
 
-        float inputMagnitude = rotatedDirection.magnitude; //get magnitude so that player isnt moving/turning without input (multiplying by 0 magnitude)
+        inputMagnitude = rotatedDirection.magnitude; //get magnitude so that player isnt moving/turning without input (multiplying by 0 magnitude)
         smoothInputMagnitude = Mathf.SmoothDamp(smoothInputMagnitude, inputMagnitude, ref smoothMoveVelocity, smoothMoveTime); //smooths player movement
 
         float targetAngle = Mathf.Atan2(rotatedDirection.x, rotatedDirection.z) * Mathf.Rad2Deg; //calculate the target angle and convert to degrees
@@ -96,13 +97,11 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("IsMoving", false);
         }
 
-
         else
         {
             isMoving = true;
             playerAnimator.SetBool("IsMoving", true);
         }
-
     }
 
     void RigidBodyMovement() //in separate method so physics can be run through fixedupdate
