@@ -8,6 +8,8 @@ public class PushedChild : MonoBehaviour
     //screen shake on collision
     //child dialogue
 
+    [SerializeField] ParticleSystem dust;
+
     public Transform forward;
     public Transform back;
     public Transform right;
@@ -67,9 +69,9 @@ public class PushedChild : MonoBehaviour
     void PushedAway()
     {
         if (isGrounded)
-            transform.position += pushDirection * 10 * Time.deltaTime;
+            transform.position += pushDirection * 8 * Time.deltaTime;
         else if (!isGrounded)
-            transform.position += ((pushDirection * 7 ) + (new Vector3(0, -1.5f, 0) * 10)) * Time.deltaTime;
+            transform.position += ((pushDirection * 6 ) + (new Vector3(0, -1.5f, 0) * 8)) * Time.deltaTime;
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position + new Vector3(1f, 0, 1f), pushDirection, out hit, collisionDistance, collisionMask) |
@@ -82,11 +84,14 @@ public class PushedChild : MonoBehaviour
             Physics.Raycast(transform.position + new Vector3(1f, 0, -1f), -pushDirection, out hit, collisionDistance, collisionMask))
         {
             childPushedAway = false;
+            CameraShake.Instance.StartShake(0.2f, 0.2f);
+            dust.Stop();
         }
     }
 
     public void GetDirection()
     {
         pushDirection = new Vector3(transform.position.x - player.position.x, 0, transform.position.z - player.position.z);
+        dust.Play();
     }
 }
