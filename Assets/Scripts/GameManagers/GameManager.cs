@@ -68,6 +68,14 @@ public class GameManager : Singleton<GameManager>
         LevelFinishThrowChild.OnGameWin += HandleOnGameWin;
         LevelFinishThrowChild.OnWrongColor += OnWrongColor;
         LevelFinishThrowChild.OnNoChild += OnNoChild;
+
+        PushChildExitOne.OnNoChild += OnNoChild;
+        PushChildExitTwo.OnNoChild += OnNoChild;
+        PushChildExitOne.OnWrongColor += OnWrongColor;
+        PushChildExitTwo.OnWrongColor += OnWrongColor;
+        PushChildExitOne.OnAlreadyOccupied += OnAlreadyOccupied;
+        PushChildExitTwo.OnAlreadyOccupied += OnAlreadyOccupied;
+        LevelFinishPushChild.OnGameWin += HandleOnGameWin;
     }
         
     private void Update()
@@ -314,5 +322,10 @@ public class GameManager : Singleton<GameManager>
     void OnNoChild()
     {
         UIManager.Instance.DisplayNoChildMessage();
+    }
+
+    void OnAlreadyOccupied()
+    {
+        UIManager.Instance.DisplayAlreadyOccupiedMessage();
     }
 }

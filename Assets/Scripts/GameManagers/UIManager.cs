@@ -110,6 +110,11 @@ public class UIManager : Singleton<UIManager>
                     GameManager.Instance.DisplayMessage = true;
                     break;
 
+                case "ChildFell":
+                    _gameLoseUI.GetComponentInChildren<TextMeshProUGUI>().text = "Your Child Fell!";
+                    GameManager.Instance.DisplayMessage = true;
+                    break;
+
                 default:
                     break;
             }
@@ -153,6 +158,13 @@ public class UIManager : Singleton<UIManager>
     {
         var text = _finishLevelMessage.gameObject.GetComponentInChildren<TextMeshProUGUI>();
         text.text = ("No Child!");
+        wrongColorAnim.SetTrigger("WrongColor");
+    }
+
+    public void DisplayAlreadyOccupiedMessage()
+    {
+        var text = _finishLevelMessage.gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        text.text = ("One Per Exit!");
         wrongColorAnim.SetTrigger("WrongColor");
     }
 }

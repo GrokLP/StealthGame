@@ -72,7 +72,7 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask); //right now means player can be detected at dif heights
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
         for(int i = 0; i < targetsInViewRadius.Length; i++)
         {

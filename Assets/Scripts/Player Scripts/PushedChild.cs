@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PushedChild : MonoBehaviour
 {
-    //animations and particle effects
-    //screen shake on collision
+    //disolve on laser
+    //raycasts to detect collision -- dont need all of them...
+    //drones and cameras can't detect right now
     //child dialogue
 
     [SerializeField] ParticleSystem dust;
+    public Animator animator;
 
     public Transform forward;
     public Transform back;
@@ -25,6 +27,8 @@ public class PushedChild : MonoBehaviour
     BoxCollider pushableCollider;
     float edgeBuffer = 0.1f;
     bool isGrounded;
+
+    float fallSpeed;
 
     bool childPushedAway;
     public bool ChildPushedAway
@@ -59,6 +63,7 @@ public class PushedChild : MonoBehaviour
         else
         {
             isGrounded = true;
+            fallSpeed = 5;
         }
 
         //Debug.DrawRay(transform.position + new Vector3(1f, 0, -1f), pushDirection * collisionDistance, Color.red);
@@ -71,7 +76,11 @@ public class PushedChild : MonoBehaviour
         if (isGrounded)
             transform.position += pushDirection * 8 * Time.deltaTime;
         else if (!isGrounded)
-            transform.position += ((pushDirection * 6 ) + (new Vector3(0, -1.5f, 0) * 8)) * Time.deltaTime;
+        {
+            fallSpeed += 5 * Time.deltaTime;
+            transform.position += ((pushDirection * 8) + (new Vector3(0, -1.5f, 0) * fallSpeed)) * Time.deltaTime;
+        }
+
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position + new Vector3(1f, 0, 1f), pushDirection, out hit, collisionDistance, collisionMask) |

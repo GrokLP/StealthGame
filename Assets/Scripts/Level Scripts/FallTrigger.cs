@@ -8,10 +8,16 @@ public class FallTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player")) 
         {
             if (OnGameLose != null)
                 OnGameLose("Fell");
+        }
+
+        else if(other.CompareTag("PushChildCube") | other.CompareTag("ChildCube"))
+        {
+            if (OnGameLose != null)
+                OnGameLose("ChildFell");
         }
     }
 }

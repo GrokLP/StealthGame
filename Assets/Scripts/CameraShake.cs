@@ -9,29 +9,18 @@ public class CameraShake : MonoBehaviour
     float shakeTimeRemaining;
     float shakePower;
     float shakeFadeTime;
-    float shakeRotation;
-
-    public float rotationMultiplier = 7.5f;
 
     Vector3 startingPosition;
-    Quaternion startingRotation;
 
     private void Start()
     {
         Instance = this;
         startingPosition = transform.position;
-        startingRotation = transform.rotation;
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            StartShake(0.1f, 0.1f);
-        }
-
         transform.position = startingPosition;
-        transform.rotation = startingRotation;
     }
     private void LateUpdate()
     {
@@ -45,11 +34,7 @@ public class CameraShake : MonoBehaviour
             transform.position += new Vector3(xAmount, yAmount, 0);
 
             shakePower = Mathf.MoveTowards(shakePower, 0, shakeFadeTime * Time.deltaTime);
-
-            shakeRotation = Mathf.MoveTowards(shakeRotation, 0, shakeFadeTime * rotationMultiplier * Time.deltaTime);
         }
-
-        //transform.rotation = Quaternion.Euler(0, 0, shakeRotation * Random.Range(-1, 1));
     }
 
 
@@ -59,8 +44,6 @@ public class CameraShake : MonoBehaviour
         shakePower = power;
 
         shakeFadeTime = power / length;
-
-        shakeRotation = power * rotationMultiplier;
     }
 
 }

@@ -36,7 +36,7 @@ public class PushChild : MonoBehaviour
 
     private void Start()
     {
-        if(GameObject.FindGameObjectWithTag("PushChildCube").GetComponent<PushedChild>() != null)
+        if(GameObject.FindGameObjectWithTag("PushChildCube") != null)
         {
             pushedChildScript = GameObject.FindGameObjectWithTag("PushChildCube").GetComponent<PushedChild>();
             pushedChildPosition = GameObject.FindGameObjectWithTag("PushChildCube").GetComponent<Transform>();
@@ -53,6 +53,8 @@ public class PushChild : MonoBehaviour
 
         if (Input.GetButtonUp("Push") && startedGrab && charging >= chargeTime)
         {
+            pushedChildScript.animator.SetBool("FrontPush", false);
+            pushedChildScript.animator.SetBool("SidePush", false);
             GetDirection();
             dust.Play();
             pushedAway = true;
@@ -66,6 +68,8 @@ public class PushChild : MonoBehaviour
         else if (Input.GetButtonUp("Push") && startedGrab && charging < chargeTime)
         {
             pushedAway = false;
+            pushedChildScript.animator.SetBool("FrontPush", false);
+            pushedChildScript.animator.SetBool("SidePush", false);
             charging = 0;
             ResetHUDRender();
             if (HitObject != null)
@@ -168,54 +172,26 @@ public class PushChild : MonoBehaviour
         {
             case 0:
                 transform.position = pushedChildScript.forward.position;
+                pushedChildScript.animator.SetBool("FrontPush", true);
                 break;
             case 1:
                 transform.position = pushedChildScript.back.position;
+                pushedChildScript.animator.SetBool("FrontPush", true);
                 break;
             case 2:
                 transform.position = pushedChildScript.right.position;
+                pushedChildScript.animator.SetBool("SidePush", true);
                 break;
             case 3:
                 transform.position = pushedChildScript.left.position;
+                pushedChildScript.animator.SetBool("SidePush", true);
                 break;
             default:
                 Debug.Log("snap error");
                 break;
         }
-
-        /*if(transform.rotation.y >= 0 && transform.rotation.y < 45)
-        {
-            transform.localEulerAngles = new Vector3(0, 0, 0);
-        }
-        else if(transform.rotation.y >= 45 && transform.rotation.y < 90)
-        {
-            transform.localEulerAngles = new Vector3(0, 90, 0);
-        }
-        else if (transform.rotation.y >= 90 && transform.rotation.y < 135)
-        {
-            transform.localEulerAngles = new Vector3(0, 90, 0);
-        }
-        else if (transform.rotation.y >= 135 && transform.rotation.y < 180)
-        {
-            transform.localEulerAngles = new Vector3(0, 180, 0);
-        }
-        else if (transform.rotation.y >= 180 && transform.rotation.y < 225)
-        {
-            transform.localEulerAngles = new Vector3(0, 180, 0);
-        }
-        else if (transform.rotation.y >= 225 && transform.rotation.y < 270)
-        {
-            transform.localEulerAngles = new Vector3(0, 270, 0);
-        }
-        else if (transform.rotation.y >= 270 && transform.rotation.y < 315)
-        {
-            transform.localEulerAngles = new Vector3(0, 270, 0);
-        }
-        else if (transform.rotation.y >= 315 && transform.rotation.y < 360)
-        {
-            transform.localEulerAngles = new Vector3(0, 0, 0);
-        }*/
     }
+
     public int GetIndexOfLowestValue(float[] snapDistances)
     {
         float value = float.PositiveInfinity;
