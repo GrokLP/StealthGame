@@ -83,14 +83,10 @@ public class PushedChild : MonoBehaviour
 
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + new Vector3(1f, 0, 1f), pushDirection, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(-1f, 0, 1f), pushDirection, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(-1f, 0, -1f), pushDirection, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(1f, 0, -1f), pushDirection, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(1f, 0, 1f), -pushDirection, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(-1f, 0, 1f), -pushDirection, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(-1f, 0, -1f), -pushDirection, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(1f, 0, -1f), -pushDirection, out hit, collisionDistance, collisionMask))
+        if (Physics.Raycast(transform.position + new Vector3(0.95f, 0, 0.95f), pushDirection, out hit, collisionDistance, collisionMask) |
+            Physics.Raycast(transform.position + new Vector3(-0.95f, 0, 0.95f), pushDirection, out hit, collisionDistance, collisionMask) |
+            Physics.Raycast(transform.position + new Vector3(-0.95f, 0, -0.95f), pushDirection, out hit, collisionDistance, collisionMask) |
+            Physics.Raycast(transform.position + new Vector3(0.95f, 0, -0.95f), pushDirection, out hit, collisionDistance, collisionMask))
         {
             childPushedAway = false;
             CameraShake.Instance.StartShake(0.2f, 0.2f);

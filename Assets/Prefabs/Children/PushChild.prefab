@@ -151,7 +151,7 @@ MonoBehaviour:
   left: {fileID: 4565755426860368924}
   collisionMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8449
 --- !u!95 &6466580756075987541
 Animator:
   serializedVersion: 3

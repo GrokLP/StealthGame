@@ -114,11 +114,7 @@ public class PushChild : MonoBehaviour
         if (Physics.Raycast(transform.position + new Vector3(0.5f, 0, -0.5f), pushDirection, out hit, collisionDistance, collisionMask) |
             Physics.Raycast(transform.position + new Vector3(-0.5f, 0, -0.5f), pushDirection, out hit, collisionDistance, collisionMask) |
             Physics.Raycast(transform.position + new Vector3(0.5f, 0, 0.5f), pushDirection, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(-0.5f, 0, 0.5f), pushDirection, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(0.5f, 0, -0.5f), -pushDirection, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(-0.5f, 0, -0.5f), -pushDirection, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(0.5f, 0, 0.5f), -pushDirection, out hit, collisionDistance, collisionMask) |
-            Physics.Raycast(transform.position + new Vector3(-0.5f, 0, 0.5f), -pushDirection, out hit, collisionDistance, collisionMask))
+            Physics.Raycast(transform.position + new Vector3(-0.5f, 0, 0.5f), pushDirection, out hit, collisionDistance, collisionMask))
         {
             pushedAway = false;
 
