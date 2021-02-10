@@ -118,8 +118,10 @@ public class ChangeColor : Singleton<ChangeColor>
 
             case PlayerColor.GREEN:
                 if (currentPlayerColor != PlayerColor.GREEN)
+                {
                     pushChildScript.IsActive = false;
-                pushObjectScript.IsActive = false;
+                    pushObjectScript.IsActive = false;
+                }
                 break;
 
             default:

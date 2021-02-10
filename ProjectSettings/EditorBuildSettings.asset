@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Boot.unity
     guid: a0b79697d2141c841846cbb35e03f2d3
   - enabled: 1
+    path: Assets/Scenes/Level PushChild 5.unity
+    guid: bc8ac8ae10a7487469ef6cc2e7e7d15a
+  - enabled: 1
     path: Assets/Scenes/Level PushChild 1.unity
     guid: 2af15e3c860f14142ac2d1515703a691
   - enabled: 1
     path: Assets/Scenes/Level PushChild 2.unity
     guid: e8612ff03a7e62c4d876c7d889e61ca1
+  - enabled: 1
+    path: Assets/Scenes/Level PushChild 3.unity
+    guid: 82192879fdd56aa4093dafadbf79e63b
   - enabled: 1
     path: Assets/Scenes/Level 1.1.unity
     guid: f912aad8804399c479c49bf73429278d

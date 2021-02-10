@@ -50,13 +50,21 @@ public class PushChildExitOne : MonoBehaviour
 
         string currentPlayerColor = GameManager.Instance.CurrentPlayerColor.ToString();
 
-        if(other.CompareTag("PushChildCube"))
+        if(other.CompareTag("PushChildCube") && exitColorString == "GREEN")
         {
             childOccupied = true;
             exitTriggered = true;
 
             if (OnExitTriggered != null)
                 OnExitTriggered();
+        }
+
+
+
+        else if (other.CompareTag("PushChildCube") && exitColorString != "GREEN")
+        {
+            if (OnWrongColor != null)
+                OnWrongColor();
         }
 
         else if(other.CompareTag("Player") && childOccupied)
@@ -80,8 +88,11 @@ public class PushChildExitOne : MonoBehaviour
 
         else if (exitColorString == currentPlayerColor && other.CompareTag("Player") && !pushChildExitTwo.ChildOccupied)
         {
+            exitTriggered = true; //set to true in case child cube is on move and enters after player
+
             if (OnNoChild != null)
                 OnNoChild();
+
         }
 
         else if(exitColorString == currentPlayerColor && other.CompareTag("Player") && pushChildExitTwo.ChildOccupied)

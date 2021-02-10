@@ -29,6 +29,7 @@ public class PushedChild : MonoBehaviour
     bool isGrounded;
 
     float fallSpeed;
+    float fallDelay;
 
     bool childPushedAway;
     public bool ChildPushedAway
@@ -64,6 +65,7 @@ public class PushedChild : MonoBehaviour
         {
             isGrounded = true;
             fallSpeed = 5;
+            fallDelay = 0;
         }
 
         //Debug.DrawRay(transform.position + new Vector3(1f, 0, -1f), pushDirection * collisionDistance, Color.red);
@@ -74,11 +76,25 @@ public class PushedChild : MonoBehaviour
     void PushedAway()
     {
         if (isGrounded)
-            transform.position += pushDirection * 8 * Time.deltaTime;
+        {
+            transform.position += pushDirection * 10 * Time.deltaTime;
+        }
+
         else if (!isGrounded)
         {
-            fallSpeed += 5 * Time.deltaTime;
-            transform.position += ((pushDirection * 8) + (new Vector3(0, -1.5f, 0) * fallSpeed)) * Time.deltaTime;
+            fallDelay += Time.deltaTime;
+
+            if(fallDelay < 0.15f)
+            {
+                transform.position += pushDirection * 10 * Time.deltaTime;
+            }
+
+            else if (fallDelay >= 0.15f)
+            {
+                fallSpeed += 15 * Time.deltaTime;
+                transform.position += ((pushDirection * 8) + (new Vector3(0, -1.5f, 0) * fallSpeed)) * Time.deltaTime;
+            }
+
         }
 
 
