@@ -115,7 +115,7 @@ public class PushChildExitOne : MonoBehaviour
             exitTriggered = false;
         }
 
-        else if (exitColorString == currentPlayerColor && other.CompareTag("Player") && pushChildExitTwo.ChildOccupied)
+        else if (exitColorString == currentPlayerColor && other.CompareTag("Player"))
         {
             exitTriggered = false;
         }

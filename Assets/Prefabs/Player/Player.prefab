@@ -903,11 +903,11 @@ MonoBehaviour:
   playerAnimator: {fileID: 3559997315739043602}
   fallMultiplier: 4
   lowJumpMultiplier: 3.5
-  jumpVelocity: 5.5
+  jumpVelocity: 5.4
   groundedSkin: 0.05
   mask:
     serializedVersion: 2
-    m_Bits: 8193
+    m_Bits: 2105345
   fakeShadow: {fileID: 916184978925385648}
   coyoteTime: 0.1
 --- !u!114 &1405687141
@@ -1034,7 +1034,7 @@ MonoBehaviour:
     m_Bits: 2097152
   collisionMask:
     serializedVersion: 2
-    m_Bits: 8449
+    m_Bits: 41217
   chargeTime: 1
   chargeHUD: {fileID: 1387224064}
   chargeHUDBase: {fileID: 836607911}
