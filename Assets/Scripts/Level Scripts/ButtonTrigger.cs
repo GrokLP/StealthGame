@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ButtonTrigger : MonoBehaviour
 {   
-    //material colour for buttons?
     //make prefab and add buttons where applicable
     
     [SerializeField] Animator triggerAnimator;
@@ -33,7 +32,7 @@ public class ButtonTrigger : MonoBehaviour
 
     IEnumerator ButtonPressed()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
 
         CameraShake.Instance.StartShake(0.2f, 0.1f);
 

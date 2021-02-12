@@ -8,6 +8,8 @@ public class PushChild : MonoBehaviour
     public static event System.Action IsPushed;
     public static event System.Action HitObject;
 
+    [SerializeField] GameObject grid;
+
     [SerializeField] ParticleSystem dust;
 
     float collisionDistance = 0.15f;
@@ -45,6 +47,16 @@ public class PushChild : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetButton("ShowGridKey") | (Input.GetAxis("ShowGridController") > 0))
+        {
+            grid.SetActive(true);
+        }
+        
+        if(Input.GetButtonUp("ShowGridKey") | (Input.GetAxis("ShowGridController") == 0))
+        {
+            grid.SetActive(false);
+        }
+        
         RaycastHit hit;
         if (Input.GetButton("Push") && Physics.Raycast(transform.position, transform.forward, out hit, distance, grabMask) && isActive)
         {

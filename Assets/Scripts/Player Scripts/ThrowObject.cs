@@ -95,13 +95,13 @@ public class ThrowObject : MonoBehaviour
                     LaunchProjectileController();
             }
 
-            else if (Input.GetButton("ThrowMouse") | (Input.GetAxis("ThrowTrigger")) > 0 && inAir && isActive)
+            else if (Input.GetButton("ThrowMouse") | (Input.GetAxis("ThrowController")) > 0 && inAir && isActive)
             {
                 playerAnimator.SetTrigger("AlreadyThrowing");
             }
         }       
         
-        else if (Input.GetButton("ThrowMouse") | (Input.GetAxis("ThrowTrigger")) > 0  && projectilesAmmo.Count == 0 && isActive)
+        else if (Input.GetButton("ThrowMouse") | (Input.GetAxis("ThrowController")) > 0  && projectilesAmmo.Count == 0 && isActive)
         {
             playerAnimator.SetTrigger("NothingToThrow");
         }
@@ -238,7 +238,7 @@ public class ThrowObject : MonoBehaviour
 
     void LaunchProjectileController()
     {
-        if (Input.GetAxis("ThrowTrigger") > 0)
+        if (Input.GetAxis("ThrowController") > 0)
         {
             if (!throwTargetIsSet)
             {
@@ -275,7 +275,7 @@ public class ThrowObject : MonoBehaviour
                 FinishedThrowing(); //enable player movement when finished throwing
         }
 
-        if (Input.GetAxis("ThrowTrigger") == 0 && charging >= chargeTime && triggerPressed)
+        if (Input.GetAxis("ThrowController") == 0 && charging >= chargeTime && triggerPressed)
         {
             lineRenderer.gameObject.SetActive(false);
             childSoundRadius.SetActive(false);
@@ -295,7 +295,7 @@ public class ThrowObject : MonoBehaviour
                 FinishedThrowing(); //enable player movement when finished throwing
         }
 
-        else if (Input.GetAxis("ThrowTrigger") == 0 && charging < chargeTime && triggerPressed)
+        else if (Input.GetAxis("ThrowController") == 0 && charging < chargeTime && triggerPressed)
         {
             lineRenderer.gameObject.SetActive(false);
             childSoundRadius.SetActive(false);
