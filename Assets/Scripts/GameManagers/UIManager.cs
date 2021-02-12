@@ -115,6 +115,11 @@ public class UIManager : Singleton<UIManager>
                     GameManager.Instance.DisplayMessage = true;
                     break;
 
+                case "SelfDestruct":
+                    _gameLoseUI.GetComponentInChildren<TextMeshProUGUI>().text = "Try Again!";
+                    GameManager.Instance.DisplayMessage = true;
+                    break;
+
                 default:
                     break;
             }

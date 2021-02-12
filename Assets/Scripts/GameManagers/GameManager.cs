@@ -54,7 +54,8 @@ public class GameManager : Singleton<GameManager>
         InstantiateSystemPrefabs();
 
         UIManager.Instance.OnMainMenuFadeComplete.AddListener(HandleMainMenuFadeComplete);
-        
+
+        PlayerController.OnGameLose += HandleOnGameLose;
         PlayerDetection.OnGameLose += HandleOnGameLose;
         FieldOfView.OnGameLose += HandleOnGameLose;
         Drones.OnGameLose += HandleOnGameLose;

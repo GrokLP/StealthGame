@@ -6,7 +6,6 @@ public class FieldOfView : MonoBehaviour
 {
     public static event System.Action<string> OnGameLose;
 
-
     public float viewRadius;
     [Range (0, 360)]
     public float viewAngle;

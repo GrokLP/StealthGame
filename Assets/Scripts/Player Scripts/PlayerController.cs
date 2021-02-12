@@ -5,7 +5,10 @@ using Shapes;
 
 public class PlayerController : MonoBehaviour
 {
+    public static event System.Action<string> OnGameLose;
+
     [SerializeField] Animator playerAnimator;
+    [SerializeField] ParticleSystem selfDestruct;
     [SerializeField] GameObject playerHUD;
 
     //player movement parameters
@@ -38,6 +41,8 @@ public class PlayerController : MonoBehaviour
         set { playerTransform = value;  }
     }
 
+    float timer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -67,6 +72,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         MovementInput();
+
+        if(Input.GetButton("SelfDestruct") && GameManager.Instance.CurrentGameState != GameManager.GameState.GAMELOSE)
+        {
+            SelfDestruct();
+        }
+        else if(Input.GetButtonUp("SelfDestruct") && GameManager.Instance.CurrentGameState != GameManager.GameState.GAMELOSE)
+        {
+            disabled = false;
+            timer = 0;
+            playerAnimator.SetBool("SelfDestruct", false);
+        }
     }
 
     private void FixedUpdate()
@@ -117,6 +133,19 @@ public class PlayerController : MonoBehaviour
     private void Enable()
     {
         disabled = false;
+    }
+
+    void SelfDestruct()
+    {
+        disabled = true;
+        timer += Time.deltaTime;
+        playerAnimator.SetBool("SelfDestruct", true);
+
+        if (timer >= 1.45f)
+        {
+            selfDestruct.Play();
+            OnGameLose("SelfDestruct");
+        }
     }
 
     private void PlayDissolve()

@@ -1,0 +1,48 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ButtonTrigger : MonoBehaviour
+{   
+    //material colour for buttons?
+    //make prefab and add buttons where applicable
+    
+    [SerializeField] Animator triggerAnimator;
+    [SerializeField] float buttonHeight;
+
+    Vector3 startingHeight;
+    Vector3 pressedHeight;
+
+    bool pressed;
+
+    private void Start()
+    {
+        startingHeight = transform.position;
+        pressedHeight = new Vector3(startingHeight.x, startingHeight.y - buttonHeight + 0.05f, startingHeight.z);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (!pressed)
+        {
+            StartCoroutine(ButtonPressed());
+            triggerAnimator.SetTrigger("Trigger"); //this would be better after button moves
+            pressed = true;
+        }
+    }
+
+    IEnumerator ButtonPressed()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        CameraShake.Instance.StartShake(0.2f, 0.1f);
+
+        while (startingHeight != pressedHeight)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, pressedHeight, 2f * Time.deltaTime);
+            yield return null;
+        }
+
+        Debug.Log("test"); //this is never reached
+    }
+}

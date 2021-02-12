@@ -8,6 +8,6 @@ public class WallSwitch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        wallAnimator.SetTrigger("Raise");
+        wallAnimator.SetTrigger("Trigger");
     }
 }

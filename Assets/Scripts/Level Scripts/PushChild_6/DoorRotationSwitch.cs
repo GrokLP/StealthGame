@@ -11,7 +11,7 @@ public class DoorRotationSwitch : MonoBehaviour
         get { return openDoor; }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         openDoor = true;
     }
