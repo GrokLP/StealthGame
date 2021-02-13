@@ -68,10 +68,10 @@ public class PushedChild : MonoBehaviour
             fallDelay = 0;
         }
 
-        //Debug.DrawRay(transform.position + new Vector3(1f, 0, -1f), pushDirection * collisionDistance, Color.red);
-        // Debug.DrawRay(transform.position + new Vector3(-1f, 0, -1f), pushDirection * collisionDistance, Color.red);
-        // Debug.DrawRay(transform.position + new Vector3(1f, 0, 1f), pushDirection * collisionDistance, Color.red);
-        // Debug.DrawRay(transform.position + new Vector3(-1f, 0, 1f), pushDirection * collisionDistance, Color.red);
+        //Debug.DrawRay(transform.position + new Vector3(0.95f, 0, -0.95f), pushDirection * collisionDistance, Color.red);
+        //Debug.DrawRay(transform.position + new Vector3(-0.95f, 0, -0.95f), pushDirection * collisionDistance, Color.red);
+        //Debug.DrawRay(transform.position + new Vector3(0.95f, 0, 0.95f), pushDirection * collisionDistance, Color.red);
+        //Debug.DrawRay(transform.position + new Vector3(-0.95f, 0, 0.95f), pushDirection * collisionDistance, Color.red);
     }
     void PushedAway()
     {
@@ -94,9 +94,7 @@ public class PushedChild : MonoBehaviour
                 fallSpeed += 15 * Time.deltaTime;
                 transform.position += ((pushDirection * 8) + (new Vector3(0, -1.5f, 0) * fallSpeed)) * Time.deltaTime;
             }
-
         }
-
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position + new Vector3(0.95f, 0, 0.95f), pushDirection, out hit, collisionDistance, collisionMask) |

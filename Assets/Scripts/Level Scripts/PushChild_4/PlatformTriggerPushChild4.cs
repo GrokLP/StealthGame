@@ -11,7 +11,7 @@ public class PlatformTriggerPushChild4 : MonoBehaviour
         get { return raisePlatform; }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         raisePlatform = true;
     }

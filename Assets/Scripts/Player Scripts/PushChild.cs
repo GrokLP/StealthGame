@@ -47,12 +47,12 @@ public class PushChild : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetButton("ShowGridKey") | (Input.GetAxis("ShowGridController") > 0))
+        if(Input.GetButton("ShowGridKey") | (Input.GetAxis("ShowGridController") > 0) && isActive)
         {
             grid.SetActive(true);
         }
         
-        if(Input.GetButtonUp("ShowGridKey") | (Input.GetAxis("ShowGridController") == 0))
+        if(Input.GetButtonUp("ShowGridKey") | (Input.GetAxis("ShowGridController") == 0))//this blocks key input if controller is on
         {
             grid.SetActive(false);
         }
