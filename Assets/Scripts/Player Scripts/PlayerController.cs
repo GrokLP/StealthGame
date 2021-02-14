@@ -66,6 +66,9 @@ public class PlayerController : MonoBehaviour
         PushChild.IsPushed += Disable;
         PushChild.HitObject += Enable;
 
+        DialogueManager.OnEnterDialogue += Disable;
+        DialogueManager.OnExitDialogue += Enable;
+
         changeColorScript = GetComponent<ChangeColor>();
     }
 
@@ -126,11 +129,11 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + velocity * Time.deltaTime);
     }
 
-    private void Disable()
+    public void Disable()
     {
         disabled = true;
     }
-    private void Enable()
+    public void Enable()
     {
         disabled = false;
     }
@@ -199,5 +202,8 @@ public class PlayerController : MonoBehaviour
 
         PushChild.IsPushed -= Disable;
         PushChild.HitObject -= Enable;
+
+        DialogueManager.OnEnterDialogue -= Disable;
+        DialogueManager.OnExitDialogue -= Enable;
     }
 }
