@@ -86,16 +86,40 @@ public class DialogueManager : Singleton<DialogueManager>
         }
 
         string sentence = sentences.Dequeue();
+        dialogueText.text = sentence;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence, dialogueText));
     }
 
     IEnumerator TypeSentence(string sentence, TextMeshProUGUI dialogueText)
     {
-        dialogueText.text = "";
+        /*dialogueText.text = "";
+        var waitTimer = new WaitForSeconds(0.03f);
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
+            yield return waitTimer;
+        }*/
+
+        //dialogueText.text = sentence;
+
+        dialogueText.ForceMeshUpdate(); //is this performant??
+        int totalVisibleCharacters = dialogueText.textInfo.characterCount;
+        Debug.Log(dialogueText.textInfo.characterCount);
+        int counter = 0;
+
+        bool loopFinished = false;
+
+        while(!loopFinished)
+        {
+            int visibleCount = counter % (totalVisibleCharacters + 1);
+
+            dialogueText.maxVisibleCharacters = visibleCount;
+
+            if (visibleCount >= totalVisibleCharacters)
+                loopFinished = true;
+
+            counter += 1;
             yield return new WaitForSeconds(0.03f);
         }
     }
