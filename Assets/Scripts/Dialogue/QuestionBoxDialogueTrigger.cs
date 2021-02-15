@@ -12,6 +12,7 @@ public class QuestionBoxDialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
 
     bool thisNPC;
+    int dialogueCount;
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class QuestionBoxDialogueTrigger : MonoBehaviour
         //{
         //    TriggerDialogue();
         //}
-        if (thisNPC && DialogueManager.Instance.inDialogue && Input.GetButtonDown("Jump"))
+        if (thisNPC && DialogueManager.Instance.InDialogue && Input.GetButtonDown("Jump"))
         {
             DialogueManager.Instance.DisplayNextSentence(nameText, dialogueText);
         }
@@ -33,7 +34,8 @@ public class QuestionBoxDialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        DialogueManager.Instance.StartDialogue(dialogue, nameText, dialogueText);
+        dialogueCount++;
+        DialogueManager.Instance.StartDialogue(dialogue, nameText, dialogueText,dialogueCount);
     }
 
     private void OnCollisionEnter(Collision other)

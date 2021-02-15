@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator playerAnimator;
     [SerializeField] ParticleSystem selfDestruct;
     [SerializeField] GameObject playerHUD;
+    [SerializeField] public GameObject interactButtonIcon;
 
     //player movement parameters
     [SerializeField] float moveSpeed = 7;

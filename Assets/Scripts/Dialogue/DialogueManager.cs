@@ -7,6 +7,7 @@ public class DialogueManager : Singleton<DialogueManager>
 {
     public static event System.Action OnEnterDialogue;
     public static event System.Action OnExitDialogue;
+    public static event System.Action DisplayNextTextTriangle;
 
     [SerializeField] BetterJump betterJump;
     [SerializeField] ThrowObject throwObject;
@@ -15,18 +16,33 @@ public class DialogueManager : Singleton<DialogueManager>
 
     Queue<string> sentences;
 
-    public bool inDialogue;
-    int dialogueCount;
+    bool inDialogue;
+    public bool InDialogue
+    {
+        get { return inDialogue; }
+    }
+
+    bool isTyping;
+    public bool IsTyping
+    {
+        get { return isTyping; }
+    }
+    
+    bool interrupt;
+    public bool Interrupt
+    {
+        set { interrupt = value; }
+    }
+
+
 
     void Start()
     {
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue, TextMeshProUGUI nameText, TextMeshProUGUI dialogueText)
+    public void StartDialogue(Dialogue dialogue, TextMeshProUGUI nameText, TextMeshProUGUI dialogueText, int dialogueCount)
     {
-        dialogueCount++;//this won't work with multiple NPCs
-        
         if (OnEnterDialogue != null)
             OnEnterDialogue();
 
@@ -93,31 +109,35 @@ public class DialogueManager : Singleton<DialogueManager>
 
     IEnumerator TypeSentence(string sentence, TextMeshProUGUI dialogueText)
     {
-        /*dialogueText.text = "";
-        var waitTimer = new WaitForSeconds(0.03f);
-        foreach (char letter in sentence.ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return waitTimer;
-        }*/
-
-        //dialogueText.text = sentence;
-
         dialogueText.ForceMeshUpdate(); //is this performant??
         int totalVisibleCharacters = dialogueText.textInfo.characterCount;
-        Debug.Log(dialogueText.textInfo.characterCount);
         int counter = 0;
 
         bool loopFinished = false;
 
+        interrupt = false;
+
         while(!loopFinished)
         {
+            isTyping = true;
             int visibleCount = counter % (totalVisibleCharacters + 1);
 
             dialogueText.maxVisibleCharacters = visibleCount;
 
             if (visibleCount >= totalVisibleCharacters)
+            {
                 loopFinished = true;
+                isTyping = false;
+                if (DisplayNextTextTriangle != null)
+                    DisplayNextTextTriangle();
+            }
+            else if (interrupt)
+            {
+                dialogueText.maxVisibleCharacters = totalVisibleCharacters;
+                isTyping = false;
+                if (DisplayNextTextTriangle != null)
+                    DisplayNextTextTriangle();
+            }
 
             counter += 1;
             yield return new WaitForSeconds(0.03f);

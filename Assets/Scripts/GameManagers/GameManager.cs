@@ -44,6 +44,13 @@ public class GameManager : Singleton<GameManager>
         private set { _currentGameState = value; }
     }
 
+    int levelAttempts = 1;
+
+    public int LevelAttempts
+    {
+        get { return levelAttempts; }
+    }
+
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -130,7 +137,18 @@ public class GameManager : Singleton<GameManager>
 
         ao.completed += OnLoadOperationComplete;
         _loadOperations.Add(ao);
+        
+        if(levelIndex == _currentLevelIndex) //track level loads for in level events
+        {
+            levelAttempts++;
+        }
+        else
+        {
+            levelAttempts = 1;
+        }
+
         _currentLevelIndex = levelIndex;
+
     }
 
     // Asynchronously unload level and send message that it is complete
