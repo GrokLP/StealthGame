@@ -6,6 +6,7 @@ using TMPro;
 public class NPCDialogueTrigger : MonoBehaviour
 {
     [SerializeField] Animator dialogueIconAnimator;
+    [SerializeField] Animator jumpAnimator;
     [SerializeField] GameObject dialogueUI;
     [SerializeField] GameObject dialogueIcon;
     [SerializeField] GameObject nextTextTriangle;
@@ -15,11 +16,12 @@ public class NPCDialogueTrigger : MonoBehaviour
     public TextMeshProUGUI dialogueText;
 
     public Dialogue dialogue;
-    //public Dialogue dialogueTwo; 
 
     public bool thisNPC;
     public bool dialogueStarted;
     int dialogueCount;
+
+    bool stopAnimation;
 
     private void Start()
     {
@@ -50,10 +52,17 @@ public class NPCDialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        dialogueCount++;
-
-        //could do check here for if player has died/restarted (though maybe it's also important to check if they actually talked to NPC the first time)
+        
         DialogueManager.Instance.StartDialogue(dialogue, nameText, dialogueText, dialogueCount);
+
+        if(dialogueCount < dialogue.responseList.Length - 1)
+        {
+            dialogueCount++; //moved this under method call because using arrays that start at 0
+        }
+        else
+        {
+            stopAnimation = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -61,8 +70,10 @@ public class NPCDialogueTrigger : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             thisNPC = true;
-            
-            if(dialogueCount < 3) //3 dialogue responses as of right now
+
+            jumpAnimator.SetBool("InDialogue", true);
+
+            if (!stopAnimation)
                 dialogueIconAnimator.SetBool("PlayerInRange", true);
             
             if(!dialogueStarted)
@@ -77,6 +88,9 @@ public class NPCDialogueTrigger : MonoBehaviour
             thisNPC = false;
             dialogueIconAnimator.SetBool("PlayerInRange", false);
             playerController.interactButtonIcon.SetActive(false);
+            
+            if(!stopAnimation)
+                jumpAnimator.SetBool("InDialogue", false);
         }
     }
 
@@ -94,10 +108,14 @@ public class NPCDialogueTrigger : MonoBehaviour
         if(thisNPC | dialogueStarted)
         {
             dialogueUI.SetActive(false);
-            dialogueIcon.SetActive(true); //maybe put this in ontrigger exit so it's not confusing?
+            dialogueIcon.SetActive(true);
             dialogueStarted = false;
-            //playerController.interactButtonIcon.SetActive(true);
         }
+    }
+
+    private void DisplayNextTextTriangle()
+    {
+        nextTextTriangle.SetActive(true);
     }
 
     private void OnDestroy()
@@ -106,9 +124,4 @@ public class NPCDialogueTrigger : MonoBehaviour
         DialogueManager.OnExitDialogue -= DisableDialogueUI;
         DialogueManager.DisplayNextTextTriangle -= DisplayNextTextTriangle;
     }
-
-    private void DisplayNextTextTriangle()
-    {
-        nextTextTriangle.SetActive(true);
-    }    
 }

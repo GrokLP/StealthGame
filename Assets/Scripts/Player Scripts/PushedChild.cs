@@ -5,8 +5,6 @@ using UnityEngine;
 public class PushedChild : MonoBehaviour
 {
     //disolve on laser
-    //raycasts to detect collision -- dont need all of them...
-    //drones and cameras can't detect right now
     //child dialogue
 
     [SerializeField] ParticleSystem dust;
@@ -105,6 +103,7 @@ public class PushedChild : MonoBehaviour
             childPushedAway = false;
             CameraShake.Instance.StartShake(0.2f, 0.2f);
             dust.Stop();
+            animator.SetBool("IsPushed", false);
         }
     }
 

@@ -214,6 +214,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47174892}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &63648374
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1 &94888524
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +620,7 @@ PrefabInstance:
     - target: {fileID: 2841447511626933667, guid: aae2be546000c674e94f596a9be1e099,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.25
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2841447512918266930, guid: aae2be546000c674e94f596a9be1e099,
         type: 3}
@@ -710,6 +734,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
         type: 3}
+      propertyPath: dialogue.responseList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[1].sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[2].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
       propertyPath: dialogue.sentences.Array.data[4]
       value: If you see any, the best thing to do is hide by holding B or LEFT SHIFT.
       objectReference: {fileID: 0}
@@ -793,6 +837,71 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 115810236}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[0]
+      value: Hey there!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[1]
+      value: You look kinda lost?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[2]
+      value: ...hmmmm, looking for your children? Can't say I've seen any children
+        around...
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[3]
+      value: You ought'a be careful though! It's dangerous out there -- there's guards
+        everywhere since the turn.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[4]
+      value: If you come across any, your best bet is to just hide by <i>holding
+        down</i> the  <u><b>B BUTTON</b></u>.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[5]
+      value: Name's ________, by the way! Good luck out there!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[6]
+      value: Bye!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[1].sentences.Array.data[0]
+      value: You forget what I told you already?!?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[1].sentences.Array.data[1]
+      value: <i>Hold down</i> <u><b>B</b></u> to hide...just make sure you don't
+        move too much!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[1].sentences.Array.data[2]
+      value: No kids around here, but maybe you'll have some luck through that  exit
+        over there.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[2].sentences.Array.data[0]
+      value: I'll be through in a bit.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[2].sentences.Array.data[1]
+      value: You go on ahead.
+      objectReference: {fileID: 0}
     - target: {fileID: 8943961241536539642, guid: aae2be546000c674e94f596a9be1e099,
         type: 3}
       propertyPath: m_IsActive
@@ -1652,6 +1761,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881042527}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &979425082
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1001 &1176103869
 PrefabInstance:
   m_ObjectHideFlags: 0

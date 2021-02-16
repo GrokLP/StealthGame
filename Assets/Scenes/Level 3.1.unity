@@ -1645,6 +1645,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
         type: 3}
+      propertyPath: dialogue.responseList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[1].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[2].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
       propertyPath: dialogue.firstSentences.Array.data[0]
       value: Ok, so uh...no idea what we're gonna do here.
       objectReference: {fileID: 0}
@@ -1689,6 +1709,51 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1656677442}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[0]
+      value: Ok, so uh...no idea what we're gonna do here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[1]
+      value: There ground just kinda...stops?? How are we supposed to proceed?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[2]
+      value: I've heard stories of prisms that could <i>press</i> the <b><u>A BUTTON</b></u>...
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[3]
+      value: ...to apply the requisite amount of force to propel themslves upwards.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[4]
+      value: 'But those are just legends, right?? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[1].sentences.Array.data[0]
+      value: It's a long way down too.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[1].sentences.Array.data[1]
+      value: And WHAT is that weird diamond thing over there?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[2].sentences.Array.data[0]
+      value: As usaul, you go first!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841447513262202842, guid: aae2be546000c674e94f596a9be1e099,
+        type: 3}
+      propertyPath: dialogue.responseList.Array.data[0].sentences.Array.data[5]
+      value: Maybe you can just run at the edge *really* fast?
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aae2be546000c674e94f596a9be1e099, type: 3}
 --- !u!1 &669113727
@@ -2314,30 +2379,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788394291}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &806107199
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1 &866770145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2895,6 +2936,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137037723}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &1157932268
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1 &1192489492
 GameObject:
   m_ObjectHideFlags: 0
@@ -3362,6 +3427,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333734319}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &1395501828
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1 &1420387964
 GameObject:
   m_ObjectHideFlags: 0
@@ -4628,30 +4717,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819568684}
   m_CullTransparentMesh: 0
---- !u!21 &1836222717
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1 &1842647008
 GameObject:
   m_ObjectHideFlags: 0

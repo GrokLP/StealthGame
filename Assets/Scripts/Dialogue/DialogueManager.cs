@@ -34,15 +34,13 @@ public class DialogueManager : Singleton<DialogueManager>
         set { interrupt = value; }
     }
 
-
-
     void Start()
     {
         sentences = new Queue<string>();
     }
 
     public void StartDialogue(Dialogue dialogue, TextMeshProUGUI nameText, TextMeshProUGUI dialogueText, int dialogueCount)
-    {
+    {        
         if (OnEnterDialogue != null)
             OnEnterDialogue();
 
@@ -56,6 +54,15 @@ public class DialogueManager : Singleton<DialogueManager>
         
         sentences.Clear();
 
+        foreach (string sentence in dialogue.responseList[dialogueCount].sentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+
+        DisplayNextSentence(nameText, dialogueText);
+
+
+        /*
         switch (dialogueCount)
         {
             case (1):
@@ -91,6 +98,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
                 break;
         }
+        */
     }
 
     public void DisplayNextSentence(TextMeshProUGUI nameText, TextMeshProUGUI dialogueText)
@@ -164,4 +172,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
         inDialogue = false;
     }
+
+    //make list that keeps track of dialogue interactions
+    //when dialogue is initiated, check if character has talked before, if not, add to list
 }

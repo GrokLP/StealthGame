@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelOneFourDialogue : MonoBehaviour
+public class LevelOneFourDialogueTriggerTwo : MonoBehaviour
 {
     [SerializeField] NPCDialogueTrigger npcDialogueTrigger;
     bool triggered;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(GameManager.Instance.LevelAttempts <= 1 && !triggered)
+        if (GameManager.Instance.LevelAttempts >= 2 && !triggered)
         {
             npcDialogueTrigger.thisNPC = true;
             npcDialogueTrigger.TriggerDialogue();
@@ -17,5 +17,5 @@ public class LevelOneFourDialogue : MonoBehaviour
             npcDialogueTrigger.dialogueStarted = true;
             triggered = true;
         }
-     }
+    }
 }

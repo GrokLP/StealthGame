@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Boot.unity
     guid: a0b79697d2141c841846cbb35e03f2d3
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ScriptTesting.unity
     guid: be2651ec0b78a69428f4fc239d740c79
   - enabled: 1
@@ -26,12 +26,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.5.unity
     guid: 719104b99e5931046b11f615882619a3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 1.4 (needs replacing).unity
     guid: 59234ec6cb0d5a140a216b98138f81db
   - enabled: 1
     path: Assets/Scenes/Level 2.1.unity
     guid: 5c4c26e0a0e9e7842b7deed5a96c0570
+  - enabled: 1
+    path: Assets/Scenes/Level 2.6 (tutorial).unity
+    guid: 006a949d8b809894ab90f7937be13d05
   - enabled: 1
     path: Assets/Scenes/Level 2.2.unity
     guid: 7e49228d3b805cd46821dbf7ec918d31

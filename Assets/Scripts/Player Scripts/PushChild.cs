@@ -176,6 +176,8 @@ public class PushChild : MonoBehaviour
 
         int snapTarget = GetIndexOfLowestValue(snapDisctances);
 
+        pushedChildScript.animator.SetBool("IsPushed", true);
+
         switch (snapTarget) // currently lifts player off ground...but might be fun to keep?
         {
             case 0:

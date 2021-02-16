@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class QuestionBoxDialogueTrigger : MonoBehaviour
+public class EventDialogueTrigger : MonoBehaviour
 {
     [SerializeField] GameObject dialogueUI;
     public TextMeshProUGUI nameText;

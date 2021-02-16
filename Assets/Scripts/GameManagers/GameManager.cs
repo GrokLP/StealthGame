@@ -148,7 +148,6 @@ public class GameManager : Singleton<GameManager>
         }
 
         _currentLevelIndex = levelIndex;
-
     }
 
     // Asynchronously unload level and send message that it is complete
