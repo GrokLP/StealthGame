@@ -60,45 +60,6 @@ public class DialogueManager : Singleton<DialogueManager>
         }
 
         DisplayNextSentence(nameText, dialogueText);
-
-
-        /*
-        switch (dialogueCount)
-        {
-            case (1):
-
-                foreach (string sentence in dialogue.firstSentences)
-                {
-                    sentences.Enqueue(sentence);
-                }
-
-                DisplayNextSentence(nameText, dialogueText);
-
-                break;
-
-            case (2):
-
-                foreach (string sentence in dialogue.secondSentences)
-                {
-                    sentences.Enqueue(sentence);
-                }
-
-                DisplayNextSentence(nameText, dialogueText);
-
-                break;
-
-            default:
-
-                foreach (string sentence in dialogue.thirdSentences)
-                {
-                    sentences.Enqueue(sentence);
-                }
-
-                DisplayNextSentence(nameText, dialogueText);
-
-                break;
-        }
-        */
     }
 
     public void DisplayNextSentence(TextMeshProUGUI nameText, TextMeshProUGUI dialogueText)
@@ -173,6 +134,43 @@ public class DialogueManager : Singleton<DialogueManager>
         inDialogue = false;
     }
 
-    //make list that keeps track of dialogue interactions
-    //when dialogue is initiated, check if character has talked before, if not, add to list
+    public void StartChildComment(ChildComments comments, TextMeshProUGUI commentText)
+    {
+        int commentIndex = Random.Range(0, comments.commentPool.Length);
+        commentText.text = comments.commentPool[commentIndex];
+
+        StartCoroutine(TypeComment(commentText));
+
+        //animate text?
+        //randomize how often comments appear
+    }
+
+    IEnumerator TypeComment(TextMeshProUGUI commentText)
+    {
+        commentText.ForceMeshUpdate(); //is this performant??
+        int totalVisibleCharacters = commentText.textInfo.characterCount;
+        int counter = 0;
+
+        bool loopFinished = false;
+
+        while (!loopFinished)
+        {
+            int visibleCount = counter % (totalVisibleCharacters + 1);
+
+            commentText.maxVisibleCharacters = visibleCount;
+
+            if (visibleCount >= totalVisibleCharacters)
+            {
+                loopFinished = true;
+            }
+
+            counter += 1;
+            yield return new WaitForSeconds(0.03f);
+        }
+    }
+
+    public void EndChildComment(TextMeshProUGUI commentText)
+    {
+        commentText.text = "";
+    }
 }

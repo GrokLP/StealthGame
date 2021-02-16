@@ -16,7 +16,7 @@ public class NPCLoader : MonoBehaviour
         {
             if(GameManager.Instance.LevelAttempts-1 < NPCVersions.Length) 
             {
-                NPCVersions[GameManager.Instance.LevelAttempts - 1].gameObject.SetActive(true);
+                NPCVersions[GameManager.Instance.LevelAttempts - 1].gameObject.SetActive(true); //could i change this so it is just enabling a script?
             }
             else
             {

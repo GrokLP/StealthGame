@@ -28,8 +28,9 @@ public class ThrownChild : MonoBehaviour
 
     void PlayAnimation()
     {
-            transform.rotation = startingRotation;
-            childSoundRadius.SetBool("HasLanded", true);
+        transform.rotation = startingRotation;
+        FindObjectOfType<ChildEventComments>().EndComment();
+        childSoundRadius.SetBool("HasLanded", true);
     }
 
     private void OnDestroy()

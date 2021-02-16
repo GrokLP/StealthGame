@@ -806,7 +806,7 @@ MonoBehaviour:
     m_Bits: 2623488
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 41216
+    m_Bits: 41220
   meshResolution: 1
   edgeResolveIterations: 4
   edgeDistanceThreshold: 0.5
