@@ -8,6 +8,7 @@ public class ThrownChild : MonoBehaviour
     //show random dialogue response
 
     [SerializeField] public Animator childSoundRadius;
+    [SerializeField] ChildEventComments childEventComments;
 
     //BoxCollider objectCollider;
     Quaternion startingRotation;
@@ -29,7 +30,7 @@ public class ThrownChild : MonoBehaviour
     void PlayAnimation()
     {
         transform.rotation = startingRotation;
-        FindObjectOfType<ChildEventComments>().EndComment();
+        childEventComments.EndComment(); //clean up reference
         childSoundRadius.SetBool("HasLanded", true);
     }
 

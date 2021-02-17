@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class ChildEventComments : MonoBehaviour
 {
     public TextMeshProUGUI commentText;
     public ChildComments childComments;
 
-    public void TriggerComment()
+    public void TriggerComment(string source)
     {
-        DialogueManager.Instance.StartChildComment(childComments, commentText);
+        string childType = source;
+        DialogueManager.Instance.StartChildComment(childComments, commentText, childType);
     }
 
     public void EndComment()
     {
         DialogueManager.Instance.EndChildComment(commentText);
     }
-
-
 }

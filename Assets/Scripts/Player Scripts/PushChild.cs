@@ -12,6 +12,8 @@ public class PushChild : MonoBehaviour
 
     [SerializeField] ParticleSystem dust;
 
+    [SerializeField] ChildEventComments childEventComments;
+
     float collisionDistance = 0.15f;
     [SerializeField] float distance;
     [SerializeField] LayerMask grabMask;
@@ -30,6 +32,7 @@ public class PushChild : MonoBehaviour
     float charging;
 
     bool isActive;
+    bool commentSent;
     public bool IsActive
     {
         get { return isActive; }
@@ -61,6 +64,12 @@ public class PushChild : MonoBehaviour
         if (Input.GetButton("Push") && Physics.Raycast(transform.position, transform.forward, out hit, distance, grabMask) && isActive)
         {
             StartGrab(hit);
+            if(!commentSent)
+            {
+                childEventComments.TriggerComment("pushChild");
+                commentSent = true;
+            }
+
         }
 
         if (Input.GetButtonUp("Push") && startedGrab && charging >= chargeTime)
@@ -75,6 +84,8 @@ public class PushChild : MonoBehaviour
 
             pushedChildScript.GetDirection();
             pushedChildScript.ChildPushedAway = true;
+
+            commentSent = false;
         }
 
         else if (Input.GetButtonUp("Push") && startedGrab && charging < chargeTime)
@@ -86,6 +97,8 @@ public class PushChild : MonoBehaviour
             ResetHUDRender();
             if (HitObject != null)
                 HitObject();
+
+            commentSent = false;
         }
 
 

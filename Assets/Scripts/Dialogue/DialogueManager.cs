@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class DialogueManager : Singleton<DialogueManager>
 {
@@ -134,43 +135,65 @@ public class DialogueManager : Singleton<DialogueManager>
         inDialogue = false;
     }
 
-    public void StartChildComment(ChildComments comments, TextMeshProUGUI commentText)
+    public void StartChildComment(ChildComments comments, TextMeshProUGUI commentText, string childType)
     {
         int commentIndex = Random.Range(0, comments.commentPool.Length);
         commentText.text = comments.commentPool[commentIndex];
 
-        StartCoroutine(TypeComment(commentText));
+        switch(childType)
+        {
+            case ("pushChild"):
+                PushChildEffect(commentText);
+                break;
 
-        //animate text?
+            case ("throwChild"):
+                StartCoroutine(ThrowChildEffect(commentText));
+                break;
+        }
+
         //randomize how often comments appear
     }
 
-    IEnumerator TypeComment(TextMeshProUGUI commentText)
+    IEnumerator ThrowChildEffect(TextMeshProUGUI commentText)
     {
-        commentText.ForceMeshUpdate(); //is this performant??
-        int totalVisibleCharacters = commentText.textInfo.characterCount;
-        int counter = 0;
+        DOTweenTMPAnimator animator = new DOTweenTMPAnimator(commentText);
+        Sequence sequence = DOTween.Sequence();
 
-        bool loopFinished = false;
-
-        while (!loopFinished)
+        for (int i = 0; i < animator.textInfo.characterCount; i++)
         {
-            int visibleCount = counter % (totalVisibleCharacters + 1);
-
-            commentText.maxVisibleCharacters = visibleCount;
-
-            if (visibleCount >= totalVisibleCharacters)
+            if (!animator.textInfo.characterInfo[i].isVisible)
             {
-                loopFinished = true;
+                continue;
             }
 
-            counter += 1;
-            yield return new WaitForSeconds(0.03f);
+            Vector3 curCharOffset = animator.GetCharOffset(i);
+            sequence.Join(animator.DOPunchCharOffset(i, curCharOffset + new Vector3(0, 100, 0), 1, 2, 0.5f));
+            
+            yield return new WaitForSeconds(0.05f);
         }
+    }
+
+    void PushChildEffect(TextMeshProUGUI commentText)
+    {
+        DOTweenTMPAnimator animator = new DOTweenTMPAnimator(commentText);
+        Sequence sequence = DOTween.Sequence();
+        
+        for (int i = 0; i < animator.textInfo.characterCount; i++)
+        {
+            if (!animator.textInfo.characterInfo[i].isVisible)
+            {
+                continue;
+            }
+
+            Vector3 curCharOffset = animator.GetCharOffset(i);
+            sequence.Join(animator.DOPunchCharScale(i, curCharOffset + new Vector3(1, 1, 1), 1f, 1, 1f));;
+        }
+
     }
 
     public void EndChildComment(TextMeshProUGUI commentText)
     {
+        DOTween.KillAll(true);
         commentText.text = "";
     }
 }

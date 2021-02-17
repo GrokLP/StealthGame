@@ -17,6 +17,7 @@ public class ThrowObject : MonoBehaviour
     [SerializeField] Transform throwTarget;
     [SerializeField] GameObject childSoundRadius;
     [SerializeField] GameObject objectSoundRadius;
+    [SerializeField] ChildEventComments childEventComments; //will this cause problems on maps with no child?
     [SerializeField] float firingAngle = 45.0f;
     [SerializeField] float gravity = 9.8f;
     [SerializeField] float chargeTime = 0.5f;
@@ -356,7 +357,7 @@ public class ThrowObject : MonoBehaviour
             childCube.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             hasChild = false;
             childThrown = true;
-            FindObjectOfType<ChildEventComments>().TriggerComment();
+            childEventComments.TriggerComment("throwChild");
         }
         
         else if(!hasChild)

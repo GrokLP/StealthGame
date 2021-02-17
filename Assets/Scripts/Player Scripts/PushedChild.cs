@@ -9,6 +9,7 @@ public class PushedChild : MonoBehaviour
 
     [SerializeField] ParticleSystem dust;
     public Animator animator;
+    [SerializeField] ChildEventComments childEventComments;
 
     public Transform forward;
     public Transform back;
@@ -73,6 +74,8 @@ public class PushedChild : MonoBehaviour
     }
     void PushedAway()
     {
+        childEventComments.EndComment();
+
         if (isGrounded)
         {
             transform.position += pushDirection * 10 * Time.deltaTime;
