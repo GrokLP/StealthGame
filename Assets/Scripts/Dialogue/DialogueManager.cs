@@ -63,6 +63,29 @@ public class DialogueManager : Singleton<DialogueManager>
         DisplayNextSentence(nameText, dialogueText);
     }
 
+    public void StartChildDialogue(ChildDialogue childDialogue, TextMeshProUGUI nameText, TextMeshProUGUI dialogueText)
+    {
+        if (OnEnterDialogue != null)
+            OnEnterDialogue();
+
+        betterJump.IsActive = false;
+        throwObject.IsActive = false;
+        pushObject.IsActive = false;
+
+        inDialogue = true;
+
+        nameText.text = childDialogue.name;
+
+        sentences.Clear();
+
+        foreach (string sentence in childDialogue.sentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+
+        DisplayNextSentence(nameText, dialogueText);
+    }
+
     public void DisplayNextSentence(TextMeshProUGUI nameText, TextMeshProUGUI dialogueText)
     {
         if(sentences.Count == 0)
@@ -137,21 +160,24 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void StartChildComment(ChildComments comments, TextMeshProUGUI commentText, string childType)
     {
-        int commentIndex = Random.Range(0, comments.commentPool.Length);
-        commentText.text = comments.commentPool[commentIndex];
+        int randomRoll = Random.Range(0, 11);
 
-        switch(childType)
+        if (randomRoll >= 6)
         {
-            case ("pushChild"):
-                PushChildEffect(commentText);
-                break;
+            int commentIndex = Random.Range(0, comments.commentPool.Length);
+            commentText.text = comments.commentPool[commentIndex];
 
-            case ("throwChild"):
-                StartCoroutine(ThrowChildEffect(commentText));
-                break;
+            switch (childType)
+            {
+                case ("pushChild"):
+                    PushChildEffect(commentText);
+                    break;
+
+                case ("throwChild"):
+                    StartCoroutine(ThrowChildEffect(commentText));
+                    break;
+            }
         }
-
-        //randomize how often comments appear
     }
 
     IEnumerator ThrowChildEffect(TextMeshProUGUI commentText)

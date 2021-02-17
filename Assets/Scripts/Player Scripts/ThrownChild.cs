@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ThrownChild : MonoBehaviour
 {
@@ -14,17 +15,24 @@ public class ThrownChild : MonoBehaviour
     Quaternion startingRotation;
     Vector3 startingPosition;
 
+    bool pickedUp;
+
     private void Start()
     {
         ThrowObject.ChildLanded += PlayAnimation;
 
         startingRotation = transform.rotation;
         startingPosition = transform.position;
+
+        JumpAnimation();
     }
+
+
 
     void AnimationComplete()
     {
         childSoundRadius.SetBool("HasLanded", false);
+        JumpAnimation();
     }
 
     void PlayAnimation()
@@ -37,5 +45,19 @@ public class ThrownChild : MonoBehaviour
     private void OnDestroy()
     {
         ThrowObject.ChildLanded -= PlayAnimation;
+        DOTween.KillAll(true);
+    }
+
+    public void JumpAnimation()
+    {
+        if(!pickedUp)
+        {
+            transform.DOLocalJump(transform.position, 3, 200, 300, false);
+        }
+    }
+
+    public void KillTween()
+    {
+        DOTween.KillAll(true);
     }
 }

@@ -391,7 +391,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Text goes here!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 790019ee8a128524dbbcb5eae79b6a8b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1ee762e0b7a084f4e973dfd5b4d9cbf7, type: 2}
   m_sharedMaterial: {fileID: 5410317738652479106, guid: 790019ee8a128524dbbcb5eae79b6a8b,
     type: 2}
   m_fontSharedMaterials: []
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: -15.137863, z: 0, w: -71.358665}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2841447512922961400
@@ -769,9 +769,6 @@ MonoBehaviour:
   dialogueText: {fileID: 2841447512918266932}
   dialogue:
     name: Tutorial NPC
-    firstSentences: []
-    secondSentences: []
-    thirdSentences: []
     responseList: []
   thisNPC: 0
   dialogueStarted: 0

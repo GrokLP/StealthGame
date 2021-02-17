@@ -127,6 +127,9 @@ public class ThrowObject : MonoBehaviour
             Animator animator = pickUp.gameObject.GetComponent<Animator>();
             animator.SetBool("HasLanded", false);
 
+            ThrownChild thrownChild = pickUp.gameObject.GetComponent<ThrownChild>();
+            thrownChild.KillTween();
+
             Destroy(pickUp.gameObject.GetComponent<Rigidbody>());
 
             hasChild = true;
