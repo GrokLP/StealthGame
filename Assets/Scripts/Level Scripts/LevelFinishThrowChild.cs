@@ -37,22 +37,30 @@ public class LevelFinishThrowChild : MonoBehaviour
         {
             if (OnGameWin != null)
                 OnGameWin();
+
+            AudioManager.Instance.PlaySound("LevelClear");
         }
         else if (exitColorString != currentPlayerColor && other.CompareTag("Player") && throwObjectScript.hasChild)
         {
             if (OnWrongColor != null)
                 OnWrongColor();
+
+            AudioManager.Instance.PlaySound("WrongColor");
         }
         else if (exitColorString != currentPlayerColor && other.CompareTag("Player") && !throwObjectScript.hasChild)
         {
             if (OnWrongColor != null)
                 OnWrongColor();
+
+            AudioManager.Instance.PlaySound("WrongColor");
         }
 
         else if (exitColorString == currentPlayerColor && other.CompareTag("Player") && !throwObjectScript.hasChild)
         {
             if (OnWrongColor != null)
                 OnNoChild();
+
+            AudioManager.Instance.PlaySound("WrongColor");
         }
     }
 }

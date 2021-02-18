@@ -75,6 +75,7 @@ public class PushedChild : MonoBehaviour
     void PushedAway()
     {
         childEventComments.EndComment();
+        AudioManager.Instance.PlaySound("PushedAwaySlide");
 
         if (isGrounded)
         {
@@ -104,6 +105,8 @@ public class PushedChild : MonoBehaviour
             Physics.Raycast(transform.position + new Vector3(0.95f, 0, -0.95f), pushDirection, out hit, collisionDistance, collisionMask))
         {
             childPushedAway = false;
+            AudioManager.Instance.StopSound("PushedAwaySlide");
+            AudioManager.Instance.PlaySound("HardCollision");
             CameraShake.Instance.StartShake(0.2f, 0.2f);
             dust.Stop();
             animator.SetBool("IsPushed", false);

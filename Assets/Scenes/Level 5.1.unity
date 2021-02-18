@@ -645,30 +645,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1444517829}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &147317490
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!43 &208835201
 Mesh:
   m_ObjectHideFlags: 0
@@ -891,30 +867,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1514858728}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &295640364
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1 &334831610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,6 +1616,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1636661893}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &704952393
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1001 &748212551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3492,6 +3468,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5103149023816345199, guid: efce7fa726d9b5643820c602cc9f388a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054654372104048352, guid: efce7fa726d9b5643820c602cc9f388a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.21773529
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054654372104048352, guid: efce7fa726d9b5643820c602cc9f388a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.515179
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054654372104048352, guid: efce7fa726d9b5643820c602cc9f388a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.018835068
+      objectReference: {fileID: 0}
     - target: {fileID: 7539473926107996992, guid: efce7fa726d9b5643820c602cc9f388a,
         type: 3}
       propertyPath: m_Name
@@ -4700,6 +4696,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1448168435}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1499869319
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1001 &1514858728
 PrefabInstance:
   m_ObjectHideFlags: 0

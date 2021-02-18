@@ -34,6 +34,7 @@ public class FieldOfView : MonoBehaviour
     PlayerVisibility playerVisibility;
 
     bool gameWin;
+    bool detected;
 
     private void Start()
     {
@@ -82,6 +83,11 @@ public class FieldOfView : MonoBehaviour
                 if (OnGameLose != null)
                 {
                     OnGameLose("TooClose");
+                    if(!detected)
+                    {
+                        AudioManager.Instance.PlaySound("GuardAlert");
+                        detected = true;
+                    }
                 }
             }
 
@@ -277,6 +283,11 @@ public class FieldOfView : MonoBehaviour
         if (OnGameLose != null)
         {
             OnGameLose("Spotlight");
+            if (!detected)
+            {
+                AudioManager.Instance.PlaySound("GuardAlert");
+                detected = true;
+            }
             if (GetComponent<WaypointGuard>() != null)
                 GetComponent<WaypointGuard>().StopCoroutines();
             else if (GetComponent<StationaryGuard>() != null)

@@ -32,11 +32,13 @@ public class ChildDialogueScript : MonoBehaviour
     {
         if (dialogueStarted && Input.GetButtonDown("Jump") && !DialogueManager.Instance.IsTyping)
         {
+            AudioManager.Instance.StopSound("ConversationNext");
             nextTextTriangle.SetActive(false);
             DialogueManager.Instance.DisplayNextSentence(nameText, dialogueText);
         }
         else if (dialogueStarted && Input.GetButtonDown("Jump") && DialogueManager.Instance.IsTyping)
         {
+            AudioManager.Instance.StopSound("ConversationNext");
             DialogueManager.Instance.Interrupt = true;
             nextTextTriangle.SetActive(false);
         }

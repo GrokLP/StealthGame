@@ -70,7 +70,8 @@ public class StationaryGuard : MonoBehaviour
     IEnumerator ReturnToStartPos(Vector3 _startingPos, Quaternion _startingRot)
     {
         questionMark.SetActive(false);
-        
+        AudioManager.Instance.PlaySound("GuardSatisfied");
+
         yield return new WaitForSeconds(0.5f);
 
         smiley.SetActive(true);
@@ -101,6 +102,7 @@ public class StationaryGuard : MonoBehaviour
         yield return new WaitForSeconds(1f);//delay for thorwn object animation to play
 
         exclamationMark.SetActive(true);
+        AudioManager.Instance.PlaySound("GuardDistracted");
 
         yield return new WaitForSeconds(1f);
 

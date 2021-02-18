@@ -12,13 +12,15 @@ public class LevelFinishPushChild : MonoBehaviour
     [SerializeField] PushChildExitOne pushChildExitOne;
     [SerializeField] PushChildExitTwo pushChildExitTwo;
 
+    bool triggered;
+
     private void Start()
     {
         //PushChildExitOne.OnExitTriggered += CheckExits;
         //PushChildExitTwo.OnExitTriggered += CheckExits;
     }
 
-    void CheckExits() //was causing false win state on reload?
+    /*void CheckExits() //was causing false win state on reload?
     {
         if(pushChildExitOne.ExitTriggered && pushChildExitTwo.ExitTriggered)
         {
@@ -29,7 +31,7 @@ public class LevelFinishPushChild : MonoBehaviour
         {
             return;
         }
-    }
+    }*/
 
     private void Update()
     {
@@ -37,6 +39,11 @@ public class LevelFinishPushChild : MonoBehaviour
         {
             if (OnGameWin != null)
                 OnGameWin();
+            if(!triggered)
+            {
+                AudioManager.Instance.PlaySound("LevelClear");
+                triggered = true;
+            }
         }
     }
 }

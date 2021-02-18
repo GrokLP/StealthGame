@@ -56,6 +56,7 @@ public class LaserGuard : MonoBehaviour
                     if (OnGameLose != null)
                     {
                         OnGameLose("Laser");
+                        AudioManager.Instance.PlaySound("LaserBeam");
                     }
                 }
                 else if (hitInfo.collider.CompareTag("PushChildCube") && !gameWin) 
@@ -66,6 +67,7 @@ public class LaserGuard : MonoBehaviour
                     if (OnGameLose != null)
                     {
                         OnGameLose("ChildLaser");
+                        AudioManager.Instance.PlaySound("LaserBeam");
                     }
                 }
                 else if (hitInfo.collider.CompareTag("ChildCube") && !gameWin)
@@ -76,6 +78,7 @@ public class LaserGuard : MonoBehaviour
                     if (OnGameLose != null)
                     {
                         OnGameLose("ChildLaser");
+                        AudioManager.Instance.PlaySound("LaserBeam");
                     }
                 }
 
@@ -84,22 +87,24 @@ public class LaserGuard : MonoBehaviour
                     laserLine.SetPosition(1, hitInfo.point);
                     hitInfo.collider.GetComponentInParent<Animator>().SetTrigger("Dead");
                     Destroy(hitInfo.collider.transform.parent.gameObject, 0.8f);
+                    AudioManager.Instance.PlaySound("LaserBeam");
                 }
+
                 else if (hitInfo.collider.CompareTag("LaserTrigger"))
                 {
                     laserTriggerScript = hitInfo.collider.GetComponent<LaserTrigger>(); //this is prob not performant?
                     laserTriggerScript.Trigger = true;
                     laserLine.SetPosition(1, hitInfo.point);
-
                 }
+
                 else if (hitInfo.collider)
                 {
                     laserLine.SetPosition(1, hitInfo.point);
                     if (laserTriggerScript != null)
                         laserTriggerScript.Trigger = false;
                 }
-
             }
+
             else
             {
                 laserLine.SetPosition(1, transform.forward * laserRange);
@@ -123,6 +128,7 @@ public class LaserGuard : MonoBehaviour
             if (OnGameLose != null)
             {
                 OnGameLose("Laser");
+                AudioManager.Instance.PlaySound("LaserBeam");
             }
         }
     }

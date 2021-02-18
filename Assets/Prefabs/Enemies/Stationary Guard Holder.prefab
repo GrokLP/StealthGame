@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDissolve: {fileID: 7518667983643136018}
-  hearingRadius: 20.5
+  hearingRadius: 18
   childHearingRadius: 13
   patrolResetLimit: 10
   stationaryGuard: {fileID: 5821018023602373334}
@@ -1202,7 +1202,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!1 &7491956473431245764
 GameObject:
   m_ObjectHideFlags: 0

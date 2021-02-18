@@ -45,7 +45,6 @@ public class MainMenu : MonoBehaviour
 
         if(previousState != GameManager.GameState.PREGAME && currentState == GameManager.GameState.PREGAME)
         {
-            Camera.main.GetComponent<AudioListener>().enabled=false; //this fixes breif second of overlap, but might disrupt audio? Will need to test
             FadeIn();
         }
     }
@@ -68,21 +67,25 @@ public class MainMenu : MonoBehaviour
 
     void HandleStartNewGameButton()
     {
+        AudioManager.Instance.PlaySound("ButtonClick");
         GameManager.Instance.StartGame();
     }
 
     void HandleLoadGameButton()
     {
+        AudioManager.Instance.PlaySound("ButtonClick");
         //add functionality
     }
 
     void HandleSettingsButton()
     {
+        AudioManager.Instance.PlaySound("ButtonClick");
         //add functionality
     }
 
     void HandleQuitButton()
     {
+        AudioManager.Instance.PlaySound("ButtonClick");
         GameManager.Instance.QuitGame();
     }
 }

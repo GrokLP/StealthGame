@@ -34,17 +34,20 @@ public class NPCDialogueTrigger : MonoBehaviour
     {
         if(thisNPC && !DialogueManager.Instance.InDialogue && Input.GetButtonDown("Jump"))
         {
+            AudioManager.Instance.StopSound("ConversationNext");
             TriggerDialogue();
             dialogueStarted = true;
             playerController.interactButtonIcon.SetActive(false);
         }
         else if(thisNPC | dialogueStarted && Input.GetButtonDown("Jump") && !DialogueManager.Instance.IsTyping)
         {
+            AudioManager.Instance.StopSound("ConversationNext");
             nextTextTriangle.SetActive(false);
             DialogueManager.Instance.DisplayNextSentence(nameText, dialogueText);
         }
         else if(thisNPC | dialogueStarted && Input.GetButtonDown("Jump") && DialogueManager.Instance.IsTyping)
         {
+            AudioManager.Instance.StopSound("ConversationNext");
             DialogueManager.Instance.Interrupt = true;
             nextTextTriangle.SetActive(false);
         }

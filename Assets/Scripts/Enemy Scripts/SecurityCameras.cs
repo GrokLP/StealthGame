@@ -26,6 +26,7 @@ public class SecurityCameras : MonoBehaviour
     ChangeColor.PlayerColor currentPlayerColor;
 
     bool gameWin;
+    bool detected;
 
     void Start()
     {
@@ -115,6 +116,11 @@ public class SecurityCameras : MonoBehaviour
             if (OnGameLose != null)
             {
                 OnGameLose("Camera");
+                if (!detected)
+                {
+                    AudioManager.Instance.PlaySound("GuardAlert");
+                    detected = true;
+                }
                 StopAllCoroutines();
             }
     }

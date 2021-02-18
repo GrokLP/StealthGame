@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3544002445526246971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3544002445526246975}
+  - component: {fileID: 3544002445526246970}
+  - component: {fileID: 6058403753818454703}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3544002445526246975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3544002445526246971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3544002445526246970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3544002445526246971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92104e7b5033d7e4e920f679d4ac3fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: ada550917f651fd4f98bcd4f787c6dfa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GuardDistracted
+    clip: {fileID: 8300000, guid: 875d1fabe10852d42b6a73a2c2ffc1c5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GuardSatisfied
+    clip: {fileID: 8300000, guid: cfebbbf3e160af34daab5274b0cd536a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HardCollision
+    clip: {fileID: 8300000, guid: 885c8aea9c4670a4e8c5eac446990a92, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SoftCollision
+    clip: {fileID: 8300000, guid: 141a5792af85b154dba84a27991a8cec, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerJumpLanding
+    clip: {fileID: 8300000, guid: 37b1e748b03344140b223ce2166f113b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PushingBlock
+    clip: {fileID: 8300000, guid: c7e26607fd4403d45b8cf7e7bb63e702, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: ThrowRelease
+    clip: {fileID: 8300000, guid: d93d6cfee4957b643957e1e47fb16d4c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GuardAlert
+    clip: {fileID: 8300000, guid: 0cdf4ca02ed46ba41aa36a42a91e53fe, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  music:
+  - name: Theme_StasisChamber
+    clip: {fileID: 8300000, guid: f5148da5f45754c42a8040f980b21d8d, type: 3}
+    volume: 0.75
+    loop: 1
+    source: {fileID: 0}
+  - name: Theme_WaitingInBetween
+    clip: {fileID: 8300000, guid: 8c3cc524f7e1cdb40b8f5e3a9681feb3, type: 3}
+    volume: 0.75
+    loop: 1
+    source: {fileID: 0}
+  musicList:
+  - Theme_WaitingInBetween
+  - Theme_StasisChamber
+--- !u!81 &6058403753818454703
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3544002445526246971}
+  m_Enabled: 1

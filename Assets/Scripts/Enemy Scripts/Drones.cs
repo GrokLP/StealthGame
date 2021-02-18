@@ -28,6 +28,7 @@ public class Drones : MonoBehaviour
     PlayerVisibility playerVisibility;
 
     bool gameWin;
+    bool detected;
 
     [SerializeField] float speed = 5;
     [SerializeField] float waitTime = 0.3f;
@@ -133,6 +134,11 @@ public class Drones : MonoBehaviour
             if (OnGameLose != null)
             {
                 OnGameLose("Spotlight");
+                if (!detected)
+                {
+                    AudioManager.Instance.PlaySound("GuardAlert");
+                    detected = true;
+                }
                 StopAllCoroutines();
             }
     }
@@ -143,6 +149,11 @@ public class Drones : MonoBehaviour
             if (OnGameLose != null)
             {
                 OnGameLose("TooClose");
+                if (!detected)
+                {
+                    AudioManager.Instance.PlaySound("GuardAlert");
+                    detected = true;
+                }
             }
         }
     }
@@ -175,6 +186,7 @@ public class Drones : MonoBehaviour
     IEnumerator GuardPatrol(Vector3[] waypoints)
     {
         //transform.position = waypoints[0];
+        AudioManager.Instance.PlaySound("DroneHum");
 
         int targetWaypointsIndex = 0;
         Vector3 targetWaypoint = waypoints[targetWaypointsIndex];

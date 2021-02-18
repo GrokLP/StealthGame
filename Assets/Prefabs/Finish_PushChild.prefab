@@ -111,7 +111,7 @@ MonoBehaviour:
   pluginVersion: 1890
   _TrackChangesDuringPlaytime: 0
   _SortingLayerID: 0
-  _SortingOrder: 0
+  _SortingOrder: 1
   _FadeOutBegin: -150
   _FadeOutEnd: -200
 --- !u!1 &4023060634699999006
@@ -272,7 +272,7 @@ MonoBehaviour:
   pluginVersion: 1890
   _TrackChangesDuringPlaytime: 0
   _SortingLayerID: 0
-  _SortingOrder: 0
+  _SortingOrder: 1
   _FadeOutBegin: -150
   _FadeOutEnd: -200
 --- !u!1 &4023060636127302459

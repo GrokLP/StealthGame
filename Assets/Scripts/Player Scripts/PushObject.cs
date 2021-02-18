@@ -70,6 +70,7 @@ public class PushObject : MonoBehaviour
         else if (Input.GetButtonUp("Push"))
         {
             EndPush();
+            AudioManager.Instance.StopSound("PushingBlock");
         }
     }
 
@@ -106,6 +107,7 @@ public class PushObject : MonoBehaviour
                 {
                     pushableMoveSpeed = (baseMoveSpeed / pushableSize) + 0.5f;
                     hasPushable = true;
+                    AudioManager.Instance.PlaySound("PushingBlock");
                 }
             }
         }

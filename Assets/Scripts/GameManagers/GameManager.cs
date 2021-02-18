@@ -17,10 +17,16 @@ public class GameManager : Singleton<GameManager>
     public Events.EventGameState OnGameStateChanged;
     public Events.EventGameStateLose OnGameStateChangedLose;
 
+    public static event System.Action OnLoadComplete;
+
     List<GameObject> _instancedSystemPrefabs;
     List<AsyncOperation> _loadOperations;
     
     private int _currentLevelIndex;
+    public int CurrentLevelIndex
+    {
+        get { return _currentLevelIndex; }
+    }
 
     private string gameOverSource;
 
@@ -174,9 +180,10 @@ public class GameManager : Singleton<GameManager>
             {
                 UpdateState(GameState.RUNNING);
             }          
-        }    
+        }
 
-        //load complete
+        if(OnLoadComplete != null)
+            OnLoadComplete();
     }
 
     void OnUnloadOperationComplete(AsyncOperation ao)
@@ -318,6 +325,7 @@ public class GameManager : Singleton<GameManager>
     void HandleOnGameLose(string source)
     {
         gameOverSource = source;//need to pass this to UI manager
+        AudioManager.Instance.StopSound("Typing"); //prevents dialogue audio from continuing if level restarts -- maybe a better solution
         UpdateState(GameState.GAMELOSE);
     }
 

@@ -63,24 +63,32 @@ public class PushChildExitTwo : MonoBehaviour
         {
             if (OnWrongColor != null)
                 OnWrongColor();
+
+            AudioManager.Instance.PlaySound("WrongColor");
         }
 
         else if(other.CompareTag("Player") && childOccupied)
         {
             if (OnAlreadyOccupied != null)
                 OnAlreadyOccupied();
+
+            AudioManager.Instance.PlaySound("WrongColor");
         }
 
         else if (exitColorString != currentPlayerColor && other.CompareTag("Player") && pushChildExitOne.ChildOccupied)
         {
             if (OnWrongColor != null)
                 OnWrongColor();
+
+            AudioManager.Instance.PlaySound("WrongColor");
         }
 
         else if (exitColorString != currentPlayerColor && other.CompareTag("Player") && !pushChildExitOne.ChildOccupied)
         {
             if (OnWrongColor != null)
                 OnWrongColor();
+
+            AudioManager.Instance.PlaySound("WrongColor");
         }
 
         else if (exitColorString == currentPlayerColor && other.CompareTag("Player") && !pushChildExitOne.ChildOccupied)
@@ -89,6 +97,8 @@ public class PushChildExitTwo : MonoBehaviour
 
             if (OnNoChild != null)
                 OnNoChild();
+
+            AudioManager.Instance.PlaySound("WrongColor");
         }
 
         else if(exitColorString == currentPlayerColor && other.CompareTag("Player") && pushChildExitOne.ChildOccupied)

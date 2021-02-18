@@ -84,6 +84,7 @@ public class BetterJump : MonoBehaviour
             coyoteCounter = 0;
             JumpDust();
             playerAnimator.SetTrigger("Jump");
+            AudioManager.Instance.PlaySound("PlayerJump");
         }
 
         Ray ray = new Ray(transform.position, Vector3.down);
@@ -137,6 +138,7 @@ public class BetterJump : MonoBehaviour
             radial.radial = jumpTime * 10;
             LandDust();
             hasJumped = false;
+            AudioManager.Instance.PlaySound("PlayerJumpLanding");
 
         }
 

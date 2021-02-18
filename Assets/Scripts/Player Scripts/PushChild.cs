@@ -134,6 +134,7 @@ public class PushChild : MonoBehaviour
     {
         startedGrab = false;
         transform.position += pushDirection * 10 * Time.deltaTime;
+        AudioManager.Instance.PlaySound("PushedAwaySlide");
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position + new Vector3(0.5f, 0, -0.5f), pushDirection, out hit, collisionDistance, collisionMask) |
@@ -146,6 +147,8 @@ public class PushChild : MonoBehaviour
             if (HitObject != null)
                 HitObject();
 
+            AudioManager.Instance.StopSound("PushedAwaySlide");
+            AudioManager.Instance.PlaySound("SoftCollision");
             CameraShake.Instance.StartShake(0.1f, 0.1f);
             dust.Stop();
         }

@@ -10,6 +10,8 @@ public class BackGroundColor : MonoBehaviour
     [SerializeField] [ColorUsage(true, true)] Color red;
     [SerializeField] [ColorUsage(true, true)] Color blue;
 
+    [SerializeField] GameObject distortionPlane;
+
     private void Start()
     {
         ChangeColor.Instance.OnPlayerColorChange.AddListener(HandleColorChange);
@@ -37,5 +39,17 @@ public class BackGroundColor : MonoBehaviour
             default:
                 break;
         }
+
+        if(currentColor != previousColor)
+            StartCoroutine(Distortion());
+    }
+
+    IEnumerator Distortion()
+    {
+        distortionPlane.SetActive(true);
+
+        yield return new WaitForSeconds(0.15f);
+
+        distortionPlane.SetActive(false);
     }
 }

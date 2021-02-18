@@ -102,6 +102,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     IEnumerator TypeSentence(string sentence, TextMeshProUGUI dialogueText)
     {
+        AudioManager.Instance.PlaySound("Typing");
         dialogueText.ForceMeshUpdate(); //is this performant??
         int totalVisibleCharacters = dialogueText.textInfo.characterCount;
         int counter = 0;
@@ -119,6 +120,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
             if (visibleCount >= totalVisibleCharacters)
             {
+                AudioManager.Instance.StopSound("Typing");
                 loopFinished = true;
                 isTyping = false;
                 if (DisplayNextTextTriangle != null)
@@ -126,6 +128,7 @@ public class DialogueManager : Singleton<DialogueManager>
             }
             else if (interrupt)
             {
+                AudioManager.Instance.StopSound("Typing");
                 dialogueText.maxVisibleCharacters = totalVisibleCharacters;
                 isTyping = false;
                 if (DisplayNextTextTriangle != null)

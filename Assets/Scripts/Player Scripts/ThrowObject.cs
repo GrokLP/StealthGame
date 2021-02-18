@@ -220,6 +220,8 @@ public class ThrowObject : MonoBehaviour
             throwTargetIsSet = false;
             mousePressed = false;
 
+            AudioManager.Instance.PlaySound("ThrowRelease");
+
             if (FinishedThrowing != null)
                 FinishedThrowing(); //enable player movement when finished throwing
         }
@@ -294,6 +296,8 @@ public class ThrowObject : MonoBehaviour
             throwTargetIsSet = false;
             targetSphereCollider.enabled = false;
             triggerPressed = false;
+
+            AudioManager.Instance.PlaySound("ThrowRelease");
 
             if (FinishedThrowing != null)
                 FinishedThrowing(); //enable player movement when finished throwing

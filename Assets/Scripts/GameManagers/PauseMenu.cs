@@ -24,32 +24,38 @@ public class PauseMenu : MonoBehaviour
 
     void HandleResumeClick()
     {
+        AudioManager.Instance.PlaySound("ButtonClick");
         GameManager.Instance.TogglePause();
     }
 
     void HandleRestartClick()
     {
+        AudioManager.Instance.PlaySound("ButtonClick");
         GameManager.Instance.RestartLevel();
     }
 
     void HandleNextLevelClick()
     {
+        AudioManager.Instance.PlaySound("ButtonClick");
         GameManager.Instance.LoadNextLevel();
     }
 
     void HandlePreviousLevelClick()
     {
+        AudioManager.Instance.PlaySound("ButtonClick");
         GameManager.Instance.LoadPreviousLevel();
     }
 
     
     void HandleMainMenuClick()
     {
+        AudioManager.Instance.PlaySound("ButtonClick");
         GameManager.Instance.RestartGame();
     }
 
     void HandleQuitClick()
     {
+        AudioManager.Instance.PlaySound("ButtonClick");
         GameManager.Instance.QuitGame();
     }
 }

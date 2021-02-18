@@ -31,11 +31,15 @@ public class LevelFinish : MonoBehaviour
         {
             if (OnGameWin != null)
                 OnGameWin();
+
+            AudioManager.Instance.PlaySound("LevelClear");
         }
         else if (exitColorString != currentPlayerColor && other.CompareTag("Player"))
         {
             if (OnWrongColor != null)
                 OnWrongColor();
+
+            AudioManager.Instance.PlaySound("WrongColor");
         }
     }
 }
