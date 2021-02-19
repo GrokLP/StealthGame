@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject mainFirstSelected;
+
     [SerializeField] Animation _mainMenuAnimator;
-    [SerializeField] AnimationClip _fadeOutAnimation; //rename these if i change animation
-    [SerializeField] AnimationClip _fadeInAnimation;
+    [SerializeField] AnimationClip _fadeToBlackAnimation; //rename these if i change animation
+    [SerializeField] AnimationClip _fadeFromBlackAnimation;
 
     [SerializeField] Button StartNewGameButton;
     [SerializeField] Button LoadGameButton;
@@ -25,43 +29,48 @@ public class MainMenu : MonoBehaviour
         
         GameManager.Instance.OnGameStateChanged.AddListener(HandleGameStateChanged);
     }
-    public void OnFadeOutComplete()
+    public void OnFadeOutComplete() //fadetoblack
     {
         OnMainMenuFadeComplete.Invoke(true);
     }
 
-    public void OnFadeInComplete()
+    public void OnFadeInComplete() //fadefromblack
     {
         OnMainMenuFadeComplete.Invoke(false);
-        UIManager.Instance.SetDummyCameraActive(true);
+        //UIManager.Instance.SetDummyCameraActive(true);
     }
 
     void HandleGameStateChanged(GameManager.GameState currentState, GameManager.GameState previousState)
     {
         if(previousState == GameManager.GameState.PREGAME && currentState == GameManager.GameState.RUNNING)
         {
-            FadeOut();
+            //FadeOut();
+            mainMenu.SetActive(false);
         }
 
         if(previousState != GameManager.GameState.PREGAME && currentState == GameManager.GameState.PREGAME)
         {
-            FadeIn();
+            //FadeIn();
+            GameManager.Instance.UnloadLevel(GameManager.Instance.CurrentLevelIndex);
+            mainMenu.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(mainFirstSelected);
         }
     }
 
     public void FadeOut()
     {
-        UIManager.Instance.SetDummyCameraActive(false);
+        //UIManager.Instance.SetDummyCameraActive(false);
         
         _mainMenuAnimator.Stop();
-        _mainMenuAnimator.clip = _fadeOutAnimation;
+        _mainMenuAnimator.clip = _fadeToBlackAnimation;
         _mainMenuAnimator.Play();
     }
 
     public void FadeIn()
     {
         _mainMenuAnimator.Stop();
-        _mainMenuAnimator.clip = _fadeInAnimation;
+        _mainMenuAnimator.clip = _fadeFromBlackAnimation;
         _mainMenuAnimator.Play();
     }
 

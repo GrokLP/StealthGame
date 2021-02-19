@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -16,6 +17,9 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] GameObject _nextLevelMessage;
     [SerializeField] GameObject _finishLevelMessage;
 
+    [SerializeField] GameObject pauseFirstSelected;
+    [SerializeField] GameObject mainFirstSelected;
+
     [SerializeField] Camera _dummyCamera;
 
     public Events.EventFadeComplete OnMainMenuFadeComplete;
@@ -27,6 +31,9 @@ public class UIManager : Singleton<UIManager>
         _mainMenu.OnMainMenuFadeComplete.AddListener(HandleMainMenuFadeComplete);
         GameManager.Instance.OnGameStateChanged.AddListener(HandleGameStateChanged);
         GameManager.Instance.OnGameStateChangedLose.AddListener(HandleGameStateChangedLose);
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(mainFirstSelected);
     }
 
     private void Update()
@@ -66,6 +73,17 @@ public class UIManager : Singleton<UIManager>
         if (currentState == GameManager.GameState.RUNNING)
         {
             GetUIPositions();
+        }
+        else if(currentState == GameManager.GameState.PAUSED)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(pauseFirstSelected);
+        }
+        else if(currentState == GameManager.GameState.PREGAME)
+        {
+            //while cleaner, doesn't currently work because this runs before menu is active -- running through main menu script for now*
+            //EventSystem.current.SetSelectedGameObject(null);
+            //EventSystem.current.SetSelectedGameObject(mainFirstSelected);
         }
     }
 

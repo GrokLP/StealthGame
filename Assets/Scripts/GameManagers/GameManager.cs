@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager>
     }
     
     public GameObject[] SystemPrefabs; //add system prefabs in inspector
+    [SerializeField] GameObject menuBackground;
     public Events.EventGameState OnGameStateChanged;
     public Events.EventGameStateLose OnGameStateChangedLose;
 
@@ -65,6 +66,8 @@ public class GameManager : Singleton<GameManager>
         _loadOperations = new List<AsyncOperation>();
 
         InstantiateSystemPrefabs();
+
+        PostProcessingManager.Instance.UpdatePostProcessingColor(ChangeColor.PlayerColor.WHITE, ChangeColor.PlayerColor.WHITE);
 
         UIManager.Instance.OnMainMenuFadeComplete.AddListener(HandleMainMenuFadeComplete);
 
@@ -204,12 +207,14 @@ public class GameManager : Singleton<GameManager>
             case GameState.PREGAME:
                 Time.timeScale = 1;
                 displayMessage = false;
+                menuBackground.SetActive(true);
                 break;
 
             case GameState.RUNNING:
                 Time.timeScale = 1;
                 ChangeColor.Instance.OnPlayerColorChange.AddListener(OnColorChange); //add listening on game run because there is no player to get color from in main menu
                 displayMessage = false;
+                menuBackground.SetActive(false);
                 break;
 
             case GameState.PAUSED:
@@ -228,10 +233,14 @@ public class GameManager : Singleton<GameManager>
                 break;
         }
 
+
+
         OnGameStateChanged.Invoke(_currentGameState, previousGameState);
 
         if (_currentGameState == GameState.GAMELOSE)
             OnGameStateChangedLose.Invoke(gameOverSource);
+
+        AudioManager.Instance.VolumeControl();
     }
     
     // Listens for for menu fade-in to be complete (through UIManager)
@@ -288,7 +297,6 @@ public class GameManager : Singleton<GameManager>
             UpdateState(GameState.RUNNING);//platforms
             LoadLevel(1);
         }
-           
     }
 
     public void LoadPreviousLevel()
@@ -305,7 +313,6 @@ public class GameManager : Singleton<GameManager>
             UpdateState(GameState.RUNNING);//platforms
             LoadLevel(1);
         }
-
     }
 
     // base OnDestroy from singleton class ensures no duplicates

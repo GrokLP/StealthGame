@@ -430,6 +430,7 @@ public class ThrowObject : MonoBehaviour
 
         if (childThrown)
         {
+            AudioManager.Instance.PlaySound("ImpactEcho");
             ChildLanded();
             childThrown = false;
             var rb = projectile.gameObject.AddComponent<Rigidbody>(); ///add rigidbody on landing
@@ -437,6 +438,7 @@ public class ThrowObject : MonoBehaviour
 
         else if (!childThrown)
         {
+            AudioManager.Instance.PlaySound("ImpactEcho");
             ObjectLanded();
         }
     }

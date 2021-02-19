@@ -11,13 +11,14 @@ public class AudioManager : Singleton<AudioManager>
     public string[] musicList; //list of song names, where index is the associated level
 
     string currentMusic;
+    float startingVolume;
 
     protected override void Awake()
     {
         base.Awake();
 
         DontDestroyOnLoad(gameObject);
-        GameManager.OnLoadComplete += CheckCurrentMusic;
+        GameManager.OnLoadComplete += CheckCurrentMusic;;
 
         foreach (Music m in music)
         {
@@ -97,6 +98,7 @@ public class AudioManager : Singleton<AudioManager>
         }
 
         currentMusic = m.name;
+        startingVolume = m.volume;
 
         m.source.Play();
     }
@@ -114,5 +116,29 @@ public class AudioManager : Singleton<AudioManager>
         m.source.Stop();
     }
 
-    //could have track associated with each level, have play music check what is playing on load, and only change track if* it's not the right one?
+    public void VolumeControl()
+    {
+        Music m = Array.Find(music, musicTrack => musicTrack.name == currentMusic);
+
+        if (m == null)
+        {
+            Debug.LogWarning("Music: " + name + "not found!");
+            return;
+        }
+
+        if(GameManager.Instance.CurrentGameState == GameManager.GameState.PAUSED)
+        {
+            m.source.volume = m.source.volume * 0.4f;
+        }
+
+        else if(GameManager.Instance.CurrentGameState == GameManager.GameState.RUNNING)
+        {
+            m.source.volume = startingVolume;
+        }
+
+        else if (GameManager.Instance.CurrentGameState == GameManager.GameState.PREGAME)
+        {
+            m.source.volume = startingVolume;
+        }
+    }
 }

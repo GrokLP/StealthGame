@@ -23,6 +23,7 @@ public class LaserGuard : MonoBehaviour
     Transform player;
 
     bool gameWin;
+    bool laserKill;
 
     private void Start()
     {
@@ -56,7 +57,12 @@ public class LaserGuard : MonoBehaviour
                     if (OnGameLose != null)
                     {
                         OnGameLose("Laser");
-                        AudioManager.Instance.PlaySound("LaserBeam");
+                        if(!laserKill)
+                        {
+                            AudioManager.Instance.PlaySound("LaserBeam");
+                            laserKill = true;
+                        }
+
                     }
                 }
                 else if (hitInfo.collider.CompareTag("PushChildCube") && !gameWin) 
@@ -67,7 +73,11 @@ public class LaserGuard : MonoBehaviour
                     if (OnGameLose != null)
                     {
                         OnGameLose("ChildLaser");
-                        AudioManager.Instance.PlaySound("LaserBeam");
+                        if (!laserKill)
+                        {
+                            AudioManager.Instance.PlaySound("LaserBeam");
+                            laserKill = true;
+                        }
                     }
                 }
                 else if (hitInfo.collider.CompareTag("ChildCube") && !gameWin)
@@ -78,7 +88,11 @@ public class LaserGuard : MonoBehaviour
                     if (OnGameLose != null)
                     {
                         OnGameLose("ChildLaser");
-                        AudioManager.Instance.PlaySound("LaserBeam");
+                        if (!laserKill)
+                        {
+                            AudioManager.Instance.PlaySound("LaserBeam");
+                            laserKill = true;
+                        }
                     }
                 }
 
@@ -87,7 +101,11 @@ public class LaserGuard : MonoBehaviour
                     laserLine.SetPosition(1, hitInfo.point);
                     hitInfo.collider.GetComponentInParent<Animator>().SetTrigger("Dead");
                     Destroy(hitInfo.collider.transform.parent.gameObject, 0.8f);
-                    AudioManager.Instance.PlaySound("LaserBeam");
+                    if (!laserKill)
+                    {
+                        AudioManager.Instance.PlaySound("LaserBeam");
+                        laserKill = true;
+                    }
                 }
 
                 else if (hitInfo.collider.CompareTag("LaserTrigger"))
@@ -128,7 +146,11 @@ public class LaserGuard : MonoBehaviour
             if (OnGameLose != null)
             {
                 OnGameLose("Laser");
-                AudioManager.Instance.PlaySound("LaserBeam");
+                if (!laserKill)
+                {
+                    AudioManager.Instance.PlaySound("LaserBeam");
+                    laserKill = true;
+                }
             }
         }
     }

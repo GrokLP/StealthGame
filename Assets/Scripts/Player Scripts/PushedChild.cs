@@ -5,7 +5,6 @@ using UnityEngine;
 public class PushedChild : MonoBehaviour
 {
     //disolve on laser
-    //child dialogue
 
     [SerializeField] ParticleSystem dust;
     public Animator animator;
@@ -26,6 +25,7 @@ public class PushedChild : MonoBehaviour
     BoxCollider pushableCollider;
     float edgeBuffer = 0.1f;
     bool isGrounded;
+    bool startedPush;
 
     float fallSpeed;
     float fallDelay;
@@ -75,7 +75,13 @@ public class PushedChild : MonoBehaviour
     void PushedAway()
     {
         childEventComments.EndComment();
-        AudioManager.Instance.PlaySound("PushedAwaySlide");
+        
+        if(!startedPush)
+        {
+            AudioManager.Instance.PlaySound("PushedAwaySlideChild");
+            startedPush = true;
+        }
+
 
         if (isGrounded)
         {
@@ -105,11 +111,12 @@ public class PushedChild : MonoBehaviour
             Physics.Raycast(transform.position + new Vector3(0.95f, 0, -0.95f), pushDirection, out hit, collisionDistance, collisionMask))
         {
             childPushedAway = false;
-            AudioManager.Instance.StopSound("PushedAwaySlide");
+            AudioManager.Instance.StopSound("PushedAwaySlideChild");
             AudioManager.Instance.PlaySound("HardCollision");
             CameraShake.Instance.StartShake(0.2f, 0.2f);
             dust.Stop();
             animator.SetBool("IsPushed", false);
+            startedPush = false;
         }
     }
 

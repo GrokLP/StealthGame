@@ -14,7 +14,8 @@ public class BackGroundColor : MonoBehaviour
 
     private void Start()
     {
-        ChangeColor.Instance.OnPlayerColorChange.AddListener(HandleColorChange);
+        if(GameManager.Instance.CurrentGameState != GameManager.GameState.PREGAME)
+            ChangeColor.Instance.OnPlayerColorChange.AddListener(HandleColorChange);
     }
 
     void HandleColorChange(ChangeColor.PlayerColor currentColor, ChangeColor.PlayerColor previousColor)
@@ -40,8 +41,12 @@ public class BackGroundColor : MonoBehaviour
                 break;
         }
 
-        if(currentColor != previousColor)
+        if (currentColor != previousColor)
+        {
+            AudioManager.Instance.PlaySound("ColorChangeWoosh");
             StartCoroutine(Distortion());
+        }
+
     }
 
     IEnumerator Distortion()

@@ -9,7 +9,7 @@ public class LevelOneFourDialogueTriggerTwo : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (GameManager.Instance.LevelAttempts >= 2 && !triggered)
+        if (other.CompareTag("Player") && GameManager.Instance.LevelAttempts >= 2 && !triggered)
         {
             npcDialogueTrigger.thisNPC = true;
             npcDialogueTrigger.TriggerDialogue();

@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     bool disabled;
     bool isMoving;
+    bool timerStarted;
 
     ChangeColor changeColorScript;
     public bool IsMoving
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
     }
 
     float timer;
+    bool startedMovement;
 
     void Start()
     {
@@ -85,6 +87,7 @@ public class PlayerController : MonoBehaviour
         {
             disabled = false;
             timer = 0;
+            timerStarted = false;
             playerAnimator.SetBool("SelfDestruct", false);
         }
     }
@@ -96,6 +99,12 @@ public class PlayerController : MonoBehaviour
 
     void MovementInput()
     {
+        if(!startedMovement)
+        {
+            //AudioManager.Instance.PlaySound("PlayerMovement");
+            startedMovement = true;
+        }
+        
         rotatedDirection = Vector3.zero; //disable player movement on Gameover
         if(!disabled) 
         {
@@ -115,6 +124,8 @@ public class PlayerController : MonoBehaviour
         {
             isMoving = false;
             playerAnimator.SetBool("IsMoving", false);
+            //AudioManager.Instance.StopSound("PlayerMovement");
+            startedMovement = true;
         }
 
         else
@@ -141,12 +152,20 @@ public class PlayerController : MonoBehaviour
 
     void SelfDestruct()
     {
+        if(!timerStarted)
+        {
+            //AudioManager.Instance.PlaySound("SelfDestructTimer");
+            timerStarted = true;
+        }
+        
         disabled = true;
         timer += Time.deltaTime;
         playerAnimator.SetBool("SelfDestruct", true);
 
         if (timer >= 1.45f)
         {
+            //AudioManager.Instance.StopSound("SelfDestructTimer");
+            AudioManager.Instance.PlaySound("SelfDestructPop");
             selfDestruct.Play();
             OnGameLose("SelfDestruct");
         }

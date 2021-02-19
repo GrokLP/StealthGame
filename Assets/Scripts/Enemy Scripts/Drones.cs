@@ -204,5 +204,9 @@ public class Drones : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        AudioManager.Instance.StopSound("DroneHum"); //causes error right now when you exit game in drone level, maybe need an unloaded event that runs this instead?
+    }
 
 }

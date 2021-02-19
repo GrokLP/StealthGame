@@ -34,20 +34,20 @@ public class NPCDialogueTrigger : MonoBehaviour
     {
         if(thisNPC && !DialogueManager.Instance.InDialogue && Input.GetButtonDown("Jump"))
         {
-            AudioManager.Instance.StopSound("ConversationNext");
+            AudioManager.Instance.PlaySound("ConversationNext");
             TriggerDialogue();
             dialogueStarted = true;
             playerController.interactButtonIcon.SetActive(false);
         }
         else if(thisNPC | dialogueStarted && Input.GetButtonDown("Jump") && !DialogueManager.Instance.IsTyping)
         {
-            AudioManager.Instance.StopSound("ConversationNext");
+            AudioManager.Instance.PlaySound("ConversationNext");
             nextTextTriangle.SetActive(false);
             DialogueManager.Instance.DisplayNextSentence(nameText, dialogueText);
         }
         else if(thisNPC | dialogueStarted && Input.GetButtonDown("Jump") && DialogueManager.Instance.IsTyping)
         {
-            AudioManager.Instance.StopSound("ConversationNext");
+            //AudioManager.Instance.PlaySound("ConversationNext");
             DialogueManager.Instance.Interrupt = true;
             nextTextTriangle.SetActive(false);
         }
@@ -126,5 +126,7 @@ public class NPCDialogueTrigger : MonoBehaviour
         DialogueManager.OnEnterDialogue -= EnableDialogueUI;
         DialogueManager.OnExitDialogue -= DisableDialogueUI;
         DialogueManager.DisplayNextTextTriangle -= DisplayNextTextTriangle;
+
+        AudioManager.Instance.StopSound("Typing"); //prevents bug where typing sound persists on reload in 1.4 if player reloads while inside NPC talk range
     }
 }
