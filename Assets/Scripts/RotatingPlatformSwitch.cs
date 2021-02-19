@@ -14,10 +14,12 @@ public class RotatingPlatformSwitch : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         trigger = true;
+        AudioManager.Instance.PlaySound("TriggerActivated");
     }
 
     private void OnTriggerExit(Collider other)
     {
         trigger = false;
+        AudioManager.Instance.PlaySound("TriggerDeactivated");
     }
 }

@@ -527,7 +527,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 242311684}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &296073696
+--- !u!21 &313712812
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1053,6 +1053,30 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!21 &769719566
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1 &773996467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2915,30 +2939,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1683481754}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1686147699
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!21 &1718469453
 Material:
   serializedVersion: 6
@@ -3243,15 +3243,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIPosition
       objectReference: {fileID: 0}
+    - target: {fileID: 8011144685602502895, guid: bff359193547a5e418a260f045ded540,
+        type: 3}
+      propertyPath: pressSpaceUIScale
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8011144686355535614, guid: bff359193547a5e418a260f045ded540,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8011144686355535614, guid: bff359193547a5e418a260f045ded540,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8011144686752881065, guid: bff359193547a5e418a260f045ded540,
         type: 3}

@@ -16,6 +16,7 @@ public class ThrownChild : MonoBehaviour
     Vector3 startingPosition;
 
     bool pickedUp;
+    public bool inSwitch;
 
     private void Start()
     {
@@ -32,7 +33,8 @@ public class ThrownChild : MonoBehaviour
     void AnimationComplete()
     {
         childSoundRadius.SetBool("HasLanded", false);
-        JumpAnimation();
+        if(!inSwitch)
+            JumpAnimation();
     }
 
     void PlayAnimation()

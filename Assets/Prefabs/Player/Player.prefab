@@ -868,6 +868,7 @@ MonoBehaviour:
   throwTarget: {fileID: 0}
   childSoundRadius: {fileID: 0}
   objectSoundRadius: {fileID: 0}
+  childEventComments: {fileID: 0}
   firingAngle: 50
   gravity: 15
   chargeTime: 0.5
@@ -1033,6 +1034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 0}
   dust: {fileID: 2130108830832902583}
+  childEventComments: {fileID: 0}
   distance: 1
   grabMask:
     serializedVersion: 2

@@ -16,8 +16,9 @@ public class PlatformTrigger : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-
     {
+        AudioManager.Instance.PlaySound("TriggerActivated");
+
         if(platformScript.Trigger == false)
         {
             OnPlatformTrigger();

@@ -24,8 +24,10 @@ public class ButtonTrigger : MonoBehaviour
     {
         if (!pressed)
         {
+            
             StartCoroutine(ButtonPressed());
             triggerAnimator.SetTrigger("Trigger"); //this would be better after button moves
+            AudioManager.Instance.PlaySound("ButtonSwitch");
             pressed = true;
         }
     }

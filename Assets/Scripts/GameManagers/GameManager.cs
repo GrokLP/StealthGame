@@ -113,11 +113,13 @@ public class GameManager : Singleton<GameManager>
 
         if (Input.GetButtonDown("LevelEnd") && _currentGameState == GameState.GAMELOSE)
         {
+            AudioManager.Instance.PlaySound("LevelEnd");
             RestartLevel();
         }
 
         if (Input.GetButtonDown("LevelEnd") && _currentGameState == GameState.GAMEWIN)
         {
+            AudioManager.Instance.PlaySound("LevelEnd");
             LoadNextLevel();
         }
     }

@@ -186,7 +186,7 @@ public class Drones : MonoBehaviour
     IEnumerator GuardPatrol(Vector3[] waypoints)
     {
         //transform.position = waypoints[0];
-        AudioManager.Instance.PlaySound("DroneHum");
+        //AudioManager.Instance.PlaySound("DroneHum");
 
         int targetWaypointsIndex = 0;
         Vector3 targetWaypoint = waypoints[targetWaypointsIndex];
@@ -203,10 +203,4 @@ public class Drones : MonoBehaviour
             yield return null; //ensures it only travels max distance per frame
         }
     }
-
-    private void OnDestroy()
-    {
-        AudioManager.Instance.StopSound("DroneHum"); //causes error right now when you exit game in drone level, maybe need an unloaded event that runs this instead?
-    }
-
 }

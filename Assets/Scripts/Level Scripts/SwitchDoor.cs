@@ -24,13 +24,21 @@ public class SwitchDoor : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player") | other.CompareTag("Enemy"))
+        {
+            AudioManager.Instance.PlaySound("TriggerActivated");
             openDoor = true;
+        }
+           
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player") | other.CompareTag("Enemy"))
+        {
+            AudioManager.Instance.PlaySound("TriggerDeactivated");
             openDoor = false;
+        }
+;
     }
 
 

@@ -10,6 +10,8 @@ public class FallTrigger : MonoBehaviour
     {
         if (GameManager.Instance.CurrentGameState != GameManager.GameState.GAMEWIN)
         {
+            AudioManager.Instance.PlaySound("Falling");
+            
             if (other.CompareTag("Player"))
             {
                 if (OnGameLose != null)

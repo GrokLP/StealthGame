@@ -24,6 +24,8 @@ public class LaserGuard : MonoBehaviour
 
     bool gameWin;
     bool laserKill;
+    bool laserTriggerActivatedSound;
+    bool laserTriggerDeactivatedSound;
 
     private void Start()
     {
@@ -113,13 +115,28 @@ public class LaserGuard : MonoBehaviour
                     laserTriggerScript = hitInfo.collider.GetComponent<LaserTrigger>(); //this is prob not performant?
                     laserTriggerScript.Trigger = true;
                     laserLine.SetPosition(1, hitInfo.point);
+                    if(!laserTriggerActivatedSound)
+                    {
+                        AudioManager.Instance.PlaySound("TriggerActivated");
+                        laserTriggerActivatedSound = true;
+                    }
+                    laserTriggerDeactivatedSound = false;
                 }
 
                 else if (hitInfo.collider)
                 {
                     laserLine.SetPosition(1, hitInfo.point);
                     if (laserTriggerScript != null)
+                    {
                         laserTriggerScript.Trigger = false;
+                        laserTriggerActivatedSound = false;
+
+                        if(!laserTriggerDeactivatedSound)
+                        {
+                            AudioManager.Instance.PlaySound("TriggerDeactivated");
+                            laserTriggerDeactivatedSound = true;
+                        }
+                    }
                 }
             }
 

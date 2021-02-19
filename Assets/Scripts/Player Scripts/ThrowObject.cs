@@ -60,6 +60,7 @@ public class ThrowObject : MonoBehaviour
     bool mousePressed;
     public bool hasChild;
     bool childThrown;
+    bool cancelThrow;
 
     [SerializeField] float objectThrowRange;
     [SerializeField] float childThrowRange; 
@@ -112,6 +113,8 @@ public class ThrowObject : MonoBehaviour
     {
         if (pickUp.gameObject.CompareTag("ammo")) 
         {
+            AudioManager.Instance.PlaySound("AmmoPickUp");
+
             Animator animator = pickUp.gameObject.GetComponent<Animator>();
             animator.SetBool("HasLanded", false);
             pickUp.gameObject.GetComponentInChildren<Disc>().Radius = 0;
@@ -124,6 +127,8 @@ public class ThrowObject : MonoBehaviour
 
         if(pickUp.gameObject.CompareTag("ChildCube"))
         {
+            AudioManager.Instance.PlaySound("AmmoPickUp");
+
             Animator animator = pickUp.gameObject.GetComponent<Animator>();
             animator.SetBool("HasLanded", false);
 
@@ -191,6 +196,12 @@ public class ThrowObject : MonoBehaviour
 
         if (Input.GetButton("CancelThrowMouse"))
         {
+            if(!cancelThrow)
+            {
+                AudioManager.Instance.PlaySound("CancelThrow");
+                cancelThrow = true;
+            }
+            
             lineRenderer.gameObject.SetActive(false);
             childSoundRadius.SetActive(false);
             objectSoundRadius.SetActive(false);
@@ -203,6 +214,9 @@ public class ThrowObject : MonoBehaviour
             if (FinishedThrowing != null)
                 FinishedThrowing();
         }
+
+        if (Input.GetButtonUp("CancelThrowMouse"))
+            cancelThrow = false;
 
 
         if (Input.GetButtonUp("ThrowMouse") && charging >= chargeTime && mousePressed)
@@ -267,6 +281,12 @@ public class ThrowObject : MonoBehaviour
 
         if(Input.GetAxis("CancelThrowController") > 0)
         {
+            if (!cancelThrow)
+            {
+                AudioManager.Instance.PlaySound("CancelThrow");
+                cancelThrow = true;
+            }
+
             lineRenderer.gameObject.SetActive(false);
             childSoundRadius.SetActive(false);
             objectSoundRadius.SetActive(false);
@@ -280,6 +300,9 @@ public class ThrowObject : MonoBehaviour
             if (FinishedThrowing != null)
                 FinishedThrowing(); //enable player movement when finished throwing
         }
+
+        if (Input.GetAxis("CancelThrowController") == 0)
+            cancelThrow = false;
 
         if (Input.GetAxis("ThrowController") == 0 && charging >= chargeTime && triggerPressed)
         {

@@ -627,30 +627,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1797945692}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &388303601
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1 &454134466
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +720,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454134466}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &547355426
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1001 &551279934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1238,30 +1238,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088475878}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &1091684180
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!4 &1185406892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8187752244433561558, guid: 8bbc797744a6ca54396b8180726eb7d6,
@@ -2474,17 +2450,17 @@ PrefabInstance:
     - target: {fileID: 8187752244088314751, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.4999995
+      value: -4.2500014
       objectReference: {fileID: 0}
     - target: {fileID: 8187752244088314751, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.0000105
+      value: 11.531965
       objectReference: {fileID: 0}
     - target: {fileID: 8187752244088314751, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -4.7759905
       objectReference: {fileID: 0}
     - target: {fileID: 8187752244230473132, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
@@ -2564,17 +2540,17 @@ PrefabInstance:
     - target: {fileID: 8187752244715730939, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.000019
+      value: 11.5319605
       objectReference: {fileID: 0}
     - target: {fileID: 8187752244715730939, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -4.7759905
       objectReference: {fileID: 0}
     - target: {fileID: 8187752244715730939, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.000004
+      value: 15.000021
       objectReference: {fileID: 0}
     - target: {fileID: 8187752245916902084, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
@@ -2676,6 +2652,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952727943}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &1976221628
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1001 &2094319921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2716,17 +2716,17 @@ PrefabInstance:
     - target: {fileID: 8187752244088314751, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.4999995
+      value: -4.2500024
       objectReference: {fileID: 0}
     - target: {fileID: 8187752244088314751, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.0000105
+      value: 11.5319605
       objectReference: {fileID: 0}
     - target: {fileID: 8187752244088314751, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -4.7759905
       objectReference: {fileID: 0}
     - target: {fileID: 8187752244230473132, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
@@ -2806,17 +2806,17 @@ PrefabInstance:
     - target: {fileID: 8187752244715730939, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12
+      value: 11.53196
       objectReference: {fileID: 0}
     - target: {fileID: 8187752244715730939, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -4.7759905
       objectReference: {fileID: 0}
     - target: {fileID: 8187752244715730939, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -24.000008
+      value: -24.000046
       objectReference: {fileID: 0}
     - target: {fileID: 8187752245916902084, guid: 8bbc797744a6ca54396b8180726eb7d6,
         type: 3}
