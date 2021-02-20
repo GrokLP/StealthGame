@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
     }
 
     float timer;
-    bool startedMovement;
 
     void Start()
     {
@@ -99,12 +98,6 @@ public class PlayerController : MonoBehaviour
 
     void MovementInput()
     {
-        if(!startedMovement)
-        {
-            //AudioManager.Instance.PlaySound("PlayerMovement");
-            startedMovement = true;
-        }
-        
         rotatedDirection = Vector3.zero; //disable player movement on Gameover
         if(!disabled) 
         {
@@ -124,8 +117,6 @@ public class PlayerController : MonoBehaviour
         {
             isMoving = false;
             playerAnimator.SetBool("IsMoving", false);
-            //AudioManager.Instance.StopSound("PlayerMovement");
-            startedMovement = true;
         }
 
         else

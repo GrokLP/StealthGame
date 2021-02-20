@@ -45,7 +45,12 @@ public class Pushable : MonoBehaviour
         }
         else
         {
-            isGrounded = true;
+            if(!isGrounded)
+            {
+                //CameraShake.Instance.StartShake(0.1f, 0.1f); -- causes a shake on load because boxes are perfectly on ground...
+                isGrounded = true;
+            }
+
         }
 
         //Debug.DrawRay(transform.position + new Vector3(distanceToEdge, 0, distanceToEdge), Vector3.down * (distanceToEdge + edgeBuffer), Color.red);

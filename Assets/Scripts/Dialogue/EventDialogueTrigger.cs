@@ -22,10 +22,6 @@ public class EventDialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        //if (thisNPC && !DialogueManager.Instance.inDialogue && Input.GetButtonDown("Jump"))
-        //{
-        //    TriggerDialogue();
-        //}
         if (thisNPC && DialogueManager.Instance.InDialogue && Input.GetButtonDown("Jump"))
         {
             DialogueManager.Instance.DisplayNextSentence(nameText, dialogueText);
@@ -34,14 +30,17 @@ public class EventDialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        dialogueCount++;
         DialogueManager.Instance.StartDialogue(dialogue, nameText, dialogueText,dialogueCount);
+        if (dialogueCount < dialogue.responseList.Length - 1)
+        {
+            dialogueCount++; //moved this under method call because using arrays that start at 0
+        }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        TriggerDialogue();
         thisNPC = true;
+        TriggerDialogue();
     }
 
     void EnableDialogueUI()
