@@ -138,7 +138,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &38908237
 Transform:
@@ -307,30 +307,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56587069}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &59371796
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!43 &63594050
 Mesh:
   m_ObjectHideFlags: 0
@@ -669,7 +645,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &88925874
 Transform:
@@ -865,6 +841,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2086885948}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &124365918
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1 &142332338 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2761344450639335323, guid: 9fd4cc9983aa3da4190a8c65cad66a7f,
@@ -910,7 +910,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &167923779
 Transform:
@@ -1004,7 +1004,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &197558008
 Transform:
@@ -1097,7 +1097,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &208865111
 BoxCollider:
@@ -1167,8 +1167,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208865110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 4, z: 10.5}
-  m_LocalScale: {x: 5, y: 4, z: 5}
+  m_LocalPosition: {x: 2, y: 4.25, z: 10.5}
+  m_LocalScale: {x: 5, y: 4.5, z: 5}
   m_Children:
   - {fileID: 1289227851}
   - {fileID: 357554772}
@@ -1191,7 +1191,7 @@ GameObject:
   m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &210528271
 Transform:
@@ -1244,7 +1244,7 @@ GameObject:
   m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &233138715
 Transform:
@@ -1332,7 +1332,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &357554772
 Transform:
@@ -1443,13 +1443,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &432078108
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!43 &447745573
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-23280
+  m_Name: pb_Mesh-55656
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1623,7 +1647,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &484094773
 Transform:
@@ -1705,7 +1729,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh72118
+  m_Name: pb_Mesh179686
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1760,9 +1784,9 @@ Mesh:
       format: 0
       dimension: 2
     - stream: 0
-      offset: 0
+      offset: 48
       format: 0
-      dimension: 0
+      dimension: 2
     - stream: 0
       offset: 0
       format: 0
@@ -1795,8 +1819,8 @@ Mesh:
       offset: 0
       format: 0
       dimension: 0
-    m_DataSize: 864
-    _typelessdata: 0000803f00008040000000000000000000000000000080bf0000803f0000000000000000000080bf0000803f000080400000803f00000000000000000000000000000000000080bf0000803f0000000000000000000080bf0000803f000000000000f0c000000000000000000000000000000000000080bf0000803f0000000000000000000080bf0000f0c0000000000000803f00008040000000000000803f000000000000000000000000000000000000803f000080bf00000000000080400000803f000000000000a0400000803f000000000000000000000000000000000000803f000080bf0000a040000000000000803f00000000000000000000803f000000000000000000000000000000000000803f000080bf00000000000000000000803f000080400000a0400000803f000000000000000000000000000000000000803f000080bf0000a040000080400000803f000080400000a04000000000000000000000803f000080bf0000000000000000000080bf000080bf000080400000f0c0000000000000a04000000000000000000000803f000080bf0000000000000000000080bf0000f040000000000000803f000000000000a04000000000000000000000803f000080bf0000000000000000000080bf000080bf000000000000803f000080400000a0401202dabe33a2673f0000000033a2673f1202da3e00000000000080bf96e926400000a0400000f0c000000000000000001202dabe33a2673f0000000033a2673f1202da3e00000000000080bf1028d9c0000000000000f0c0000000000000a0401202dabe33a2673f0000000033a2673f1202da3e00000000000080bf1028d9c00000a0400000803f00008040000000001202dabe33a2673f0000000033a2673f1202da3e00000000000080bf96e92640000000000000f0c0000000000000000000000000000080bf00000000000080bf0000000000000000000080bf0000f040000000000000803f000000000000000000000000000080bf00000000000080bf0000000000000000000080bf000080bf000000000000f0c0000000000000a04000000000000080bf00000000000080bf0000000000000000000080bf0000f0400000a0400000803f000000000000a04000000000000080bf00000000000080bf0000000000000000000080bf000080bf0000a040
+    m_DataSize: 1008
+    _typelessdata: 0000803f00008040000000000000000000000000000080bf0000803f0000000000000000000080bf0000803f000080400bd7a33cd254473f0000803f00000000000000000000000000000000000080bf0000803f0000000000000000000080bf0000803f00000000d4d7a33c89b90e3f0000f0c000000000000000000000000000000000000080bf0000803f0000000000000000000080bf0000f0c00000000065d1fa3e89b90e3f0000803f00008040000000000000803f000000000000000000000000000000000000803f000080bf0000000000008040daf0553fffe7763e0000803f000000000000a0400000803f000000000000000000000000000000000000803f000080bf0000a04000000000c02e0f3f0cd7a33c0000803f00000000000000000000803f000000000000000000000000000000000000803f000080bf0000000000000000d9f0553f0bd7a33c0000803f000080400000a0400000803f000000000000000000000000000000000000803f000080bf0000a04000008040c12e0f3fffe7763e0000803f000080400000a04000000000000000000000803f000080bf0000000000000000000080bf000080bf0000804068d1fa3ed19a093f0000f0c0000000000000a04000000000000000000000803f000080bf0000000000000000000080bf0000f040000000000bd7a33c17ffa13e0000803f000000000000a04000000000000000000000803f000080bf0000000000000000000080bf000080bf0000000065d1fa3e17ffa13e0000803f000080400000a0401202dabe33a2673f0000000033a2673f1202da3e00000000000080bf96e926400000a0400bd7a33ca6c1973e0000f0c000000000000000001202dabe33a2673f0000000033a2673f1202da3e00000000000080bf1028d9c00000000008100a3f0bd7a33c0000f0c0000000000000a0401202dabe33a2673f0000000033a2673f1202da3e00000000000080bf1028d9c00000a04002100a3fa6c1973e0000803f00008040000000001202dabe33a2673f0000000033a2673f1202da3e00000000000080bf96e9264000000000d9d7a33c0bd7a33c0000f0c0000000000000000000000000000080bf00000000000080bf0000000000000000000080bf0000f040000000006f87023f17ffa13e0000803f000000000000000000000000000080bf00000000000080bf0000000000000000000080bf000080bf0000000064d17a3f17ffa13e0000f0c0000000000000a04000000000000080bf00000000000080bf0000000000000000000080bf0000f0400000a0406c87023fa5c1173f0000803f000000000000a04000000000000080bf00000000000080bf0000000000000000000080bf000080bf0000a04061d17a3fa5c1173f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -2280,7 +2304,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &624597627
 Transform:
@@ -2374,7 +2398,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &639787428
 MeshCollider:
@@ -2647,7 +2671,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &646667636
 Transform:
@@ -2740,7 +2764,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &658504172
 Transform:
@@ -3043,7 +3067,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-22990
+  m_Name: pb_Mesh-55354
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3323,30 +3347,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!21 &777563644
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1 &795556792
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,7 +3364,7 @@ GameObject:
   m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &795556793
 Transform:
@@ -3457,7 +3457,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &799103619
 Transform:
@@ -3550,7 +3550,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &812511799
 Transform:
@@ -3642,7 +3642,7 @@ GameObject:
   m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &840386255
 Transform:
@@ -3782,7 +3782,7 @@ GameObject:
   m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &846004991
 Transform:
@@ -3869,7 +3869,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &870243463
 Transform:
@@ -4015,7 +4015,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e810bf7aeeb8314b8c25618125900f1, type: 2}
+  - {fileID: 2100000, guid: 036f9ac0b9b44dd45a96aa2f78a0cf50, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4061,7 +4061,7 @@ GameObject:
   m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &939894460
 Transform:
@@ -4154,7 +4154,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &955105389
 Transform:
@@ -4341,7 +4341,7 @@ GameObject:
   m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &972816550
 Transform:
@@ -4384,7 +4384,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-23244
+  m_Name: pb_Mesh-55624
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4564,7 +4564,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1002958975
 Transform:
@@ -4640,30 +4640,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002958974}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &1004992900
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1001 &1052129048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4893,7 +4869,7 @@ PrefabInstance:
     - target: {fileID: 836607912, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1004992900}
+      objectReference: {fileID: 1728295487}
     - target: {fileID: 836607913, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -4901,7 +4877,7 @@ PrefabInstance:
     - target: {fileID: 1387224062, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 777563644}
+      objectReference: {fileID: 124365918}
     - target: {fileID: 1387224063, guid: 2e7af6c4df93d76499978a2c10c8599f, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -4979,7 +4955,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh72348
+  m_Name: pb_Mesh179924
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5034,9 +5010,9 @@ Mesh:
       format: 0
       dimension: 2
     - stream: 0
-      offset: 0
+      offset: 48
       format: 0
-      dimension: 0
+      dimension: 2
     - stream: 0
       offset: 0
       format: 0
@@ -5069,8 +5045,8 @@ Mesh:
       offset: 0
       format: 0
       dimension: 0
-    m_DataSize: 864
-    _typelessdata: 0000803f00008040000000000000000000000000000080bf0000803f0000000000000000000080bf0000803f000080400000803f00000000000000000000000000000000000080bf0000803f0000000000000000000080bf0000803f000000000000f0c000000000000000000000000000000000000080bf0000803f0000000000000000000080bf0000f0c0000000000000803f00008040000000000000803f000000000000000000000000000000000000803f000080bf00000000000080400000803f000000000000a0400000803f000000000000000000000000000000000000803f000080bf0000a040000000000000803f00000000000000000000803f000000000000000000000000000000000000803f000080bf00000000000000000000803f000080400000a0400000803f000000000000000000000000000000000000803f000080bf0000a040000080400000803f000080400000a04000000000000000000000803f000080bf0000000000000000000080bf000080bf000080400000f0c0000000000000a04000000000000000000000803f000080bf0000000000000000000080bf0000f040000000000000803f000000000000a04000000000000000000000803f000080bf0000000000000000000080bf000080bf000000000000803f000080400000a0401202dabe33a2673f0000000033a2673f1202da3e00000000000080bf96e926400000a0400000f0c000000000000000001202dabe33a2673f0000000033a2673f1202da3e00000000000080bf1028d9c0000000000000f0c0000000000000a0401202dabe33a2673f0000000033a2673f1202da3e00000000000080bf1028d9c00000a0400000803f00008040000000001202dabe33a2673f0000000033a2673f1202da3e00000000000080bf96e92640000000000000f0c0000000000000000000000000000080bf00000000000080bf0000000000000000000080bf0000f040000000000000803f000000000000000000000000000080bf00000000000080bf0000000000000000000080bf000080bf000000000000f0c0000000000000a04000000000000080bf00000000000080bf0000000000000000000080bf0000f0400000a0400000803f000000000000a04000000000000080bf00000000000080bf0000000000000000000080bf000080bf0000a040
+    m_DataSize: 1008
+    _typelessdata: 0000803f00008040000000000000000000000000000080bf0000803f0000000000000000000080bf0000803f000080400bd7a33cd254473f0000803f00000000000000000000000000000000000080bf0000803f0000000000000000000080bf0000803f00000000d4d7a33c89b90e3f0000f0c000000000000000000000000000000000000080bf0000803f0000000000000000000080bf0000f0c00000000065d1fa3e89b90e3f0000803f00008040000000000000803f000000000000000000000000000000000000803f000080bf0000000000008040daf0553fffe7763e0000803f000000000000a0400000803f000000000000000000000000000000000000803f000080bf0000a04000000000c02e0f3f0cd7a33c0000803f00000000000000000000803f000000000000000000000000000000000000803f000080bf0000000000000000d9f0553f0bd7a33c0000803f000080400000a0400000803f000000000000000000000000000000000000803f000080bf0000a04000008040c12e0f3fffe7763e0000803f000080400000a04000000000000000000000803f000080bf0000000000000000000080bf000080bf0000804068d1fa3ed19a093f0000f0c0000000000000a04000000000000000000000803f000080bf0000000000000000000080bf0000f040000000000bd7a33c17ffa13e0000803f000000000000a04000000000000000000000803f000080bf0000000000000000000080bf000080bf0000000065d1fa3e17ffa13e0000803f000080400000a0401202dabe33a2673f0000000033a2673f1202da3e00000000000080bf96e926400000a0400bd7a33ca6c1973e0000f0c000000000000000001202dabe33a2673f0000000033a2673f1202da3e00000000000080bf1028d9c00000000008100a3f0bd7a33c0000f0c0000000000000a0401202dabe33a2673f0000000033a2673f1202da3e00000000000080bf1028d9c00000a04002100a3fa6c1973e0000803f00008040000000001202dabe33a2673f0000000033a2673f1202da3e00000000000080bf96e9264000000000d9d7a33c0bd7a33c0000f0c0000000000000000000000000000080bf00000000000080bf0000000000000000000080bf0000f040000000006f87023f17ffa13e0000803f000000000000000000000000000080bf00000000000080bf0000000000000000000080bf000080bf0000000064d17a3f17ffa13e0000f0c0000000000000a04000000000000080bf00000000000080bf0000000000000000000080bf0000f0400000a0406c87023fa5c1173f0000803f000000000000a04000000000000080bf00000000000080bf0000000000000000000080bf000080bf0000a04061d17a3fa5c1173f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -5152,7 +5128,7 @@ GameObject:
   m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1200697764
 Transform:
@@ -5392,7 +5368,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &1289227847
 MeshCollider:
@@ -5642,7 +5618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289227846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7, y: -0.5, z: -0.5}
+  m_LocalPosition: {x: -0.7000001, y: -0.5, z: -0.5}
   m_LocalScale: {x: 0.2, y: 0.25, z: 0.2}
   m_Children: []
   m_Father: {fileID: 208865114}
@@ -5668,12 +5644,12 @@ PrefabInstance:
     - target: {fileID: 3428022343122356106, guid: 9fd4cc9983aa3da4190a8c65cad66a7f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.75
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 3428022343122356106, guid: 9fd4cc9983aa3da4190a8c65cad66a7f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 3428022343122356106, guid: 9fd4cc9983aa3da4190a8c65cad66a7f,
         type: 3}
@@ -5863,7 +5839,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1305212788
 Transform:
@@ -6238,7 +6214,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1507396656
 Transform:
@@ -6334,12 +6310,12 @@ PrefabInstance:
     - target: {fileID: 3428022343122356106, guid: 9fd4cc9983aa3da4190a8c65cad66a7f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3428022343122356106, guid: 9fd4cc9983aa3da4190a8c65cad66a7f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 3428022343122356106, guid: 9fd4cc9983aa3da4190a8c65cad66a7f,
         type: 3}
@@ -6445,7 +6421,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1534809974
 Transform:
@@ -6538,7 +6514,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1567328102
 Transform:
@@ -6632,7 +6608,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1571269790
 BoxCollider:
@@ -6702,8 +6678,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571269789}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 4, z: -10.5}
-  m_LocalScale: {x: 5, y: 4, z: 5}
+  m_LocalPosition: {x: 2, y: 4.25, z: -10.5}
+  m_LocalScale: {x: 5, y: 4.5, z: 5}
   m_Children:
   - {fileID: 167923779}
   - {fileID: 639787432}
@@ -6901,7 +6877,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6376c9e78825e194ab2ee7695e34bf65, type: 2}
+  - {fileID: 2100000, guid: f7bbd6f32c2919b4aaf59eac7bd4fbfe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7110,7 +7086,7 @@ GameObject:
   m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1637790906
 Transform:
@@ -7522,7 +7498,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-23126
+  m_Name: pb_Mesh-55490
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7679,6 +7655,30 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!21 &1728295487
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1001 &1771667039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7753,30 +7753,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5ede2166983e8547972992bb07f565c, type: 3}
---- !u!21 &1778539856
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
-  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
-  m_ShaderKeywords: INNER_RADIUS SECTOR
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 8
-    m_Colors: []
 --- !u!1 &1838153201
 GameObject:
   m_ObjectHideFlags: 0
@@ -7793,7 +7769,7 @@ GameObject:
   m_TagString: BoundaryWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1838153202
 Transform:
@@ -7830,6 +7806,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838153201}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &1840441672
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc Transparent [INNER_RADIUS][SECTOR] (instance)
+  m_Shader: {fileID: 4800000, guid: 0736a017ee88a8741b09e7382339ab99, type: 3}
+  m_ShaderKeywords: INNER_RADIUS SECTOR
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 8
+    m_Colors: []
 --- !u!1001 &1867619247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8195,6 +8195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1974147225}
   - component: {fileID: 1974147226}
+  - component: {fileID: 1974147227}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -8271,6 +8272,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1974147227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974147224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9302b9ee42e98c4b815f33c50d2d4b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1990175328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8886,7 +8899,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2112019408
 Transform:

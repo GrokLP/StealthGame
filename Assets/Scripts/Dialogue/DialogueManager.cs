@@ -165,7 +165,7 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         int randomRoll = Random.Range(0, 11);
 
-        if (randomRoll >= 6)
+        if (randomRoll >= 5)
         {
             int commentIndex = Random.Range(0, comments.commentPool.Length);
             commentText.text = comments.commentPool[commentIndex];

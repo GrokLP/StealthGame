@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childSoundRadius: {fileID: 726326661969851544}
   childEventComments: {fileID: 8516421783840776121}
+  inSwitch: 0
 --- !u!114 &8516421783840776121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,11 +149,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commentText: {fileID: 8556757339725831777}
   childComments:
-    name: ThrowChild
+    name: Rubix
     commentPool:
-    - hahaha!
-    - look at me goooooo!
-    - daddy!
+    - please don't throw meee!
+    - this is scaaaary!!!
+    - daaaaaad!!
+    - waaaaait!
+    - don't you love me???
+    - come get me quick!!
+    - ahhhhhhhhhh!
+    - don't leave me alone!
+    - this isn't fun for meeee!!!
+    - why do you keep doing this???
 --- !u!114 &3322534318550652569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,7 +500,7 @@ MonoBehaviour:
   m_text: Text goes here!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba569215882199b4e9b05a87953239a4, type: 2}
-  m_sharedMaterial: {fileID: 5410317738652479106, guid: 790019ee8a128524dbbcb5eae79b6a8b,
+  m_sharedMaterial: {fileID: 981140337381306339, guid: ba569215882199b4e9b05a87953239a4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1102,7 +1110,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}

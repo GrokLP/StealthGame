@@ -127,7 +127,6 @@ public class NPCDialogueTrigger : MonoBehaviour
         DialogueManager.OnExitDialogue -= DisableDialogueUI;
         DialogueManager.DisplayNextTextTriangle -= DisplayNextTextTriangle;
 
-        //if(AudioManager.Instance.StopSound() != null)
         AudioManager.Instance.StopSound("Typing"); //prevents bug where typing sound persists on reload in 1.4 if player reloads while inside NPC talk range
     }
 }

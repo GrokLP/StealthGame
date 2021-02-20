@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NPC Name
+  m_text: Helpful Heather
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d05a62a2ed507e4e9265be36677288e, type: 2}
   m_sharedMaterial: {fileID: 2435557645932307849, guid: 3d05a62a2ed507e4e9265be36677288e,
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_text: Text goes here!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1ee762e0b7a084f4e973dfd5b4d9cbf7, type: 2}
-  m_sharedMaterial: {fileID: 5410317738652479106, guid: 790019ee8a128524dbbcb5eae79b6a8b,
+  m_sharedMaterial: {fileID: -762536831561091918, guid: 1ee762e0b7a084f4e973dfd5b4d9cbf7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -453,10 +453,10 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -15.137863, z: 0, w: -71.358665}
+  m_margin: {x: 0, y: -15.137863, z: -155.06174, w: -71.358665}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2841447512922961400
@@ -768,7 +768,7 @@ MonoBehaviour:
   nameText: {fileID: 2841447512401453209}
   dialogueText: {fileID: 2841447512918266932}
   dialogue:
-    name: Tutorial NPC
+    name: Helpful Heather
     responseList: []
   thisNPC: 0
   dialogueStarted: 0
