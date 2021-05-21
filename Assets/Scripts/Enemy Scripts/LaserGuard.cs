@@ -75,6 +75,7 @@ public class LaserGuard : MonoBehaviour
                     if (OnGameLose != null)
                     {
                         OnGameLose("ChildLaser");
+                        AudioManager.Instance.StopSound("PushedAwaySlideChild");
                         if (!laserKill)
                         {
                             AudioManager.Instance.PlaySound("LaserBeam");

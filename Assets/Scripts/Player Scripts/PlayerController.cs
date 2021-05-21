@@ -7,6 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     public static event System.Action<string> OnGameLose;
 
+    //[SerializeField] CameraRotation cameraRotation;
+    //int camRotation;
+    //Vector3 inputDirectionCheck;
+
     [SerializeField] Animator playerAnimator;
     [SerializeField] ParticleSystem selfDestruct;
     [SerializeField] GameObject playerHUD;
@@ -124,6 +128,13 @@ public class PlayerController : MonoBehaviour
             isMoving = true;
             playerAnimator.SetBool("IsMoving", true);
         }
+
+        /*if (inputDirectionCheck != inputDirection) //just need buffer zone for controller?
+        {
+            camRotation = cameraRotation.camRotation;
+        }
+
+        inputDirectionCheck = inputDirection;*/
     }
 
     void RigidBodyMovement() //in separate method so physics can be run through fixedupdate

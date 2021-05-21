@@ -25,7 +25,7 @@ public class PushedChild : MonoBehaviour
     BoxCollider pushableCollider;
     float edgeBuffer = 0.1f;
     bool isGrounded;
-    bool startedPush;
+    bool startedAudio;
 
     float fallSpeed;
     float fallDelay;
@@ -76,20 +76,32 @@ public class PushedChild : MonoBehaviour
     {
         childEventComments.EndComment();
         
-        if(!startedPush)
+        /*if(!startedPush)
         {
             AudioManager.Instance.PlaySound("PushedAwaySlideChild");
             startedPush = true;
-        }
+        }*/
 
 
         if (isGrounded)
         {
+            if (!startedAudio)
+            {
+                AudioManager.Instance.PlaySound("PushedAwaySlideChild");
+                startedAudio = true;
+            }
+
             transform.position += pushDirection * 10 * Time.deltaTime;
         }
 
         else if (!isGrounded)
         {
+            if(startedAudio)
+            {
+                AudioManager.Instance.StopSound("PushedAwaySlideChild");
+                startedAudio = false;
+            }
+
             fallDelay += Time.deltaTime;
 
             if(fallDelay < 0.15f)
@@ -116,7 +128,7 @@ public class PushedChild : MonoBehaviour
             CameraShake.Instance.StartShake(0.2f, 0.2f);
             dust.Stop();
             animator.SetBool("IsPushed", false);
-            startedPush = false;
+            startedAudio = false;
         }
     }
 

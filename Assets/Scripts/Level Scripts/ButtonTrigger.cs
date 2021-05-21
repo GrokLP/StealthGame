@@ -22,19 +22,22 @@ public class ButtonTrigger : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (!pressed)
+        if(other.gameObject.CompareTag("Player") | (other.gameObject.CompareTag("ChildCube")))
         {
-            
-            StartCoroutine(ButtonPressed());
-            triggerAnimator.SetTrigger("Trigger"); //this would be better after button moves
-            AudioManager.Instance.PlaySound("ButtonSwitch");
-            pressed = true;
+            if (!pressed)
+            {
+                StartCoroutine(ButtonPressed());
+                triggerAnimator.SetTrigger("Trigger"); //this would be better after button moves
+                AudioManager.Instance.PlaySound("ButtonSwitch");
+                pressed = true;
+            }
         }
+ 
     }
 
     IEnumerator ButtonPressed()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
 
         CameraShake.Instance.StartShake(0.2f, 0.1f);
 
